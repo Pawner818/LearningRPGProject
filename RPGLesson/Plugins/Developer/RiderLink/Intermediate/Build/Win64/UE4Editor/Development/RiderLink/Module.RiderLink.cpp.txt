@@ -1,6 +1,6 @@
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderLink\Definitions.RiderLink.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/BlueprintProvider.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\BlueprintProvider.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderLink\Definitions.RiderLink.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/BlueprintProvider.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\BlueprintProvider.h
 F:\Epic Games\UE_4.25\Engine\Source\Editor\UnrealEd\Public\Toolkits/AssetEditorManager.h
 F:\Epic Games\UE_4.25\Engine\Source\Editor\Kismet\Public\BlueprintEditor.h
 F:\Epic Games\UE_4.25\Engine\Source\Editor\Kismet\Public\WorkflowOrientedApp/WorkflowTabFactory.h
@@ -12,43 +12,43 @@ F:\Epic Games\UE_4.25\Engine\Source\Runtime\MessagingCommon\Public\MessageEndpoi
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Messaging\Public\IMessagingModule.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\MessagingCommon\Public\MessageHandlers.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Async/Async.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/ProtocolFactory.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\ProtocolFactory.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Protocol.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IProtocol.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdDynamic.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RName.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\thirdparty.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl/ordered_set.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl\ordered_hash.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/ProtocolFactory.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\ProtocolFactory.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Protocol.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IProtocol.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdDynamic.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RName.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\thirdparty.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl/ordered_set.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl\ordered_hash.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cassert
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\assert.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\iterator
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl/ordered_map.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\optional\tl\optional.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark/variant.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\config.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\in_place.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\lib.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\nonstd/string_view.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\tsl/ordered_map.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\optional\tl\optional.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark/variant.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\config.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\in_place.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark\lib.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\nonstd/string_view.hpp
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cassert
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\assert.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\string
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cctype
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/Serializers.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/RdId.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Buffer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/DateTime.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/hash.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/Serializers.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/RdId.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Buffer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/DateTime.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/hash.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\ctime
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\time.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/core_util.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util\erase_if.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/gen_util.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/allocator.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/overloaded.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/shared_function.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/to_string.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/core_util.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util\erase_if.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/gen_util.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/allocator.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/overloaded.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/shared_function.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/to_string.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\thread
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\chrono
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\ratio
@@ -69,55 +69,55 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\ppltaskscheduler.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\crtdefs.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\pplcancellation_token.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/wrapper.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/core_traits.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/Void.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/wrapper.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/core_traits.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types/Void.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cassert
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\assert.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/list.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\hashing.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/ISerializable.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Identities.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IUnknownInstance.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/RdAny.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization\DefaultAbstractDeclaration.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/unordered_map.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/list.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\hashing.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/ISerializable.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Identities.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IUnknownInstance.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/RdAny.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization\DefaultAbstractDeclaration.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std/unordered_map.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\unordered_map
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler/base/IScheduler.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\logger/Logger.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler/base/IScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\logger/Logger.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cstdarg
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IWire.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/interfaces.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/Lifetime.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime\LifetimeImpl.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IWire.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/interfaces.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/Lifetime.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime\LifetimeImpl.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\map
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\xtree
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IRdReactive.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdBindable.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdWireable.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/Property.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IProperty.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/SignalX.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base\IPropertyBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/SequentialLifetimes.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/LifetimeDefinition.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IRdReactive.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdBindable.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdWireable.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/Property.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IProperty.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/SignalX.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base\IPropertyBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/SequentialLifetimes.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/LifetimeDefinition.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\regex
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\locale
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\xlocbuf
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\xlocmes
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\xlocmon
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\xloctime
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\intern/InternRoot.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdReactiveBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdBindableBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\guards.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\pch.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\intern/InternRoot.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdReactiveBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdBindableBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\guards.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\pch.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\cassert
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\assert.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\intern\InternScheduler.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedAnySerializer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\intern\InternScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedAnySerializer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/WindowsHWrapper.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
@@ -223,12 +223,12 @@ F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Misc/FileHelper.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\EngineSettings\Classes\GeneralProjectSettings.h
 F:\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\EngineSettings\GeneralProjectSettings.generated.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\SocketWire.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/WireBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/MessageBroker.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\ByteBufferAsyncProcessor.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\PkgInputStream.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\SimpleSocket.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\SocketWire.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/WireBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/MessageBroker.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\ByteBufferAsyncProcessor.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\PkgInputStream.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\SimpleSocket.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\io.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\corecrt_io.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\winsock2.h
@@ -238,105 +238,105 @@ C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\qos.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\Ws2tcpip.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\ws2ipdef.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\in6addr.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\Host.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\StatTimer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\ActiveSocket.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\PassiveSocket.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\Host.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\StatTimer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\ActiveSocket.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\PassiveSocket.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\INCLUDE\array
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdConnection.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdConnection.hpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol/RdEditorModel/RdEditorModel.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdSignal.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/Polymorphic.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdProperty.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdPropertyBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdList.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableList.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableList.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base\viewable_collections.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdSet.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableSet.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableSet.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdMap.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableMap.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableMap.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/ISerializersOwner.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/NullableSerializer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/AbstractPolymorphic.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\framework_traits.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/ArraySerializer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedSerializer.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext/RdExtBase.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext\ExtWire.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdCall.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTask.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTaskImpl.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTaskResult.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler/SynchronousScheduler.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\WiredRdTask.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\WiredRdTaskImpl.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdEndpoint.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdSymmetricCall.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/enum.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../instantiations.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\UE4TypesMarshallers.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/UnrealLogEvent.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/LogMessageInfo.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/BlueprintReference.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/UClass.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\SimpleScheduler.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\SingleThreadScheduler.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\base/SingleThreadSchedulerBase.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdConnection.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdConnection.hpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol/RdEditorModel/RdEditorModel.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdSignal.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/Polymorphic.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdProperty.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/RdPropertyBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdList.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableList.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableList.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base\viewable_collections.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdSet.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableSet.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableSet.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdMap.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive/ViewableMap.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base/IViewableMap.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/ISerializersOwner.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/NullableSerializer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/AbstractPolymorphic.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util\framework_traits.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/ArraySerializer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedSerializer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext/RdExtBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext\ExtWire.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdCall.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTask.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTaskImpl.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTaskResult.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler/SynchronousScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\WiredRdTask.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\WiredRdTaskImpl.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdEndpoint.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdSymmetricCall.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\util/enum.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../instantiations.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\UE4TypesMarshallers.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/UnrealLogEvent.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/LogMessageInfo.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/BlueprintReference.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../UE4Library/UClass.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\SimpleScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\SingleThreadScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\base/SingleThreadSchedulerBase.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\AssetRegistry\Public\AssetRegistryModule.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\CoreUObject\Public\Misc/AssetRegistryInterface.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\AssetRegistry\Public\IAssetRegistry.h
 F:\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AssetRegistry\IAssetRegistry.generated.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol/UE4Library/UE4Library.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol/UE4Library/UE4Library.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/instantiations.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/pch_RdEditorRoot.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\pch_RdEditorRoot.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/pch_UE4Library.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\pch_UE4Library.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/RdEditorModel/RdEditorModel.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../RdEditorRoot/RdEditorRoot.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/RdEditorRoot/RdEditorRoot.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintFunction.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\BlueprintFunction.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintHighlighter.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\BlueprintHighlighter.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintReference.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/EmptyScriptCallStack.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\EmptyScriptCallStack.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptCallStack.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptCallStack.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptCallStack_Unknown.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptCallStack_Unknown.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptMsg.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptMsg.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptMsg_Unknown.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptMsg_Unknown.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/LogMessageInfo.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptCallStack.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptCallStack.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/ScriptCallStackFrame.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptCallStackFrame.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptMsgCallStack.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptMsgCallStack.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptMsgException.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptMsgException.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/StringRange.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\StringRange.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UClass.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UE4Library.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/UnableToDisplayScriptCallStack.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UnableToDisplayScriptCallStack.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UnrealLogEvent.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderLink.cpp
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderLink.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/instantiations.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/pch_RdEditorRoot.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\pch_RdEditorRoot.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/pch_UE4Library.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\pch_UE4Library.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/RdEditorModel/RdEditorModel.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\RdEditorModel\../RdEditorRoot/RdEditorRoot.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/RdEditorRoot/RdEditorRoot.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintFunction.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\BlueprintFunction.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintHighlighter.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\BlueprintHighlighter.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/BlueprintReference.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/EmptyScriptCallStack.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\EmptyScriptCallStack.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptCallStack.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptCallStack.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptCallStack_Unknown.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptCallStack_Unknown.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptMsg.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptMsg.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\IScriptMsg_Unknown.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/IScriptMsg_Unknown.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/LogMessageInfo.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptCallStack.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptCallStack.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/ScriptCallStackFrame.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptCallStackFrame.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptMsgCallStack.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptMsgCallStack.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/ScriptMsgException.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\ScriptMsgException.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/StringRange.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\StringRange.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UClass.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UE4Library.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\RdEditorProtocol\UE4Library\../UE4Library/UnableToDisplayScriptCallStack.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UnableToDisplayScriptCallStack.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdEditorProtocol/UE4Library/UnrealLogEvent.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderLink.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderLink.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
-F:\Projects\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderOutputDevice.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderOutputDevice.h
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
 F:\Epic Games\UE_4.25\Engine\Source\Editor\UnrealEd\Classes\Editor/UnrealEdEngine.h
 F:\Epic Games\UE_4.25\Engine\Source\Editor\UnrealEd\Public\IPackageAutoSaver.h
@@ -371,5 +371,5 @@ F:\Epic Games\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerS
 F:\Epic Games\UE_4.25\Engine\Source\Runtime\Engine\Classes\Engine/NavigationObjectBase.h
 F:\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavigationObjectBase.generated.h
 F:\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerStart.generated.h
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderOutputDevice.cpp
-F:/Projects/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/UE4TypesMarshallers.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderOutputDevice.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/UE4TypesMarshallers.cpp
