@@ -29,8 +29,8 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 600.f;
-	GetCharacterMovement()->AirControl = 0.2f;
+	GetCharacterMovement()->JumpZVelocity = 500.f; // the power of jump force
+	GetCharacterMovement()->AirControl = 0.2; // how long the Character will land 
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
@@ -38,7 +38,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	SpringArm->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
 	SpringArm->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
-	// Camera lag setup
+	// Camera lag setup (light smooth effect when you moving around the Character)
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagMaxDistance = 70;
 	SpringArm->CameraLagSpeed = 5;
