@@ -43582,6 +43582,8 @@
       <e p="RPGLesson.uproject" t="Include" />
       <e p="Source" t="Include">
         <e p="RPGLesson" t="Include">
+          <e p="FloorSwitch.cpp" t="Include" />
+          <e p="FloorSwitch.h" t="Include" />
           <e p="MainAnimIntance.cpp" t="Include" />
           <e p="MainAnimIntance.h" t="Include" />
           <e p="RPGLesson.Build.cs" t="Include" />

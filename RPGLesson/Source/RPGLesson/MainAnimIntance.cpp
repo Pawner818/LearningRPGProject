@@ -11,7 +11,6 @@ void UMainAnimIntance:: NativeInitializeAnimation()
     {
         Pawn=TryGetPawnOwner();
     }
-
 }
 
 void UMainAnimIntance::UpdateAnimationProperties()
