@@ -21,13 +21,33 @@ public:
 
 	// Switch for the Character to step on
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Floor Switch")
-	class UMeshComponent*FloorTrigger;
+	class UStaticMeshComponent*FloorTrigger;
 
 	// Door to move when the floor switch is stepped on
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Floor Switch")
     class UStaticMeshComponent*Door;
 
-    
+	// Initial location for the door
+	UPROPERTY(BlueprintReadWrite, Category="Floor Switch")
+    FVector InitialDoorLocation;
+
+	// Initial location for the switch
+	UPROPERTY(BlueprintReadWrite, Category="Floor Switch")
+    FVector InitialSwitchLocation;
+
+	// Delay between Raise / Close door
+	FTimerHandle SwitchHandle;
+
+	// Grouping LowerDoor and RaiseDoorSwitch 
+	void CloseDoor();
+
+	// How many seconds we are going to hold door opened after elevation? By defaults it's 2 sec. (see in the Constructor)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Floor Switch")
+	float SwitchTime;
+
+	
+	bool bCharacterOnSwitch;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -42,4 +62,24 @@ public:
 	UFUNCTION()
 	void OnOverlapEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	// Functionality for opening / closing the Door / DoorSwich. Implemented in the BP Editor.
+    UFUNCTION(BlueprintImplementableEvent, Category="Floor Switch")
+	void RaiseDoor();
+
+	UFUNCTION(BlueprintImplementableEvent, Category="Floor Switch")
+    void LowerDoor();
+
+	UFUNCTION(BlueprintImplementableEvent, Category="Floor Switch")
+    void RaiseDoorSwitch();
+
+	UFUNCTION(BlueprintImplementableEvent, Category="Floor Switch")
+    void LowerDoorSwitch();
+
+	// Every frame updating of the Door/DoorSwitch location. Both of them takes an input float parameter, which is coming from the Timeline.
+
+	UFUNCTION(BlueprintCallable,Category="Floor Switch")
+	void UpdateFloorLocation(float Z);
+
+	UFUNCTION(BlueprintCallable,Category="Floor Switch")
+    void UpdateTriggerLocation(float Z);
 };

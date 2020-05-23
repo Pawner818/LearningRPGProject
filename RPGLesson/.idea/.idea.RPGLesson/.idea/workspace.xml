@@ -20,32 +20,172 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="978a77c5-4365-4525-bbd0-10f83921823e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0019.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0019.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0019.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0019.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0019.dll.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0019.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0019.lib.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0019.suppressed.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0019.dll.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0019.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0019.lib.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0019.suppressed.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0019.dll.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0019.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0019.lib.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0019.suppressed.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0019.dll.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0019.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0019.lib.response" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0019.suppressed.exp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0022.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0025.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0026.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0029.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0031.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0033.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0035.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderBlueprintExtension-0041.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0022.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0025.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0026.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0029.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0031.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0033.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0035.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderGameControlExtension-0041.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0022.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0025.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0026.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0029.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0031.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0033.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0035.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLink-0041.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0022.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0025.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0026.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0029.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0031.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0033.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0035.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor-RiderLoggingExtension-0041.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0022.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0022.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0022.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0022.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0025.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0025.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0025.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0025.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0026.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0026.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0026.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0026.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0029.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0029.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0029.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0029.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0031.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0031.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0031.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0031.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0033.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0033.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0033.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0033.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0035.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0035.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0035.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0035.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0041.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0041.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0041.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderBlueprintExtension/UE4Editor-RiderBlueprintExtension-0041.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0022.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0022.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0022.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0022.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0025.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0025.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0025.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0025.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0026.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0026.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0026.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0026.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0029.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0029.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0029.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0029.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0031.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0031.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0031.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0031.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0033.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0033.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0033.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0033.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0035.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0035.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0035.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0035.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0041.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0041.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0041.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderGameControlExtension/UE4Editor-RiderGameControlExtension-0041.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0022.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0022.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0022.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0022.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0025.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0025.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0025.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0025.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0026.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0026.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0026.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0026.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0029.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0029.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0029.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0029.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0031.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0031.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0031.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0031.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0033.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0033.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0033.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0033.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0035.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0035.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0035.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0035.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0041.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0041.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0041.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLink/UE4Editor-RiderLink-0041.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0022.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0022.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0022.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0022.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0025.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0025.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0025.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0025.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0026.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0026.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0026.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0026.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0029.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0029.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0029.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0029.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0031.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0031.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0031.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0031.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0033.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0033.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0033.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0033.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0035.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0035.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0035.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0035.suppressed.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0041.dll.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0041.exp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0041.lib.response" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Intermediate/Build/Win64/UE4Editor/Development/RiderLoggingExtension/UE4Editor-RiderLoggingExtension-0041.suppressed.exp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/FloorSwitch_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/FloorSwitch_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/MainAnimIntance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/MainAnimIntance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/FloorSwitch.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +229,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="RPGLesson" type="CppProject" factoryName="C++ Project">
@@ -216,6 +356,8 @@
       <workItem from="1590081639629" duration="603000" />
       <workItem from="1590154804499" duration="4614000" />
       <workItem from="1590164548722" duration="4060000" />
+      <workItem from="1590228554074" duration="2806000" />
+      <workItem from="1590231895448" duration="4655000" />
     </task>
     <servers />
   </component>
@@ -236,9 +378,13 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590156228672">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1590231374298">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590156228672" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590231374298" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590229982793">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590229982793" />
   </component>
 </project>

@@ -4,6 +4,7 @@
 #include "FloorSwitch.h"
 #include  "Components/BoxComponent.h"
 #include  "Components/StaticMeshComponent.h"
+#include  "TimerManager.h"
 
 // Sets default values
 AFloorSwitch::AFloorSwitch()
@@ -30,34 +31,70 @@ AFloorSwitch::AFloorSwitch()
 	Door = CreateDefaultSubobject<UStaticMeshComponent>(FName("Door"));
 	Door->SetupAttachment(GetRootComponent());
 
+	SwitchTime = 2.f; // 2 sec. delay (used in the TimeHandler)
+	bCharacterOnSwitch = false; // is our Character standing on switch plate?
+
 }
 
 // Called when the game starts or when spawned
 void AFloorSwitch::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// Add overlap dynamic to interact with the Character
 	TriggerBox->OnComponentBeginOverlap.AddDynamic(this, &AFloorSwitch::OnOverlapBegin);
 	TriggerBox->OnComponentEndOverlap.AddDynamic(this, &AFloorSwitch::OnOverlapEnd);
-	
+
+	// Getting current location
+	InitialDoorLocation = Door->GetComponentLocation();
+	InitialSwitchLocation = FloorTrigger->GetComponentLocation();
 }
 
 // Called every frame
 void AFloorSwitch::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
+/* When we overlap with the object - in our case it is a door, we call 2 functions - RaiseDoor and LowerDoorSwitch. Both of them implemented in the BP Editor. */
 void AFloorSwitch::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent,
 	AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
 	const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp,Warning,TEXT("OnOverlapBegin works!"));
+	if(!bCharacterOnSwitch) bCharacterOnSwitch = true;
+	RaiseDoor();
+	LowerDoorSwitch();
 }
 
+/* When we not overlaping with the trigger, those functions are called  */
 void AFloorSwitch::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent,
 	AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	UE_LOG(LogTemp,Warning,TEXT("OnOverlapEnd works!"));
+	if(bCharacterOnSwitch) bCharacterOnSwitch = false;
+	GetWorldTimerManager().SetTimer(SwitchHandle,this,&AFloorSwitch::CloseDoor,SwitchTime);
+	
 }
 
+void AFloorSwitch::UpdateFloorLocation(float Z)
+{
+	FVector NewLocation = InitialDoorLocation;
+	NewLocation.Z+=Z;
+	Door->SetWorldLocation(NewLocation);
+}
+
+void AFloorSwitch::UpdateTriggerLocation(float Z)
+{
+	FVector NewLocation = InitialSwitchLocation;
+	NewLocation.Z+=Z;
+	TriggerBox->SetWorldLocation(NewLocation);
+}
+
+void AFloorSwitch::CloseDoor()
+{
+	if(!bCharacterOnSwitch)
+	{
+		LowerDoor();
+
+		RaiseDoorSwitch();
+	}
+}
