@@ -43177,6 +43177,7 @@
         <e p="RPGLesson.vcxproj" t="IncludeRecursive" />
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
+      <e p="MCO_Mocap_Basics.png" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Plugins" t="Include">
         <e p="Developer" t="Include">
@@ -43582,6 +43583,8 @@
       <e p="RPGLesson.uproject" t="Include" />
       <e p="Source" t="Include">
         <e p="RPGLesson" t="Include">
+          <e p="Creature.cpp" t="Include" />
+          <e p="Creature.h" t="Include" />
           <e p="FloorSwitch.cpp" t="Include" />
           <e p="FloorSwitch.h" t="Include" />
           <e p="MainAnimIntance.cpp" t="Include" />

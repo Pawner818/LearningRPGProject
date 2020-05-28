@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-RiderGameControlExtension-0070.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Intermediate\Build\Win64\RPGLessonEditor\Development\UnrealEd\SharedPCH.UnrealEd.RTTI.ShadowErrors.h.obj"
+"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderGameControlExtension\RiderGameControlExtension.cpp.obj"
+"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderGameControlExtension\Default.rc2.res"
+/OUT:"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderGameControlExtension\UE4Editor-RiderGameControlExtension-0070.lib"
+/INCLUDE:IMPLEMENT_MODULE_RiderGameControlExtension

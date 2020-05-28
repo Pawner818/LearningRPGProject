@@ -1,6 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "RPGLessonCharacter.h"
+
+#include <string>
+
+
+#include "DrawDebugHelpers.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -8,6 +13,8 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Engine/EngineTypes.h"
+#include "DrawDebugHelpers.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ARPGLessonCharacter
@@ -47,6 +54,10 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+
+    TraceDistance = 100.f; // How far we can reach (used in LineTrace function)
+    bHit = false;
+	
 	
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
@@ -80,6 +91,31 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGLessonCharacter::OnResetVR);
+}
+
+void ARPGLessonCharacter::LineTrace() 
+{
+	auto World = GetWorld();
+	
+	FVector TraceStart = GetActorLocation();
+	FRotator Rotation = GetActorRotation();
+	FHitResult Hit;
+	FVector TraceEnd = TraceStart + (Rotation.Vector() * TraceDistance);
+
+	bHit = GetWorld()->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECollisionChannel::ECC_Visibility,FCollisionQueryParams::DefaultQueryParam);
+	
+	
+	DrawDebugLine(World,TraceStart,TraceEnd,FColor::Emerald,false,0.1f);
+	
+}
+
+void ARPGLessonCharacter::Tick(float DeltaSeconds)
+{
+	LineTrace();
+	if(bHit)
+	{
+		UE_LOG(LogTemp,Warning,TEXT("LineTrace is working"));
+	}
 }
 
 
