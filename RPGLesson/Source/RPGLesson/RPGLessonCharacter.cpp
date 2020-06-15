@@ -1,11 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "RPGLessonCharacter.h"
-
-#include <string>
-
-
-#include "DrawDebugHelpers.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -14,15 +9,19 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Engine/EngineTypes.h"
-#include "DrawDebugHelpers.h"
+#include "GameFramework/Actor.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 // ARPGLessonCharacter
+
 
 ARPGLessonCharacter::ARPGLessonCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+
+	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
@@ -55,9 +54,33 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	
+
     TraceDistance = 100.f; // How far we can reach (used in LineTrace function)
     bHit = false;
+
+	/* TODO: find out why we can't use skeletal mesh to generate overlap event's */
+	// Mesh->OnComponentBeginOverlap.AddDynamic(this, &ARPGLessonCharacter::OnOverlapBegin);
+	// Mesh->OnComponentEndOverlap.AddDynamic(this, &ARPGLessonCharacter::OnOverlapEnd);
+    
+	// Default values for the player stats 
+    MaxHealth = 100.f;
+	Health = 65.f;
+	MaxStamina = 150.f;
+	Stamina = 120.f;
+	Coins = 0;
 	
+	StaminaDrainRate = 25.f;
+	MinSprintStamina = 50.f;
+
+	RunningSpeed = 600.f;
+	SprintingSpeed = 1200.f;
+	bShiftKeyDown = false;
+
+	// Initialize Enums
+	MovementStatus = EMovementStatus::EMS_Normal;
+	StaminaStatus = EStaminaStatus::ESS_Normal;
+
 	
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
@@ -73,6 +96,9 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ARPGLessonCharacter::ShiftKeyDown);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ARPGLessonCharacter::ShiftKeyUp);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ARPGLessonCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ARPGLessonCharacter::MoveRight);
@@ -93,29 +119,23 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGLessonCharacter::OnResetVR);
 }
 
-void ARPGLessonCharacter::LineTrace() 
+void ARPGLessonCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	auto World = GetWorld();
-	
-	FVector TraceStart = GetActorLocation();
-	FRotator Rotation = GetActorRotation();
-	FHitResult Hit;
-	FVector TraceEnd = TraceStart + (Rotation.Vector() * TraceDistance);
-
-	bHit = GetWorld()->LineTraceSingleByChannel(Hit, TraceStart, TraceEnd, ECollisionChannel::ECC_Visibility,FCollisionQueryParams::DefaultQueryParam);
-	
-	
-	DrawDebugLine(World,TraceStart,TraceEnd,FColor::Emerald,false,0.1f);
-	
+	UE_LOG(LogTemp, Error, TEXT("Overlap event begin!"));
 }
+
+void ARPGLessonCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+                                       UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	UE_LOG(LogTemp, Error, TEXT("Overlap event end!"));
+}
+
+
 
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
-	LineTrace();
-	if(bHit)
-	{
-		UE_LOG(LogTemp,Warning,TEXT("LineTrace is working"));
-	}
+	
 }
 
 
@@ -173,4 +193,68 @@ void ARPGLessonCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void ARPGLessonCharacter::DecrementHealth(float HealthAmount)
+{
+	 if(Health>0)
+	 {
+	 	Health -= HealthAmount;
+	 }
+	 if(Health<=0)
+	 {
+	  	Death();
+	 }
+}
+
+void ARPGLessonCharacter::IncrementHealth(float HealthAmount)
+{
+	if(Health>=0)
+	{
+		Health += HealthAmount;
+	}
+	
+	else return;
+}
+
+void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
+{
+	Coins+=CoinsAmount;
+}
+
+void ARPGLessonCharacter::Death()
+{
+	UE_LOG(LogTemp,Warning,TEXT("Wasted! Your HP less than 0! "))
+	//TODO: add functionality
+}
+
+void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
+{
+	MovementStatus = Status;
+	if(MovementStatus == EMovementStatus::EMS_Sprinting)
+	{
+		// speed changing to 1200.f
+		GetCharacterMovement()->MaxWalkSpeed = SprintingSpeed; 
+	}
+	else
+	{
+		// speed changing to 600.f
+		GetCharacterMovement()->MaxWalkSpeed = RunningSpeed;
+	}
+	
+}
+
+// Togle shift variable 
+void ARPGLessonCharacter::ShiftKeyDown()
+{
+	bShiftKeyDown = true;
+	
+	UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed down!"))
+}
+
+void ARPGLessonCharacter::ShiftKeyUp()
+{
+	bShiftKeyDown = false;
+	
+	UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed up!"))
 }
