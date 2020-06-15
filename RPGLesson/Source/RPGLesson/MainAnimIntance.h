@@ -16,7 +16,6 @@ class RPGLESSON_API UMainAnimIntance : public UAnimInstance
 
 	public:
 
-	
 	virtual void NativeInitializeAnimation() override;
 
 	// Update our animation like a Tick function
@@ -27,16 +26,19 @@ class RPGLESSON_API UMainAnimIntance : public UAnimInstance
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement" )
 	float MovementSpeed;
 
-	// Are we in air?
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement" )
-	bool IsInAir;
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement" )
+    float Direction;
 
+	// Are we in air?
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement" )
+	bool IsInAir;
+	
 	// reference to the object
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement" )
 	class APawn * Pawn;
 
-	
-
-	private: 
+	// refernce to the Character 
+    UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement")
+	class ARPGLessonCharacter*Character;
 	
 };

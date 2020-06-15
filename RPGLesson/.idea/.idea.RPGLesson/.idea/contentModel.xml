@@ -7821,6 +7821,8 @@
             <e p="NiagaraParameters.cpp" t="Include" />
             <e p="NiagaraParameterStore.cpp" t="Include" />
             <e p="NiagaraPlatformSet.cpp" t="Include" />
+            <e p="NiagaraPrecompileContainer.cpp" t="Include" />
+            <e p="NiagaraPrecompileContainer.h" t="Include" />
             <e p="NiagaraPreviewGrid.cpp" t="Include" />
             <e p="NiagaraRenderer.cpp" t="Include" />
             <e p="NiagaraRendererLights" t="Include" />
@@ -9883,6 +9885,43 @@
       </e>
       <e p="SurfaceFootstepSystem.uplugin" t="Include" />
     </e>
+    <e p="F:\Epic Games\UE_4.25\Engine\Plugins\Marketplace\VaFogOfWar" t="Include">
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="Source" t="Include">
+        <e p="VaFogOfWar" t="Include">
+          <e p="Private" t="Include">
+            <e p="VaFogAgentComponent.cpp" t="Include" />
+            <e p="VaFogBlockingVolume.cpp" t="Include" />
+            <e p="VaFogBoundsVolume.cpp" t="Include" />
+            <e p="VaFogController.cpp" t="Include" />
+            <e p="VaFogDefines.h" t="Include" />
+            <e p="VaFogLayer.cpp" t="Include" />
+            <e p="VaFogLibrary.cpp" t="Include" />
+            <e p="VaFogOfWar.cpp" t="Include" />
+            <e p="VaFogRadiusStrategy.cpp" t="Include" />
+            <e p="VaFogSettings.cpp" t="Include" />
+            <e p="VaFogTerrainLayer.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="VaFogAgentComponent.h" t="Include" />
+            <e p="VaFogBlockingVolume.h" t="Include" />
+            <e p="VaFogBoundsVolume.h" t="Include" />
+            <e p="VaFogController.h" t="Include" />
+            <e p="VaFogLayer.h" t="Include" />
+            <e p="VaFogLibrary.h" t="Include" />
+            <e p="VaFogOfWar.h" t="Include" />
+            <e p="VaFogRadiusStrategy.h" t="Include" />
+            <e p="VaFogSettings.h" t="Include" />
+            <e p="VaFogTerrainLayer.h" t="Include" />
+            <e p="VaFogTypes.h" t="Include" />
+          </e>
+          <e p="VaFogOfWar.Build.cs" t="Include" />
+        </e>
+      </e>
+      <e p="VaFogOfWar.uplugin" t="Include" />
+    </e>
     <e p="F:\Epic Games\UE_4.25\Engine\Plugins\Media\AjaMedia" t="Include">
       <e p="AjaMedia.uplugin" t="Include" />
       <e p="Resources" t="Include">
@@ -11928,6 +11967,15 @@
       </e>
       <e p="OnlineSubsystemGooglePlay.uplugin" t="Include" />
       <e p="Source" t="Include">
+        <e p="Java" t="Include">
+          <e p="com" t="Include">
+            <e p="epicgames" t="Include">
+              <e p="ue4" t="Include">
+                <e p="GooglePlayStoreHelper.java" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="OnlineSubsystemGooglePlay.Build.cs" t="Include" />
         <e p="OnlineSubsystemGooglePlay_UPL.xml" t="Include" />
         <e p="Private" t="Include">
@@ -43583,12 +43631,22 @@
       <e p="RPGLesson.uproject" t="Include" />
       <e p="Source" t="Include">
         <e p="RPGLesson" t="Include">
+          <e p="Coins.cpp" t="Include" />
+          <e p="Coins.h" t="Include" />
           <e p="Creature.cpp" t="Include" />
           <e p="Creature.h" t="Include" />
+          <e p="Explosive.cpp" t="Include" />
+          <e p="Explosive.h" t="Include" />
           <e p="FloorSwitch.cpp" t="Include" />
           <e p="FloorSwitch.h" t="Include" />
+          <e p="HealingPotion.cpp" t="Include" />
+          <e p="HealingPotion.h" t="Include" />
+          <e p="Item.cpp" t="Include" />
+          <e p="Item.h" t="Include" />
           <e p="MainAnimIntance.cpp" t="Include" />
           <e p="MainAnimIntance.h" t="Include" />
+          <e p="MainPlayerController.cpp" t="Include" />
+          <e p="MainPlayerController.h" t="Include" />
           <e p="RPGLesson.Build.cs" t="Include" />
           <e p="RPGLesson.cpp" t="Include" />
           <e p="RPGLesson.h" t="Include" />
@@ -43596,6 +43654,8 @@
           <e p="RPGLessonCharacter.h" t="Include" />
           <e p="RPGLessonGameMode.cpp" t="Include" />
           <e p="RPGLessonGameMode.h" t="Include" />
+          <e p="SpawnVolume.cpp" t="Include" />
+          <e p="SpawnVolume.h" t="Include" />
         </e>
         <e p="RPGLesson.Target.cs" t="Include" />
         <e p="RPGLessonEditor.Target.cs" t="Include" />

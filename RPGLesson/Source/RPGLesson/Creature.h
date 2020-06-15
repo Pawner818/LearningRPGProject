@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "Engine/World.h"
 #include "Creature.generated.h"
 
 UCLASS()
@@ -38,12 +37,12 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere, Category="Mesh")
-    class UStaticMeshComponent* MeshComponent;
+    class USkeletalMeshComponent* SkeletalMeshComponent;
 
-	FORCEINLINE UStaticMeshComponent*GetMeshComponent() const {return MeshComponent;}
-	FORCEINLINE void SetMeshComponent(UStaticMeshComponent*Mesh){MeshComponent=Mesh;};
+	FORCEINLINE USkeletalMeshComponent*GetMeshComponent() const {return SkeletalMeshComponent;}
+	FORCEINLINE void SetSkeletalMeshComponent(USkeletalMeshComponent*Mesh){SkeletalMeshComponent=Mesh;};
 
-	private:
+private:
 
 	// Some movement functionality 
 	void MoveForward(float Value);
