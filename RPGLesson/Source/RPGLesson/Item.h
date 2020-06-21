@@ -15,7 +15,7 @@ class RPGLESSON_API AItem : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AItem();
-
+	
 	// Base shape collision
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Item | Collision")
 	class USphereComponent*CollisionVolume;
@@ -33,13 +33,14 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Item | Sounds")
 	class USoundCue*SoundCue;
 
+
 	/* The difference between StaticMeshComponent / StaticMesh, or ParticleSystemComponent / ParticleSystem is that Components have to be constructed in the ctor */
 	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:		
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
