@@ -14,7 +14,7 @@ class RPGLESSON_API UMainAnimIntance : public UAnimInstance
 {
 	GENERATED_BODY()
 
-	public:
+public:
 
 	virtual void NativeInitializeAnimation() override;
 
@@ -33,12 +33,12 @@ class RPGLESSON_API UMainAnimIntance : public UAnimInstance
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Movement" )
 	bool IsInAir;
 	
-	// reference to the object
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement" )
+	// reference to the pawn
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category="Movement" )
 	class APawn * Pawn;
 
 	// refernce to the Character 
-    UPROPERTY(BlueprintReadOnly, EditAnywhere, Category="Movement")
+    UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
 	class ARPGLessonCharacter*Character;
-	
+
 };

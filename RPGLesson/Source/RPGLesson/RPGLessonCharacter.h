@@ -38,6 +38,11 @@ public:
 
 	ARPGLessonCharacter();
 
+	TArray<FVector>PickupLocation;
+	
+	UFUNCTION(BlueprintCallable)
+    void ShowPickupLocation();
+	
 	/***********
 	 *
 	 * Stamina
@@ -52,6 +57,7 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="ENUMS")
 	EStaminaStatus StaminaStatus;
 
+    
 	FORCEINLINE void SetStaminaStatus (EStaminaStatus Status){Status = StaminaStatus;};
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
@@ -205,5 +211,7 @@ private:
 
 	// Updating every frame 
 	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void BeginPlay() override;
 };
 

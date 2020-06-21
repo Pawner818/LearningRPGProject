@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "RPGLessonCharacter.h"
+
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -10,6 +11,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Engine/EngineTypes.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/KismetSystemLibrary.h"
+
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -66,7 +69,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	// Default values for the player stats 
     MaxHealth = 100.f;
 	Health = 65.f;
-	MaxStamina = 150.f;
+	MaxStamina = 350.f;
 	Stamina = 120.f;
 	Coins = 0;
 	
@@ -86,6 +89,17 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
+
+
+// debug sphere, when we pickup coins , press "T" to see the location 
+void ARPGLessonCharacter::ShowPickupLocation()
+{
+	for (FVector Location : PickupLocation)
+	{
+		UKismetSystemLibrary::DrawDebugSphere(this, Location,25,8,FLinearColor::Green,5.f,2.f);
+	}
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 // Input
@@ -132,11 +146,118 @@ void ARPGLessonCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent,
 }
 
 
+void ARPGLessonCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	
+}
 
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
+	Super::Tick(DeltaSeconds);
+
+	float DeltaStamina = StaminaDrainRate * DeltaSeconds;
+	
+	switch (StaminaStatus)
+	{
+		// if the Shift key is down, we need to make sure that our movement status is correct -> Set it to EMS::Sprinting
+		// first check verify have we reached the BelowMinimum point - in our case it's 50.f (default in the ctor)
+		// if so we calling SetStaminaStatus function, and set status to BelowMinimum. We still can drain stamina.
+		// if Stamina - DeltaStamina >50.f, we are good, and normally drain stamina as well.
+		//
+		//
+		// if the Shift key is up, 
+		case EStaminaStatus::ESS_Normal:
+		if(bShiftKeyDown)
+		{
+			if(Stamina-DeltaStamina <= MinSprintStamina)
+			{
+				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
+				Stamina -=DeltaStamina;
+			}
+			else
+			{
+				Stamina-=DeltaStamina;
+			}
+			SetMovementStatus(EMovementStatus::EMS_Sprinting);
+		}
+		else //shift key up
+		{
+			if(Stamina + DeltaStamina >= MaxStamina)
+			{
+				Stamina = MaxStamina; //we don't want to recover stamina more than the Max value is, so we increment Stamina until it reaches MaxStamina
+			}
+            else
+            {
+            	Stamina+=DeltaStamina; //refilling stamina
+            }
+			SetMovementStatus(EMovementStatus::EMS_Normal);
+		}
+		break;
+////////////////////////////////////////////////////////////////////////////////////////
+	case EStaminaStatus::ESS_BelowMinimum:
+
+		if(bShiftKeyDown)
+		{
+			if(Stamina - DeltaStamina <= 0.f)
+			{
+				SetStaminaStatus(EStaminaStatus::ESS_Exhausted);
+				Stamina = 0.f;
+				SetMovementStatus(EMovementStatus::EMS_Normal);
+			}
+			else
+			{
+				Stamina-=DeltaStamina;
+				SetMovementStatus(EMovementStatus::EMS_Sprinting);
+			}
+		}
+		else // shift key up
+		{
+			if (Stamina+DeltaStamina>=MinSprintStamina)
+			{
+				SetStaminaStatus(EStaminaStatus::ESS_Normal);
+				Stamina+=DeltaStamina;
+			}
+			else
+			{
+				Stamina+=DeltaStamina;
+			}
+			SetMovementStatus(EMovementStatus::EMS_Normal);
+		}
+	break;
+////////////////////////////////////////////////////////////////////////////////////////
+	case EStaminaStatus::ESS_Exhausted:
+		if(bShiftKeyDown)
+		{
+			Stamina = 0.f;
+		}
+		else //shift key up
+		{
+			SetStaminaStatus(EStaminaStatus::ESS_ExhaustedRecovering);
+			Stamina+=DeltaStamina;
+		}
+		SetMovementStatus(EMovementStatus::EMS_Normal);
+	break;
+////////////////////////////////////////////////////////////////////////////////////////
+	case EStaminaStatus::ESS_ExhaustedRecovering:
+		if(Stamina+DeltaStamina>=MinSprintStamina)
+		{
+
+			SetStaminaStatus(EStaminaStatus::ESS_Normal);
+		}
+		else
+		{
+			Stamina+=DeltaStamina;
+		}
+		SetMovementStatus(EMovementStatus::EMS_Normal);
+		break;
+
+		default: ;
+	}
 	
 }
+
 
 
 void ARPGLessonCharacter::OnResetVR()
@@ -247,6 +368,7 @@ void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 // Togle shift variable 
 void ARPGLessonCharacter::ShiftKeyDown()
 {
+	
 	bShiftKeyDown = true;
 	
 	UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed down!"))
@@ -254,6 +376,7 @@ void ARPGLessonCharacter::ShiftKeyDown()
 
 void ARPGLessonCharacter::ShiftKeyUp()
 {
+	
 	bShiftKeyDown = false;
 	
 	UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed up!"))

@@ -2,6 +2,8 @@
 
 
 #include "Coins.h"
+#include "Item.h"
+
 
 
 
@@ -23,6 +25,7 @@ void ACoins::OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, AActor* O
 		if(Character)
 		{
 			Character ->IncrementCoins(CoinsCount);
+			Character -> PickupLocation.Add(GetActorLocation());
 		}
 	}
 }
@@ -33,4 +36,6 @@ void ACoins::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* Othe
 	Super::OnOverlapEnd(OverlappedComponent,OtherActor,OtherComp,OtherBodyIndex);
 	
 }
-;
+
+
+
