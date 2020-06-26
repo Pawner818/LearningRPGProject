@@ -9,14 +9,23 @@
 
 #include "RPGLessonCharacter.generated.h"
 
+/***********************************************************************************
+*
+* ENUMS
+* 
+**********************************************************************************/
 UENUM(BlueprintType)
 enum class EMovementStatus : uint8
 {
-	EMS_Normal UMETA(DisplayName = "Normal"),
+	EMS_Running UMETA(DisplayName = "Running"),
+	EMS_Walking UMETA(DisplayName = "Walking"),
 	EMS_Sprinting UMETA(DisplayName = "Sprinting"),
+	EMS_Crouching UMETA (DisplayName = "Crouching"),
+	
 	EMS_MAX UMETA(DisplayName = "DefaultMAX")
 };
 
+// Enum of the Stamina Status. Used in Animation_BP of the Character.
 UENUM(BlueprintType)
 enum class EStaminaStatus:uint8
 {
@@ -38,63 +47,81 @@ public:
 
 	ARPGLessonCharacter();
 
+	// debugging array of the pick up location of coins 
 	TArray<FVector>PickupLocation;
-	
+
+	//press T to see the previous location of the picked up coins  
 	UFUNCTION(BlueprintCallable)
     void ShowPickupLocation();
 	
-	/***********
+	/***********************************************************************************
 	 *
 	 * Stamina
 	 * 
-	 **********/
+	 **********************************************************************************/
 	
-	// Different status for the stamina bar. there are 4 status: the first one is active by default and it's called
-	// "Normal". When we using sprint we use stamina as well. when we reach "BelowMinimum" status, the StaminaBar changes
-	// it's colour from green to red - it shows that we're starting to be exhausted. "Exhausted" status will show the
-	// lowest possible value of stamina and stop sprinting. Right after that automatically begins the last status - ExhaustedRecovering,
-	// which refills the StaminaBar, and return our colour to green.
-	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="ENUMS")
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Enums")
 	EStaminaStatus StaminaStatus;
-
-    
+	
 	FORCEINLINE void SetStaminaStatus (EStaminaStatus Status){Status = StaminaStatus;};
 
+	void ChangeStaminaStatus(float Value); 
+
+	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
 	float StaminaDrainRate;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
 	float MinSprintStamina;
 
-	/************
+	/*************************************************************************
 	 *
 	 * Movement 
 	 *
-	 ************/
+	 **************************************************************************/
 	
 	// Describes what status the Character is in 
-	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="ENUMS")
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Enums")
     EMovementStatus MovementStatus;
 	
 	// Set movement status and running speed.
 	UFUNCTION(BlueprintCallable,Category="Enums")
 	void SetMovementStatus(EMovementStatus Status);
 
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Running")
+	// 150.f
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
+    float CrouchingSpeed;
+	// 300.f
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
+    float WalkingSpeed;
+	// 600.f
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
 	float RunningSpeed;
-	
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Running")
+	// 1200.f
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
 	float SprintingSpeed;
 
-	// Simple togle to know the state of this button
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Movement | Booleans")
+	bool bIsAltPressed;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Movement | Booleans")
+	bool bIsCtrlPressed;
+	
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Movement | Booleans")
 	bool bShiftKeyDown;
 
-	// Press down to enable sprinting
+    void AltUp();
+	void AltDown();
+
+	void CtrlUp();
+	void CtrlDown();
+
+
 	void ShiftKeyDown();
 
-	// Realeased to stop sprinting 
 	void ShiftKeyUp();
-	
+
+    
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -103,11 +130,11 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
-	/************
+	/************************************************************************************
 	 *
 	 * Camera
 	 *
-	 ************/
+	 ************************************************************************************/
 	
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -159,11 +186,11 @@ protected:
 public:
 	
 	
-	////////
+	////////************************************************************************
 	///
 	/// Interacting with the World, using debug line as a indicator when we hit something, overlapping delegate functions 
 	///
-	///////
+	///////************************************************************************
 
 	// Sensible value, which shows how far we can interact with smth. By default it's 100.f;
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Interaction")
@@ -193,11 +220,11 @@ public:
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite,Category="Player Stats")
 	int32 Coins;
 
-	/**********
+	/**********************************************************************************
 	///
 	/// Stats changing functions 
 	///
-	**********/
+	**********************************************************************************/
 	
 	void DecrementHealth(float HealthAmount);
 

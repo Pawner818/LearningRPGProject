@@ -21,6 +21,8 @@ void AHealingPotion::OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, A
 		if(Character)
 		{
 			Character->IncrementHealth(BottledHealth);
+
+			Destroy();
 		}
 	}
 }

@@ -26,6 +26,8 @@ void ACoins::OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, AActor* O
 		{
 			Character ->IncrementCoins(CoinsCount);
 			Character -> PickupLocation.Add(GetActorLocation());
+
+			Destroy();
 		}
 	}
 }

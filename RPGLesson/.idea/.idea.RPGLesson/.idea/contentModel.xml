@@ -43656,6 +43656,8 @@
           <e p="RPGLessonGameMode.h" t="Include" />
           <e p="SpawnVolume.cpp" t="Include" />
           <e p="SpawnVolume.h" t="Include" />
+          <e p="Weapon.cpp" t="Include" />
+          <e p="Weapon.h" t="Include" />
         </e>
         <e p="RPGLesson.Target.cs" t="Include" />
         <e p="RPGLessonEditor.Target.cs" t="Include" />
