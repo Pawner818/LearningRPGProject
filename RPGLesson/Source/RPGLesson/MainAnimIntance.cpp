@@ -39,7 +39,8 @@ void UMainAnimIntance::UpdateAnimationProperties()
 
         // UE_LOG(LogTemp,Warning, TEXT("Speed is: %f"), &MovementSpeed);
         
-        IsInAir = Pawn->GetMovementComponent()->IsFalling(); // getting from the MovementComponent IsFalling state function    
+        IsInAir = Pawn->GetMovementComponent()->IsFalling(); // getting from the MovementComponent IsFalling state function
+        
         
         if(Character == nullptr)
         {

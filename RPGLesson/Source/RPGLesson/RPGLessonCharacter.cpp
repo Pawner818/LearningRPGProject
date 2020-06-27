@@ -226,7 +226,8 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAction("Walk", IE_Pressed, this, &ARPGLessonCharacter::AltDown);
 	PlayerInputComponent->BindAction("Walk", IE_Released, this, &ARPGLessonCharacter::AltUp);
 
-	
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ARPGLessonCharacter::CtrlDown);
+	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &ARPGLessonCharacter::CtrlUp);
 
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ARPGLessonCharacter::ShiftKeyDown);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ARPGLessonCharacter::ShiftKeyUp);
@@ -412,11 +413,13 @@ void ARPGLessonCharacter::AltDown()
 void ARPGLessonCharacter::CtrlUp()
 {
 	bIsCtrlPressed = false;
+	SetMovementStatus(EMovementStatus::EMS_Running);
 }
 
 void ARPGLessonCharacter::CtrlDown()
 {
 	bIsCtrlPressed = true;
+	SetMovementStatus(EMovementStatus::EMS_Crouching);
 }
 
 // Toggles shift variable 
