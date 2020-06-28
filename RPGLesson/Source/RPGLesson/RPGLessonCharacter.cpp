@@ -106,6 +106,290 @@ void ARPGLessonCharacter::ShowPickupLocation()
 	}
 }
 
+
+
+
+//////////////////////////////////////////////////////////////////////////
+// Input
+
+void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	// Set up gameplay key bindings
+	check(PlayerInputComponent);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("Walk", IE_Pressed, this, &ARPGLessonCharacter::AltDown);
+	PlayerInputComponent->BindAction("Walk", IE_Released, this, &ARPGLessonCharacter::AltUp);
+
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ARPGLessonCharacter::CtrlDown);
+	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &ARPGLessonCharacter::CtrlUp);
+
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ARPGLessonCharacter::ShiftKeyDown);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ARPGLessonCharacter::ShiftKeyUp);
+
+	PlayerInputComponent->BindAxis("MoveForward", this, &ARPGLessonCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &ARPGLessonCharacter::MoveRight);
+
+	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
+	// "turn" handles devices that provide an absolute delta, such as a mouse.
+	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
+	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("TurnRate", this, &ARPGLessonCharacter::TurnAtRate);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookUpRate", this, &ARPGLessonCharacter::LookUpAtRate);
+
+	// handle touch devices
+	PlayerInputComponent->BindTouch(IE_Pressed, this, &ARPGLessonCharacter::TouchStarted);
+	PlayerInputComponent->BindTouch(IE_Released, this, &ARPGLessonCharacter::TouchStopped);
+
+	// VR headset functionality
+	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGLessonCharacter::OnResetVR);
+}
+
+void ARPGLessonCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	UE_LOG(LogTemp, Error, TEXT("Overlap event begin!"));
+}
+
+void ARPGLessonCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+                                       UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	UE_LOG(LogTemp, Error, TEXT("Overlap event end!"));
+}
+
+
+void ARPGLessonCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+}
+
+void ARPGLessonCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	MovementStatusUpdating(DeltaSeconds);
+
+}
+
+void ARPGLessonCharacter::OnResetVR()
+{
+	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+}
+
+void ARPGLessonCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+{
+		Jump();
+}
+
+void ARPGLessonCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
+{
+		StopJumping();
+}
+
+void ARPGLessonCharacter::TurnAtRate(float Rate)
+{
+	// calculate delta for this frame from the rate information
+	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+}
+
+void ARPGLessonCharacter::LookUpAtRate(float Rate)
+{
+	// calculate delta for this frame from the rate information
+	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+void ARPGLessonCharacter::MoveForward(float Value)
+{
+	if ((Controller != NULL) && (Value != 0.0f))
+	{
+		// find out which way is forward
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0, Rotation.Yaw, 0);
+
+		// get forward vector
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		AddMovementInput(Direction, Value);
+	}
+}
+
+void ARPGLessonCharacter::MoveRight(float Value)
+{
+	if ( (Controller != NULL) && (Value != 0.0f) )
+	{
+		// find out which way is right
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FRotator YawRotation(0, Rotation.Yaw, 0);
+	
+		// get right vector 
+		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		// add movement in that direction
+		AddMovementInput(Direction, Value);
+	}
+}
+
+
+void ARPGLessonCharacter::DecrementHealth(float HealthAmount)
+{
+	 if(Health>0)
+	 {
+	 	Health -= HealthAmount;
+	 }
+	 if(Health<=0)
+	 {
+	  	Death();
+	 }
+}
+
+void ARPGLessonCharacter::IncrementHealth(float HealthAmount)
+{
+	if(Health>=0)
+	{
+		Health += HealthAmount;
+	}
+	
+	else return;
+}
+
+void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
+{
+	Coins+=CoinsAmount;
+}
+
+void ARPGLessonCharacter::Death()
+{
+	UE_LOG(LogTemp,Warning,TEXT("Wasted! Your HP less than 0! "))
+	//TODO: add functionality
+}
+
+void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
+{
+	MovementStatus = Status;
+	
+	switch (MovementStatus)
+	{
+        //150.f
+	    case EMovementStatus::EMS_Crouching:
+        GetCharacterMovement()->MaxWalkSpeed = CrouchingSpeed;
+	    break;
+		//300.f
+		case EMovementStatus::EMS_Walking:
+		GetCharacterMovement()->MaxWalkSpeed = WalkingSpeed;
+		break;
+        //600.f
+		case EMovementStatus::EMS_Running:
+		GetCharacterMovement()->MaxWalkSpeed = RunningSpeed;
+		break;
+        //1200.f
+		case EMovementStatus::EMS_Sprinting:
+		GetCharacterMovement()->MaxWalkSpeed=SprintingSpeed;
+		break;
+
+		default:
+		break;
+	}
+}
+
+void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
+{
+
+	DeltaValue = GetWorld()->GetDeltaSeconds();
+
+	
+	
+	switch(MovementStatus)
+	{
+		// 
+		case EMovementStatus::EMS_Running: 
+			{
+				bCouldWeDrainStamina = false;
+				UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE"));
+					if(bShiftKeyDown)
+					{
+						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE SHIFT KEY DOWN"));
+						SetMovementStatus(EMovementStatus::EMS_Sprinting);
+					}
+				    
+					if(bIsCtrlPressed)
+					{
+						SetMovementStatus(EMovementStatus::EMS_Crouching);
+					}
+					
+					if (bIsAltPressed)
+					{
+						SetMovementStatus(EMovementStatus::EMS_Walking);
+					}	
+			}
+			
+		break;
+
+		///////////////////////////////////////////////////////////////////////////////
+
+		case EMovementStatus::EMS_Sprinting:
+			{
+				UE_LOG(LogTemp, Warning, TEXT("EMS SPRINTING CASE"));
+				bCouldWeDrainStamina = true;
+				if(bCouldWeDrainStamina)
+				{
+					StaminaStatusUpdating(DeltaValue);
+				}
+				else SetMovementStatus(EMovementStatus::EMS_Running);
+			}
+		break;
+		case EMovementStatus::EMS_Crouching:
+			{
+				if(bIsCtrlPressed)
+				{
+					SetMovementStatus(EMovementStatus::EMS_Crouching);
+				}
+				else
+				{
+					SetMovementStatus(EMovementStatus::EMS_Running);
+				}
+				UE_LOG(LogTemp, Warning, TEXT("EMS CROUCHING CASE"));
+			}
+		break;
+		case EMovementStatus::EMS_Walking:
+			{
+				UE_LOG(LogTemp, Warning, TEXT("EMS WALKING CASE"));
+				if(bIsAltPressed)
+				{
+					SetMovementStatus(EMovementStatus::EMS_Walking);
+				}
+				else
+				{
+					SetMovementStatus(EMovementStatus::EMS_Running);
+				}
+				
+			}
+		break;
+
+		default:
+		break;
+	}
+}
+
+void ARPGLessonCharacter::SetStaminaStatus(EStaminaStatus Status)
+{
+	StaminaStatus = Status;
+	switch (StaminaStatus)
+	{
+		case EStaminaStatus::ESS_Normal:
+		break;
+		case EStaminaStatus::ESS_BelowMinimum:
+		break;
+		case EStaminaStatus::ESS_Exhausted:
+		break;
+		case EStaminaStatus::ESS_ExhaustedRecovering:
+		break;
+
+		default:
+		break;
+	}
+}
+
 void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 {
 	float DeltaStamina = StaminaDrainRate * DeltaValue;
@@ -115,13 +399,13 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 	case EStaminaStatus::ESS_Normal:
 		if(bShiftKeyDown)
 		{
-			if(Stamina-DeltaStamina <= MinSprintStamina) // 3
+			if(Stamina-DeltaStamina <= MinSprintStamina) 
 			{
 				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
 				Stamina -=DeltaStamina;
 				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY DOWN, IF"));
 			}
-			else // 2 
+			else 
 			{
 				Stamina-=DeltaStamina;
 				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY DOWN, ELSE"));
@@ -130,17 +414,29 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		}
 		else //shift key up
 		{
-			if(Stamina + DeltaStamina >= MaxStamina) // 1, 5
+			if(Stamina+DeltaStamina==MaxStamina)
 			{
-				Stamina = MaxStamina; //we don't want to recover stamina more than the Max value is, so we increment Stamina until it reaches MaxStamina
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY UP, IF"));
+				Stamina+=DeltaStamina;
+				bCouldWeDrainStamina = true;
 			}
-            else // 4
-            {
-            	Stamina+=DeltaStamina; //refilling stamina
-            	UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY UP, ELSE"));
-            }
-			SetMovementStatus(EMovementStatus::EMS_Running);
+			else if (Stamina+DeltaStamina==MaxStamina)
+			{
+				Stamina = MaxStamina;
+				bCouldWeDrainStamina = false;
+				SetMovementStatus(EMovementStatus::EMS_Running);
+			}
+			
+			// if(Stamina + DeltaStamina >= MaxStamina) // 1, 5
+			// {
+			// 	Stamina = MaxStamina; //we don't want to recover stamina more than the Max value is, so we increment Stamina until it reaches MaxStamina
+			// 	UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY UP, IF"));
+			// }
+   //          else // 4
+   //          {
+   //          	Stamina+=DeltaStamina; //refilling stamina
+   //          	UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SHIFT KEY UP, ELSE"));
+   //          }
+			// SetMovementStatus(EMovementStatus::EMS_Running);
 		}
 	break;
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -213,251 +509,6 @@ break;
 	}
 }
 
-
-//////////////////////////////////////////////////////////////////////////
-// Input
-
-void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
-{
-	// Set up gameplay key bindings
-	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-
-	PlayerInputComponent->BindAction("Walk", IE_Pressed, this, &ARPGLessonCharacter::AltDown);
-	PlayerInputComponent->BindAction("Walk", IE_Released, this, &ARPGLessonCharacter::AltUp);
-
-	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ARPGLessonCharacter::CtrlDown);
-	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &ARPGLessonCharacter::CtrlUp);
-
-	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ARPGLessonCharacter::ShiftKeyDown);
-	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ARPGLessonCharacter::ShiftKeyUp);
-
-	PlayerInputComponent->BindAxis("MoveForward", this, &ARPGLessonCharacter::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &ARPGLessonCharacter::MoveRight);
-
-	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
-	// "turn" handles devices that provide an absolute delta, such as a mouse.
-	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("TurnRate", this, &ARPGLessonCharacter::TurnAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-	PlayerInputComponent->BindAxis("LookUpRate", this, &ARPGLessonCharacter::LookUpAtRate);
-
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ARPGLessonCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ARPGLessonCharacter::TouchStopped);
-
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGLessonCharacter::OnResetVR);
-}
-
-void ARPGLessonCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	UE_LOG(LogTemp, Error, TEXT("Overlap event begin!"));
-}
-
-void ARPGLessonCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-                                       UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	UE_LOG(LogTemp, Error, TEXT("Overlap event end!"));
-}
-
-
-void ARPGLessonCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-
-}
-
-void ARPGLessonCharacter::Tick(float DeltaSeconds)
-{
-	Super::Tick(DeltaSeconds);
-
-	StaminaStatusUpdating(DeltaSeconds);
-
-	MovementStatusUpdating(DeltaSeconds);
-	
-}
-
-
-
-void ARPGLessonCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void ARPGLessonCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void ARPGLessonCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
-}
-
-void ARPGLessonCharacter::TurnAtRate(float Rate)
-{
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
-}
-
-void ARPGLessonCharacter::LookUpAtRate(float Rate)
-{
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
-}
-
-void ARPGLessonCharacter::MoveForward(float Value)
-{
-	if ((Controller != NULL) && (Value != 0.0f))
-	{
-		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
-
-		// get forward vector
-		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-		AddMovementInput(Direction, Value);
-	}
-}
-
-void ARPGLessonCharacter::MoveRight(float Value)
-{
-	if ( (Controller != NULL) && (Value != 0.0f) )
-	{
-		// find out which way is right
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
-		// get right vector 
-		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-		// add movement in that direction
-		AddMovementInput(Direction, Value);
-	}
-}
-
-void ARPGLessonCharacter::DecrementHealth(float HealthAmount)
-{
-	 if(Health>0)
-	 {
-	 	Health -= HealthAmount;
-	 }
-	 if(Health<=0)
-	 {
-	  	Death();
-	 }
-}
-
-void ARPGLessonCharacter::IncrementHealth(float HealthAmount)
-{
-	if(Health>=0)
-	{
-		Health += HealthAmount;
-	}
-	
-	else return;
-}
-
-void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
-{
-	Coins+=CoinsAmount;
-}
-
-void ARPGLessonCharacter::Death()
-{
-	UE_LOG(LogTemp,Warning,TEXT("Wasted! Your HP less than 0! "))
-	//TODO: add functionality
-}
-
-void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
-{
-	MovementStatus = Status;
-	
-	switch (MovementStatus)
-	{
-        //150.f
-	    case EMovementStatus::EMS_Crouching:
-        GetCharacterMovement()->MaxWalkSpeed = CrouchingSpeed;
-	    break;
-		//300.f
-		case EMovementStatus::EMS_Walking:
-		GetCharacterMovement()->MaxWalkSpeed = WalkingSpeed;
-		break;
-        //600.f
-		case EMovementStatus::EMS_Running:
-		GetCharacterMovement()->MaxWalkSpeed = RunningSpeed;
-		break;
-        //1200.f
-		case EMovementStatus::EMS_Sprinting:
-		GetCharacterMovement()->MaxWalkSpeed=SprintingSpeed;
-		break;
-
-		default:
-		break;
-	}
-}
-
-void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
-{
-
-	DeltaValue = GetWorld()->GetDeltaSeconds();
-	
-	switch(MovementStatus)
-	{
-		case EMovementStatus::EMS_Running:
-			{
-				if(bShiftKeyDown)
-				{
-					SetMovementStatus(EMovementStatus::EMS_Sprinting);
-					bCouldWeDrainStamina = true;
-					
-				}
-				else if (bIsCtrlPressed)
-				
-				{
-					SetMovementStatus(EMovementStatus::EMS_Crouching);
-					bCouldWeDrainStamina = false;
-				}
-				else if (bIsAltPressed)
-				{
-					SetMovementStatus(EMovementStatus::EMS_Walking);
-					bCouldWeDrainStamina = false;
-				}
-			}
-		break;
-		case EMovementStatus::EMS_Sprinting:
-			{
-				if(bCouldWeDrainStamina)
-				{
-					StaminaStatusUpdating(DeltaValue);
-				}
-				else
-				{
-					SetMovementStatus(EMovementStatus::EMS_Running);
-				}
-			}
-		break;
-		case EMovementStatus::EMS_Crouching:
-			{
-				bCouldWeDrainStamina = false;
-			}
-		break;
-		case EMovementStatus::EMS_Walking:
-			{
-				bCouldWeDrainStamina = false;
-			}
-		break;
-
-		default:
-		break;
-	}
-	
-}
-
-//TODO:implementation of crouching and walking
 void ARPGLessonCharacter::AltUp()
 {
 	bIsAltPressed = false;
@@ -468,25 +519,25 @@ void ARPGLessonCharacter::AltDown()
 {
 	bIsAltPressed = true;
 	
+	
 }
 
 void ARPGLessonCharacter::CtrlUp()
 {
 	bIsCtrlPressed = false;
+	
 }
 
 void ARPGLessonCharacter::CtrlDown()
 {
 	bIsCtrlPressed = true;
+	
 }
 
-// Toggles shift variable 
 void ARPGLessonCharacter::ShiftKeyDown()
 {
-	
 	bShiftKeyDown = true;
 	
-	// UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed down!"))
 }
 
 void ARPGLessonCharacter::ShiftKeyUp()
@@ -494,5 +545,4 @@ void ARPGLessonCharacter::ShiftKeyUp()
 	
 	bShiftKeyDown = false;
 	
-	// UE_LOG(LogTemp,Warning,TEXT("Shift Key pressed up!"))
 }

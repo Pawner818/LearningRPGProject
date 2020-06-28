@@ -27,7 +27,7 @@ enum class EMovementStatus : uint8
 
 // Enum of the Stamina Status. Used in Animation_BP of the Character.
 UENUM(BlueprintType)
-enum class EStaminaStatus:uint8
+enum class EStaminaStatus : uint8
 {
 	ESS_Normal UMETA(DisplayName = "Normal"),
 	ESS_BelowMinimum UMETA(DisplayName = "BelowMinimum"),
@@ -63,7 +63,7 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Enums")
 	EStaminaStatus StaminaStatus;
 	
-	FORCEINLINE void SetStaminaStatus (EStaminaStatus Status){Status = StaminaStatus;};
+	void SetStaminaStatus (EStaminaStatus Status);
 
 	UFUNCTION(BlueprintCallable,Category="Movement | Stamina")
 	void StaminaStatusUpdating(float DeltaValue); 
