@@ -75,6 +75,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	
 	StaminaDrainRate = 100.f;
 	MinSprintStamina = 50.f;
+	bCouldWeDrainStamina = false;
 
 	CrouchingSpeed = 150.f;
 	WalkingSpeed = 300.f;
@@ -105,9 +106,9 @@ void ARPGLessonCharacter::ShowPickupLocation()
 	}
 }
 
-void ARPGLessonCharacter::ChangeStaminaStatus(float Value)
+void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 {
-	float DeltaStamina = StaminaDrainRate * Value;
+	float DeltaStamina = StaminaDrainRate * DeltaValue;
 	
 	switch (StaminaStatus)
 	{
@@ -274,7 +275,9 @@ void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 
-	ChangeStaminaStatus(DeltaSeconds);
+	StaminaStatusUpdating(DeltaSeconds);
+
+	MovementStatusUpdating(DeltaSeconds);
 	
 }
 
@@ -397,6 +400,63 @@ void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 	}
 }
 
+void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
+{
+
+	DeltaValue = GetWorld()->GetDeltaSeconds();
+	
+	switch(MovementStatus)
+	{
+		case EMovementStatus::EMS_Running:
+			{
+				if(bShiftKeyDown)
+				{
+					SetMovementStatus(EMovementStatus::EMS_Sprinting);
+					bCouldWeDrainStamina = true;
+					
+				}
+				else if (bIsCtrlPressed)
+				
+				{
+					SetMovementStatus(EMovementStatus::EMS_Crouching);
+					bCouldWeDrainStamina = false;
+				}
+				else if (bIsAltPressed)
+				{
+					SetMovementStatus(EMovementStatus::EMS_Walking);
+					bCouldWeDrainStamina = false;
+				}
+			}
+		break;
+		case EMovementStatus::EMS_Sprinting:
+			{
+				if(bCouldWeDrainStamina)
+				{
+					StaminaStatusUpdating(DeltaValue);
+				}
+				else
+				{
+					SetMovementStatus(EMovementStatus::EMS_Running);
+				}
+			}
+		break;
+		case EMovementStatus::EMS_Crouching:
+			{
+				bCouldWeDrainStamina = false;
+			}
+		break;
+		case EMovementStatus::EMS_Walking:
+			{
+				bCouldWeDrainStamina = false;
+			}
+		break;
+
+		default:
+		break;
+	}
+	
+}
+
 //TODO:implementation of crouching and walking
 void ARPGLessonCharacter::AltUp()
 {
@@ -413,13 +473,11 @@ void ARPGLessonCharacter::AltDown()
 void ARPGLessonCharacter::CtrlUp()
 {
 	bIsCtrlPressed = false;
-	SetMovementStatus(EMovementStatus::EMS_Running);
 }
 
 void ARPGLessonCharacter::CtrlDown()
 {
 	bIsCtrlPressed = true;
-	SetMovementStatus(EMovementStatus::EMS_Crouching);
 }
 
 // Toggles shift variable 

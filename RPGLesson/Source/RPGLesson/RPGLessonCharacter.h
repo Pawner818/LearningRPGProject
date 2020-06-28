@@ -65,13 +65,16 @@ public:
 	
 	FORCEINLINE void SetStaminaStatus (EStaminaStatus Status){Status = StaminaStatus;};
 
-	void ChangeStaminaStatus(float Value); 
-
+	UFUNCTION(BlueprintCallable,Category="Movement | Stamina")
+	void StaminaStatusUpdating(float DeltaValue); 
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
 	float StaminaDrainRate;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
+	bool  bCouldWeDrainStamina;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
 	float MinSprintStamina;
 
 	/*************************************************************************
@@ -87,6 +90,10 @@ public:
 	// Set movement status and running speed.
 	UFUNCTION(BlueprintCallable,Category="Enums")
 	void SetMovementStatus(EMovementStatus Status);
+
+	
+    UFUNCTION(BlueprintCallable,Category="Movement")
+	void MovementStatusUpdating(float DeltaValue);
 
 	// 150.f
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")

@@ -41,4 +41,6 @@ public:
     UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement")
 	class ARPGLessonCharacter*Character;
 
+	
+
 };
