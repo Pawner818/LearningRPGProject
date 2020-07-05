@@ -25,14 +25,13 @@ enum class EMovementStatus : uint8
 	EMS_MAX UMETA(DisplayName = "DefaultMAX")
 };
 
-// Enum of the Stamina Status. Used in Animation_BP of the Character.
+// Enum of the CurrentStamina Status. Used in Animation_BP of the Character.
 UENUM(BlueprintType)
 enum class EStaminaStatus : uint8
 {
 	ESS_Normal UMETA(DisplayName = "Normal"),
 	ESS_BelowMinimum UMETA(DisplayName = "BelowMinimum"),
-	ESS_Exhausted UMETA(DisplayName = "Exhausted"),
-	ESS_ExhaustedRecovering UMETA(DisplayName = "ExhaustedRecovering"),
+	ESS_Recovering UMETA(DisplayName = "Recovering"),
 
 	ESS_MAX UMETA(DisplayName = "DefaultMAX")
 };
@@ -56,7 +55,7 @@ public:
 	
 	/***********************************************************************************
 	 *
-	 * Stamina
+	 * CurrentStamina
 	 * 
 	 **********************************************************************************/
 	
@@ -65,17 +64,17 @@ public:
 	
 	void SetStaminaStatus (EStaminaStatus Status);
 
-	UFUNCTION(BlueprintCallable,Category="Movement | Stamina")
+	UFUNCTION(BlueprintCallable,Category="Movement | CurrentStamina")
 	void StaminaStatusUpdating(float DeltaValue); 
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | CurrentStamina")
 	float StaminaDrainRate;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | CurrentStamina")
 	bool  bCouldWeDrainStamina;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | Stamina")
-	float MinSprintStamina;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Movement | CurrentStamina")
+	float StaminaExhausted;
 
 	/*************************************************************************
 	 *
@@ -117,6 +116,8 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Movement | Booleans")
 	bool bShiftKeyDown;
 
+
+	// Key-toggles
     void AltUp();
 	void AltDown();
 
@@ -125,7 +126,6 @@ public:
 
 
 	void ShiftKeyDown();
-
 	void ShiftKeyUp();
 
     
@@ -220,9 +220,12 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Player Stats")
 	float MaxStamina;
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Player Stats")
+	float MinStamina;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Player Stats")
-	float Stamina;
+	float CurrentStamina;
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite,Category="Player Stats")
 	int32 Coins;
