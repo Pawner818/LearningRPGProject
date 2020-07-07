@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "RPGLessonCharacter.h"
-
+#include "Math/UnrealMathUtility.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -174,6 +174,7 @@ void ARPGLessonCharacter::Tick(float DeltaSeconds)
 
 	MovementStatusUpdating(DeltaSeconds);
 
+	StaminaStatusUpdating(DeltaSeconds);
 }
 
 void ARPGLessonCharacter::OnResetVR()
@@ -293,52 +294,61 @@ void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 	}
 }
 
+// Updating movement status updated every frame
 void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 {
-
 	DeltaValue = GetWorld()->GetDeltaSeconds();
 
+	// Switching moving status according to the currently clicked buttons - Shift-Sprint, Ctrl-Walk, Alt-Crouch
 	switch(MovementStatus)
 	{
-		// 
+		/* 
+		* Movement Status : Running (Default)
+		*/
+	
+		// By default we are in this status. When we press WASD, we are able to run. Also, this is a toggle to
+		// other movement statuses.
+		
 		case EMovementStatus::EMS_Running: 
 			{
-				bCouldWeDrainStamina = false;
 				UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE"));
-					if(bShiftKeyDown)
+				
+					if(bShiftKeyDown && StaminaStatus!=EStaminaStatus::ESS_Recovering)
 					{
 						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE SHIFT KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Sprinting);
 					}
 				    
-
-				    
 					if(bIsCtrlPressed)
 					{
+						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE CTRL KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Crouching);
 					}
 					
 					if (bIsAltPressed)
 					{
+						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE ALT KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Walking);
 					}	
 			}
 			
 		break;
 
-		///////////////////////////////////////////////////////////////////////////////
+		/* 
+		* Movement Status : Sprinting
+		*/
 
 		case EMovementStatus::EMS_Sprinting:
 			{
 				UE_LOG(LogTemp, Warning, TEXT("EMS SPRINTING CASE"));
-				bCouldWeDrainStamina = true;
-				if(bCouldWeDrainStamina)
-				{
-					StaminaStatusUpdating(DeltaValue);
-				}
-				else SetMovementStatus(EMovementStatus::EMS_Running);
+				bCouldWeDrainStamina=true;
 			}
 		break;
+
+		/* 
+		* Movement Status : Crouching
+		*/
+		
 		case EMovementStatus::EMS_Crouching:
 			{
 				UE_LOG(LogTemp, Warning, TEXT("EMS CROUCHING CASE"));
@@ -353,6 +363,11 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 				
 			}
 		break;
+		
+		/* 
+		* Movement Status : Walking
+		*/
+		
 		case EMovementStatus::EMS_Walking:
 			{
 				UE_LOG(LogTemp, Warning, TEXT("EMS WALKING CASE"));
@@ -364,7 +379,6 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 				{
 					SetMovementStatus(EMovementStatus::EMS_Running);
 				}
-				
 			}
 		break;
 
@@ -393,34 +407,49 @@ void ARPGLessonCharacter::SetStaminaStatus(EStaminaStatus Status)
 void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 {
 	float DeltaStamina = StaminaDrainRate * DeltaValue;
+
+	/*
+	 * When we are in the normal state (not moving), we have two options.
+	 * The first allows you to switch to a different movement status (sprint) and start using mana when we press the shift key.
+	 * If we do not press the key, we go into Recovery mode and wait until the stamina indicator is complete.
+	 * 
+	 * There is also a status when the stamina indicator changes its color to green - BelowMin status.
+	 * It occurs when the stamina indicator drops less the StaminaExhausted value (by def. it's 50.f)	
+	 */
 	
 	switch (StaminaStatus)
 	{
+
+	/* 
+	 * Stamina Status : NORMAL
+	*/
+		
 	case EStaminaStatus::ESS_Normal:
 		
 		if(bShiftKeyDown)
+		
 		{
 			if(CurrentStamina>=StaminaExhausted)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD IF"));  /// 1 drain stamina
+				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD IF"));  
 				CurrentStamina-=DeltaStamina;
 			}
 			else
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD ELSE")); // 2 togle to belowmin x1
+				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD ELSE")); 
 				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
 			}
 		}
-		else //shift key up
+		else //SKUP
 		{
 			if(CurrentStamina<MaxStamina)
 			{
 				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP IF"));
-				if(CurrentStamina<MaxStamina)
+				if(CurrentStamina<MaxStamina && CurrentStamina>=StaminaExhausted)
 				{
 					SetStaminaStatus(EStaminaStatus::ESS_Recovering);
 				}
-				// CurrentStamina+=DeltaStamina;
+				
 			}
 			else
 			{
@@ -432,74 +461,75 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		}
 		
 	break;
-////////////////////////////////////////////////////////////////////////////////////////
+		
+	/* 
+	* Stamina Status : BelowMinimum
+	*/
+		
 	case EStaminaStatus::ESS_BelowMinimum:
-
 		
 		if(bShiftKeyDown)
 		{
+			
 			if(CurrentStamina > MinStamina && CurrentStamina <= StaminaExhausted) 
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD IF")); // 3 
+				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD IF")); // 3
 				CurrentStamina-=DeltaStamina;
 			}
 			else 
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD CURRENTSTAMINA == MINSTAMINA")); // 4 NO STAMINA 
+			
+				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD CURRENTSTAMINA == MINSTAMINA")); 
 				SetStaminaStatus(EStaminaStatus::ESS_Recovering);
 			}
-			// if(CurrentStamina>MinStamina &&CurrentStamina>StaminaExhausted)
-			// {
-			// 	SetStaminaStatus(EStaminaStatus::ESS_Normal);
-			// }
+			
 		}
 		else // SKUP
 		{
-			if(CurrentStamina<StaminaExhausted)
+			
+			if(CurrentStamina>MinStamina && CurrentStamina<=StaminaExhausted)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKUP IF")); 
 				SetStaminaStatus(EStaminaStatus::ESS_Recovering);
-			}
-			else
-			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKUP ELSE"));
-				SetStaminaStatus(EStaminaStatus::ESS_Normal);
 			}
 		}
 	break;
 
-////////////////////////////////////////////////////////////////////////////////////////
-case EStaminaStatus::ESS_Recovering:
-		SetMovementStatus(EMovementStatus::EMS_Running);
-		UE_LOG(LogTemp,Warning,TEXT("ESS_RECOVERING, NO STATE")); //5 
-		// CurrentStamina+=DeltaStamina;
-		if(CurrentStamina==MaxStamina)
+	/* 
+	* Stamina Status : Recovering
+	*/
+		
+    case EStaminaStatus::ESS_Recovering:
+		UE_LOG(LogTemp,Warning,TEXT("RECOVERING ENTRY"));
+		if(bShiftKeyDown)
 		{
-			UE_LOG(LogTemp,Warning,TEXT("ESS_RECOVERING, IF"));
-			CurrentStamina+=DeltaStamina;
-			SetStaminaStatus(EStaminaStatus::ESS_Normal);
-		}
-		else
-		{
-			if(CurrentStamina>=MinStamina&&CurrentStamina<StaminaExhausted)
+			if(CurrentStamina<MaxStamina)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_RECOVERING, ELSE IF"));
+				UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF IF"));
 				CurrentStamina+=DeltaStamina;
-				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
 			}
 			else
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_RECOVERING, ELSE ELSE")); // 6
-				CurrentStamina+=DeltaStamina;
+				UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF ELSE"));
+				SetStaminaStatus(EStaminaStatus::ESS_Normal);
+				
 			}
-			SetStaminaStatus(EStaminaStatus::ESS_Normal);
 		}
 		
+		else //SKUP
+		{
+			CurrentStamina+=DeltaStamina;
+			if(CurrentStamina>=MaxStamina)
+			{
+				CurrentStamina=MaxStamina;
+				SetStaminaStatus(EStaminaStatus::ESS_Normal);
+			}
+		}
+		SetMovementStatus(EMovementStatus::EMS_Running);
 		
 break;
 
 	case EStaminaStatus::ESS_MAX: break;
-		default: ;
+		default: break;
 	}
 }
 
