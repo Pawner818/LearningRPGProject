@@ -1,2 +1,9 @@
-# LearningRPGProject UE4 v.4.25.1
-This project will focus on 3D-Person Character setup and RPG gameplay features: advanced animation/movement component, interacting with objects, simple AI enemies, regular UMG in RPG style and so on. 
+# LearningRPGProject UE4 (version 4.25.1)
+This project will focus on 3D-Person Character setup and RPG gameplay features:
+
+1) Advanced animation/movement;
+2) Interacions with objects: items that can be picked up or cause damage- weapons, coins, health poition, bombs ... 
+3) AI enemies: customizable spawn-volume, taking damage from the enemy, navigation system.
+4) Regular UMG in RPG style 
+
+This file will be updated according to the current progress. 
