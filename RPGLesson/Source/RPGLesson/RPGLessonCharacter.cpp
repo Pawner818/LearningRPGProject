@@ -12,6 +12,8 @@
 #include "Engine/EngineTypes.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Animation/AnimInstance.h" 
 
 
 
@@ -57,15 +59,6 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	
-
-    TraceDistance = 100.f; // How far we can reach (used in LineTrace function)
-    bHit = false;
-
-	/* TODO: find out why we can't use skeletal mesh to generate overlap event's */
-	// Mesh->OnComponentBeginOverlap.AddDynamic(this, &ARPGLessonCharacter::OnOverlapBegin);
-	// Mesh->OnComponentEndOverlap.AddDynamic(this, &ARPGLessonCharacter::OnOverlapEnd);
-    
 	// Default values for the player stats 
     MaxHealth = 100.f;
 	Health = 100.f;
@@ -92,12 +85,9 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	MovementStatus = EMovementStatus::EMS_Running;
 	StaminaStatus = EStaminaStatus::ESS_Normal;
 
-	
-
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
-
 
 // debug sphere, when we pickup coins , press "T" to see the location 
 void ARPGLessonCharacter::ShowPickupLocation()
@@ -108,15 +98,9 @@ void ARPGLessonCharacter::ShowPickupLocation()
 	}
 }
 
-
-
-
-//////////////////////////////////////////////////////////////////////////
-// Input
-
 void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
-	// Set up gameplay key bindings
+	// Keyboard input
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
@@ -147,26 +131,62 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGLessonCharacter::OnResetVR);
-}
 
-void ARPGLessonCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	UE_LOG(LogTemp, Error, TEXT("Overlap event begin!"));
-}
+	// Mouse input
+	PlayerInputComponent->BindAction("LMB", IE_Pressed,this,&ARPGLessonCharacter::LMBPressed);
+	PlayerInputComponent->BindAction("LMB", IE_Released,this,&ARPGLessonCharacter::LMBReleased);
 
-void ARPGLessonCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-                                       UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	UE_LOG(LogTemp, Error, TEXT("Overlap event end!"));
+	PlayerInputComponent->BindAction("RMB", IE_Pressed,this,&ARPGLessonCharacter::RMBPressed);
+	PlayerInputComponent->BindAction("RMB", IE_Released,this,&ARPGLessonCharacter::RMBReleased);
 }
-
 
 void ARPGLessonCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
+
+void ARPGLessonCharacter::Attack()
+{
+	if(!bAttacking)
+	{
+		bAttacking = true;
+		UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
+		if(AnimInstance && CombatMontage)
+		{
+
+			int32 MontageSection = FMath::RandRange(0,3);
+			switch (MontageSection)
+			{
+				case 0:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_1"), CombatMontage);
+				break;
+				
+				case 1:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_2"), CombatMontage);
+				break;
+				
+				case 2:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_3"), CombatMontage);
+				break;
+				
+				case 3:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_4"), CombatMontage);
+				break;
+				
+				default:
+				break;
+			}
+			
+		}
+	}
+	
+}
+
+
 
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
@@ -206,7 +226,7 @@ void ARPGLessonCharacter::LookUpAtRate(float Rate)
 
 void ARPGLessonCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f))
+	if ((Controller != NULL) && (Value != 0.0f) && (!bAttacking))
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -220,7 +240,7 @@ void ARPGLessonCharacter::MoveForward(float Value)
 
 void ARPGLessonCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ( (Controller != NULL) && (Value != 0.0f) && (!bAttacking) )
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -311,23 +331,23 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 		
 		case EMovementStatus::EMS_Running: 
 			{
-				UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE"));
+				// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE"));
 				
 					if(bShiftKeyDown && StaminaStatus!=EStaminaStatus::ESS_Recovering)
 					{
-						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE SHIFT KEY DOWN"));
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE SHIFT KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Sprinting);
 					}
 				    
 					if(bIsCtrlPressed)
 					{
-						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE CTRL KEY DOWN"));
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE CTRL KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Crouching);
 					}
 					
 					if (bIsAltPressed)
 					{
-						UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE ALT KEY DOWN"));
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE ALT KEY DOWN"));
 						SetMovementStatus(EMovementStatus::EMS_Walking);
 					}	
 			}
@@ -340,7 +360,7 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 
 		case EMovementStatus::EMS_Sprinting:
 			{
-				UE_LOG(LogTemp, Warning, TEXT("EMS SPRINTING CASE"));
+				// UE_LOG(LogTemp, Warning, TEXT("EMS SPRINTING CASE"));
 				bCouldWeDrainStamina=true;
 			}
 		break;
@@ -351,7 +371,7 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 		
 		case EMovementStatus::EMS_Crouching:
 			{
-				UE_LOG(LogTemp, Warning, TEXT("EMS CROUCHING CASE"));
+				// UE_LOG(LogTemp, Warning, TEXT("EMS CROUCHING CASE"));
 				if(bIsCtrlPressed)
 				{
 					SetMovementStatus(EMovementStatus::EMS_Crouching);
@@ -370,7 +390,7 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 		
 		case EMovementStatus::EMS_Walking:
 			{
-				UE_LOG(LogTemp, Warning, TEXT("EMS WALKING CASE"));
+				// UE_LOG(LogTemp, Warning, TEXT("EMS WALKING CASE"));
 				if(bIsAltPressed)
 				{
 					SetMovementStatus(EMovementStatus::EMS_Walking);
@@ -431,12 +451,12 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		{
 			if(CurrentStamina>=StaminaExhausted)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD IF"));  
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD IF"));  
 				CurrentStamina-=DeltaStamina;
 			}
 			else
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD ELSE")); 
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD ELSE")); 
 				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
 			}
 		}
@@ -444,7 +464,7 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		{
 			if(CurrentStamina<MaxStamina)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP IF"));
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP IF"));
 				if(CurrentStamina<MaxStamina && CurrentStamina>=StaminaExhausted)
 				{
 					SetStaminaStatus(EStaminaStatus::ESS_Recovering);
@@ -453,11 +473,9 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 			}
 			else
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP ELSE"));
-				CurrentStamina=MaxStamina;
-				                     
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP ELSE"));
+				CurrentStamina=MaxStamina;                 
 			}
-			
 		}
 		
 	break;
@@ -470,19 +488,17 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		
 		if(bShiftKeyDown)
 		{
-			
 			if(CurrentStamina > MinStamina && CurrentStamina <= StaminaExhausted) 
 			{
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD IF")); // 3
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD IF"));
 				CurrentStamina-=DeltaStamina;
 			}
 			else 
 			{
 			
-				UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD CURRENTSTAMINA == MINSTAMINA")); 
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD CURRENTSTAMINA == MINSTAMINA")); 
 				SetStaminaStatus(EStaminaStatus::ESS_Recovering);
 			}
-			
 		}
 		else // SKUP
 		{
@@ -499,19 +515,18 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 	*/
 		
     case EStaminaStatus::ESS_Recovering:
-		UE_LOG(LogTemp,Warning,TEXT("RECOVERING ENTRY"));
+		// UE_LOG(LogTemp,Warning,TEXT("RECOVERING ENTRY"));
 		if(bShiftKeyDown)
 		{
 			if(CurrentStamina<MaxStamina)
 			{
-				UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF IF"));
+				// UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF IF"));
 				CurrentStamina+=DeltaStamina;
 			}
 			else
 			{
-				UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF ELSE"));
+				// UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF ELSE"));
 				SetStaminaStatus(EStaminaStatus::ESS_Normal);
-				
 			}
 		}
 		
@@ -566,7 +581,31 @@ void ARPGLessonCharacter::ShiftKeyDown()
 
 void ARPGLessonCharacter::ShiftKeyUp()
 {
-	
 	bShiftKeyDown = false;
-	
+}
+
+void ARPGLessonCharacter::LMBPressed()
+{
+	bIsLMBPressed = true;
+	Attack();
+}
+
+void ARPGLessonCharacter::LMBReleased()
+{
+	bIsLMBPressed = false;
+}
+
+void ARPGLessonCharacter::RMBPressed()
+{
+	bIsRMBPressed = true;
+}
+
+void ARPGLessonCharacter::RMBReleased()
+{
+	bIsRMBPressed = false;
+}
+
+void ARPGLessonCharacter::AttackEnd()
+{
+	bAttacking = false;
 }

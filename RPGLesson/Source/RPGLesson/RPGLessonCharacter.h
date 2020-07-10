@@ -116,19 +116,37 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Movement | Booleans")
 	bool bShiftKeyDown;
 
+	
 
-	// Key-toggles
+	/*************************************************************************
+	*
+	* Input
+	*
+	**************************************************************************/
+
+	// Keyboard buttons
     void AltUp();
 	void AltDown();
 
 	void CtrlUp();
 	void CtrlDown();
 
-
 	void ShiftKeyDown();
 	void ShiftKeyUp();
 
-    
+
+	// Mouse buttons 
+	void LMBPressed();
+	void LMBReleased();
+	void RMBPressed();
+	void RMBReleased();
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Input | Booleans")
+    bool bIsLMBPressed;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Input | Booleans")
+    bool bIsRMBPressed;
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -192,26 +210,6 @@ protected:
 	
 public:
 	
-	
-	////////************************************************************************
-	///
-	/// Interacting with the World, using debug line as a indicator when we hit something, overlapping delegate functions 
-	///
-	///////************************************************************************
-
-	// Sensible value, which shows how far we can interact with smth. By default it's 100.f;
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Interaction")
-    float TraceDistance;
-
-	//Storing result from the LineTrace function. 
-	bool bHit;
-
-	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
-	
-	void OnOverlapEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-
-
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Player Stats")
     float MaxHealth;
 	
@@ -243,6 +241,23 @@ public:
 	void IncrementCoins (int32 CoinsAmount);
 
 	void Death();
+
+	/**********************************************************************************
+	///
+	/// Combat
+	///
+	**********************************************************************************/
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
+	bool bAttacking;
+
+	void Attack();
+
+	UFUNCTION(BlueprintCallable)
+	void AttackEnd();
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
+	class UAnimMontage*CombatMontage;
 	
 private:
 
