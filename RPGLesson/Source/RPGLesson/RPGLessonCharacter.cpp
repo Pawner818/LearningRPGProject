@@ -226,7 +226,7 @@ void ARPGLessonCharacter::LookUpAtRate(float Rate)
 
 void ARPGLessonCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f) && (!bAttacking))
+	if ((Controller != NULL) && (Value != 0.0f) )
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -240,7 +240,7 @@ void ARPGLessonCharacter::MoveForward(float Value)
 
 void ARPGLessonCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) && (!bAttacking) )
+	if ( (Controller != NULL) && (Value != 0.0f)  )
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();

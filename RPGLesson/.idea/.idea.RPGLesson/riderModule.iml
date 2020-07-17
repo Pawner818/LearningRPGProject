@@ -145,7 +145,9 @@
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Lumin/MagicLeapSharedFile" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Lumin/MagicLeapTablet" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Marketplace/AutoSettings" />
+    <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Marketplace/Restart" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Marketplace/SurfaceFootstepSystem" />
+    <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Marketplace/UINavigation" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Marketplace/VaFogOfWar" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Media/AjaMedia" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Media/AndroidCamera" />
@@ -255,9 +257,9 @@
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/MicrosoftSpatialAudio" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/MixedRealityCaptureFramework" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/MobilePatchingUtils" />
-    <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/Nvidia/Ansel" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/NetworkPrediction" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/NetworkPredictionExtras" />
+    <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/Nvidia/Ansel" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/OSC" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/Oculus/OculusAudio" />
     <content url="file://$MODULE_DIR$/../../../../../../Epic Games/UE_4.25/Engine/Plugins/Runtime/Oculus/OculusAvatar" />
