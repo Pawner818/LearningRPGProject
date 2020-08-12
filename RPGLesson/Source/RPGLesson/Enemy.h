@@ -2,15 +2,18 @@
 
 #pragma once
 
+
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Enemy.generated.h"
+
 
 
 UENUM(BlueprintType)
 enum class EEnemyMovementStatus : uint8
 {
 	EMS_Idle UMETA(DisplayName = "Idle"),
+	EMS_DetectCharacter UMETA(DisplayName = "DetectCharacter"),
     EMS_MoveToTarget UMETA(DisplayName = "MoveToTarget"),
 	EMS_Attacking UMETA(DisplayName = "Attacking"),
 
@@ -65,4 +68,10 @@ public:
      virtual void CombatSphereOnOverlapEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
      void MoveToTarget(class ARPGLessonCharacter* Character);
+
+	bool bCharacterInTarget;
+
+	void  DetectCharacter();
+
+	void  LostCharacter();
 };

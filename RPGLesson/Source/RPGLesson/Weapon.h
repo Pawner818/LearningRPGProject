@@ -6,9 +6,7 @@
 #include "Item.h"
 #include "Weapon.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class RPGLESSON_API AWeapon : public AItem
 {

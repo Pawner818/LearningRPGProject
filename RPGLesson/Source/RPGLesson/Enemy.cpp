@@ -16,13 +16,16 @@ AEnemy::AEnemy()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	AgroSphere = CreateDefaultSubobject<USphereComponent>(FName("AgroSphere"));
+	AgroSphere = CreateDefaultSubobject<USphereComponent>(TEXT("AgroSphere"));
 	AgroSphere ->SetupAttachment(GetRootComponent());
 	AgroSphere->InitSphereRadius(600.f);
 
-	CombatSphere = CreateDefaultSubobject<USphereComponent>(FName("CombatSphere"));
+	CombatSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CombatSphere"));
 	CombatSphere ->SetupAttachment(GetRootComponent());
 	CombatSphere->InitSphereRadius(80.f);
+
+	bCharacterInTarget = false; // Is an enemy "see" and ready to attack our character (changes to "true" if we reach the necessary agro distance) 
+	
 }
 
 void AEnemy::SetEnemyMovementStatus(EEnemyMovementStatus Status)
@@ -31,6 +34,9 @@ void AEnemy::SetEnemyMovementStatus(EEnemyMovementStatus Status)
 	switch (EnemyMovementStatus)
 	{
 		case EEnemyMovementStatus::EMS_Idle:
+		break;
+
+		case EEnemyMovementStatus::EMS_DetectCharacter:
 		break;
 		
 	    case EEnemyMovementStatus::EMS_MoveToTarget:
@@ -56,9 +62,6 @@ void AEnemy::BeginPlay()
 
 	AgroSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::AgroSphereOnOverlapEnd);
 	CombatSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::CombatSphereOnOverlapEnd);
-
-	
-	
 }
 
 // Called every frame
@@ -72,7 +75,6 @@ void AEnemy::Tick(float DeltaTime)
 void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
 }
 
 void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -83,6 +85,7 @@ void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, 
 		ARPGLessonCharacter*Character=Cast<ARPGLessonCharacter>(OtherActor);
 		if(Character)
 		{
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_DetectCharacter);
 			MoveToTarget(Character);
 		}
 	}
@@ -96,6 +99,15 @@ void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AA
 void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	if(OtherActor)
+	{
+		ARPGLessonCharacter*Character = Cast<ARPGLessonCharacter>(OtherActor);
+		if(Character)
+		{
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
+		}
+		
+	}
 }
 
 void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -112,7 +124,7 @@ void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
 		/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
 		FAIMoveRequest MoveRequest;
 		MoveRequest.SetGoalActor(Character);
-		MoveRequest.SetAcceptanceRadius(35.0f);
+		MoveRequest.SetAcceptanceRadius(10.0f);
 
 		FNavPathSharedPtr NavigationPath;
 
@@ -120,13 +132,26 @@ void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
 
 		// // Draw debug sphere which shows the shortest path from Enemy to the main Character
 		//
-		// auto PathPoints = NavigationPath ->GetPathPoints();
+		// /*auto PathPoints = NavigationPath ->GetPathPoints();
 		// for (auto Point : PathPoints)
 		// {
-		// 	FVector Location = Point.Location;
+		// FVector Location = Point.Location;
 		// 	UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
-		// 		8,FLinearColor::Blue,10.f,1.5f);
-		// }
+		//  		8,FLinearColor::Blue,10.f,1.5f);
+		// };*/
 	}
+}
+
+// Toggles to control the Enemies reaction to the Character (depends on how far we are from the enemy)
+void AEnemy::DetectCharacter()
+{
+	bCharacterInTarget = true;
+	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_DetectCharacter);
+}
+
+void AEnemy::LostCharacter()
+{
+	bCharacterInTarget = false;
+	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
 }
 

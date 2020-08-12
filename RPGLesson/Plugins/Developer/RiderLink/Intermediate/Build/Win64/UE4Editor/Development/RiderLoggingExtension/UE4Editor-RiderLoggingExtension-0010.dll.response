@@ -1,5 +1,5 @@
 /MANIFEST:EMBED
-/MANIFESTINPUT:"F:\Epic Games\UE_4.25\Engine\Build\Windows\Resources\Default-Win64.manifest"
+/MANIFESTINPUT:F:\Games\UE_4.25\Engine\Build\Windows\Resources\Default-Win64.manifest
 /NOLOGO
 /DEBUG
 /errorReport:prompt
@@ -18,10 +18,10 @@
 /ignore:4099
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
-/LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64"
-/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\lib\um\x64"
-/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.17763.0\ucrt\x64"
-/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.17763.0\um\x64"
+/LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\ucrt\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
 /NODEFAULTLIB:"LIBCPMT"
 /NODEFAULTLIB:"LIBCMTD"
@@ -63,7 +63,7 @@
 "F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\libs\Win\x64\Release\rd_framework_cpp.lib"
 "F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\libs\Win\x64\Release\clsocket.lib"
 "F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\libs\Win\x64\Release\rd_core_cpp.lib"
-"F:\Epic Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
+"F:\Games\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
 "F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderLink\UE4Editor-RiderLink-0010.lib"
 /OUT:"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Binaries\Win64\UE4Editor-RiderLoggingExtension-0010.dll"
 /IMPLIB:"F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderLoggingExtension\UE4Editor-RiderLoggingExtension-0010.suppressed.lib"

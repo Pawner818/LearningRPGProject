@@ -90,7 +90,6 @@ public:
 	UFUNCTION(BlueprintCallable,Category="Enums")
 	void SetMovementStatus(EMovementStatus Status);
 
-	
     UFUNCTION(BlueprintCallable,Category="Movement")
 	void MovementStatusUpdating(float DeltaValue);
 
@@ -117,7 +116,6 @@ public:
 	bool bShiftKeyDown;
 
 	
-
 	/*************************************************************************
 	*
 	* Input
@@ -133,7 +131,6 @@ public:
 
 	void ShiftKeyDown();
 	void ShiftKeyUp();
-
 
 	// Mouse buttons 
 	void LMBPressed();

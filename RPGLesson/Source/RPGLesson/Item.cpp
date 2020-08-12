@@ -16,13 +16,13 @@ AItem::AItem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	
-    CollisionVolume=CreateDefaultSubobject<USphereComponent>(FName("CollisionVolume"));
+    CollisionVolume=CreateDefaultSubobject<USphereComponent>(TEXT("CollisionVolume"));
 	RootComponent=CollisionVolume;
 
 	CollisionVolume->OnComponentBeginOverlap.AddDynamic(this, &AItem::OnOverlapBegin);
 	CollisionVolume->OnComponentEndOverlap.AddDynamic(this, &AItem::OnOverlapEnd);
 
-	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(FName("Mesh"));
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(GetRootComponent());
 
 	IdleParticleSystemComponent=CreateDefaultSubobject<UParticleSystemComponent>(FName("IdleParticleSystemComponent"));

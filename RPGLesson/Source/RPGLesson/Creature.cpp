@@ -18,9 +18,9 @@ ACreature::ACreature()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	RootComponent=CreateDefaultSubobject<USceneComponent>(FName("RootComponent"));
+	RootComponent=CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
 	
-	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(FName("StaticMeshComponent"));
+	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("StaticMeshComponent"));
 	SkeletalMeshComponent->SetupAttachment(GetRootComponent());
 
 	SkeletalMeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -28,12 +28,12 @@ ACreature::ACreature()
 	SkeletalMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	SkeletalMeshComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 
-	SpringArm = CreateDefaultSubobject<USpringArmComponent>(FName("Spring Arm"));
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
 	SpringArm->SetupAttachment(GetRootComponent());
     SpringArm->TargetArmLength = 400.f; // distance between Camera - Mesh
     SpringArm->AddLocalRotation(FRotator(-20.f,0.f,0.f)); 
 	
-    Camera=CreateDefaultSubobject<UCameraComponent>(FName("Camera"));
+    Camera=CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName); // attach camera to the SA Socket
 	Camera->AddRelativeRotation(FRotator(-15.f,0.f,0.f));
 	
@@ -61,8 +61,8 @@ void ACreature::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAxis(FName("MoveForward"),this,&ACreature::MoveForward);
-	PlayerInputComponent->BindAxis(FName("MoveRight"), this,&ACreature::MoveRight);
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"),this,&ACreature::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this,&ACreature::MoveRight);
 }
 
 void ACreature::MoveForward(float Value)

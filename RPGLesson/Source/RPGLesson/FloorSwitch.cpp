@@ -12,7 +12,7 @@ AFloorSwitch::AFloorSwitch()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	TriggerBox = CreateDefaultSubobject<UBoxComponent>(FName("TriggerBox"));
+	TriggerBox = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerBox"));
     RootComponent = TriggerBox; // changing the RootComponent of our Actor
 
 	/* enable the proper type of collision we need */
@@ -25,10 +25,10 @@ AFloorSwitch::AFloorSwitch()
 	TriggerBox->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn,ECollisionResponse::ECR_Overlap);
 
 	
-	FloorTrigger = CreateDefaultSubobject<UStaticMeshComponent>(FName("FloorTrigger"));
+	FloorTrigger = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FloorTrigger"));
 	FloorTrigger->SetupAttachment(GetRootComponent());
 
-	Door = CreateDefaultSubobject<UStaticMeshComponent>(FName("Door"));
+	Door = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Door"));
 	Door->SetupAttachment(GetRootComponent());
 
 	SwitchTime = 2.f; // 2 sec. delay (used in the TimeHandler)

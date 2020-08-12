@@ -10,5 +10,6 @@ public class RPGLesson : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "UMG", "AIModule" });
 		PrivateDependencyModuleNames.AddRange(new string[]{"Slate", "SlateCore"});
+		bEnableUndefinedIdentifierWarnings = false;
 	}
 }

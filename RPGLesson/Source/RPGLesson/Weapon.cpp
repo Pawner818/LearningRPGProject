@@ -6,7 +6,7 @@
 
 AWeapon::AWeapon()
 {
-    SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(FName("SkeletalMEshComponent"));
+    SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMEshComponent"));
     SkeletalMeshComponent->SetupAttachment(GetRootComponent());
 }
 
