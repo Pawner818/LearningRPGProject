@@ -1,4 +1,4 @@
-# LearningRPGProject UE4 (version 4.25.1)
+# LearningRPGProject UE4 (version 4.25.3)
 This project will focus on 3D-Person Character setup and RPG gameplay features:
 
 1) Advanced animation/movement;
