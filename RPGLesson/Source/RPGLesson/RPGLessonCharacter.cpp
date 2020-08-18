@@ -81,7 +81,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	bIsAltPressed = false;
 	bIsCtrlPressed = false;
 
-	// Initialize Enums
+	// Initialize ENUMS
 	MovementStatus = EMovementStatus::EMS_Running;
 	StaminaStatus = EStaminaStatus::ESS_Normal;
 
@@ -292,19 +292,19 @@ void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 	
 	switch (MovementStatus)
 	{
-        //150.f
+        // speed is 150.f
 	    case EMovementStatus::EMS_Crouching:
         GetCharacterMovement()->MaxWalkSpeed = CrouchingSpeed;
 	    break;
-		//300.f
+		// speed is 300.f
 		case EMovementStatus::EMS_Walking:
 		GetCharacterMovement()->MaxWalkSpeed = WalkingSpeed;
 		break;
-        //600.f
+        // speed is 600.f
 		case EMovementStatus::EMS_Running:
 		GetCharacterMovement()->MaxWalkSpeed = RunningSpeed;
 		break;
-        //1200.f
+        // speed is 1200.f
 		case EMovementStatus::EMS_Sprinting:
 		GetCharacterMovement()->MaxWalkSpeed=SprintingSpeed;
 		break;
