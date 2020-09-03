@@ -29,14 +29,12 @@ AEnemy::AEnemy()
 	// INITIALIZING ENUMS 
 	EnemyMovementStatus = EEnemyMovementStatus::EMS_Idle;
 
-    // Initializing BOOLS 
+    // INITIALIZING BOOLS 
 	bCharacterSpottedByEnemy = false; // Is an enemy "see" and ready to attack our character (changes to "true" if we reach the necessary agro distance)
 	bCharInsideAgroSphere = false; // Do we collide with the Enemy Agro sphere? Nope, at least at the beginning
 	bIsAttackingTarget = false; // the Enemy is not attacking us 
 	bCharInsideCombatSphere = false; // Same to the AgroSphere
 	bCanMoveToTarget = false; // The Enemy has to wait some time between Detected and MoveTo states.
-
-	
 
 	// INITIALIZING STATS
 
@@ -51,14 +49,15 @@ void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AIController = Cast<AAIController>(GetController());
-
+	// Initializing overlap spheres
 	AgroSphere -> OnComponentBeginOverlap.AddDynamic(this,&AEnemy::AgroSphereOnOverlapBegin);
 	CombatSphere -> OnComponentBeginOverlap.AddDynamic(this,&AEnemy::CombatSphereOnOverlapBegin);
 
 	AgroSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::AgroSphereOnOverlapEnd);
 	CombatSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::CombatSphereOnOverlapEnd);
 }
+
+// Updating enemy states, called in Tick function. 
 void AEnemy::EnemyStatusUpdating(float DeltaValue)
 {
 	DeltaValue = GetWorld()->GetDeltaSeconds();
@@ -80,7 +79,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 			// the enemy walking around, normal mode
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE ELSE "));
 		}
-		
 		break;
 
         //  case EEnemyMovementStatus::EMS_Walking:
@@ -97,9 +95,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		case EEnemyMovementStatus::EMS_CharacterDetected:
 		UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED "));
 		
-		
-		
-
 		if(bCharInsideAgroSphere && !bCharInsideCombatSphere && bCanMoveToTarget)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED IF"));
@@ -122,14 +117,11 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		}
 		break;
 
-
-
-		
 		case EEnemyMovementStatus::EMS_MoveToTarget:
 		UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET "));
 		StopAttackingTarget(); // bIsAttackingTarget = false;
 
-		// MoveToTarget()
+		// Checking if we inside the Combat / Agro sphere. If so, the status will change to the necessary one. 
 		if(bCharInsideCombatSphere)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET IF"));
@@ -168,7 +160,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE ATTACKING ELSE"));
 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
 		}
-		
 		break;
 
 		default:
@@ -196,13 +187,10 @@ void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, 
 	if(OtherActor)
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		// ARPGLessonCharacter*Character=Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
 			bCharInsideAgroSphere = true;
 			TargetDetected(); // bCharacterSpottedByEnemy = true;
-			
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside THE AGROOVERPALBEGIN FUNCTION"));
 		}
 	}
 }
@@ -213,14 +201,10 @@ void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AA
 	if(OtherActor)
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		// ARPGLessonCharacter*Character=Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
 			bCharInsideAgroSphere = false;
 			TargetLost(); // bCharacterSpottedByEnemy = false;
-			
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside THE AGROOVERPALEND FUNCTION"));
-			
 		}
 	}
 }
@@ -231,12 +215,10 @@ void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent
 	if(OtherActor)
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		// ARPGLessonCharacter*Character=Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
 			bCharInsideCombatSphere = true;
 			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP BEGIN"));
-		
 		}
 	}
 }
@@ -247,7 +229,6 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 	if(OtherActor)
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		// ARPGLessonCharacter*Character=Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
 			bCharInsideCombatSphere = false;
@@ -260,8 +241,7 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 
 void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
 {
-	// SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-	
+	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 	if(AIController)
 	{
 		/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
@@ -289,15 +269,12 @@ void AEnemy::ResetTimer()
 {
 	GetWorld()->GetTimerManager().ClearTimer(DelayTimerBetweenStates);
 	bCanMoveToTarget = true;
-	
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,"Timer Was reset");
+	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,"Timer Was reset"); // debug 
 }
 
 // Toggles to control the Enemies reaction to the Character (depends on how far we are from the enemy)
-
 void AEnemy::TargetDetected()
 {
-	
 	bCharacterSpottedByEnemy = true;
 	GetCharacterMovement()->MaxWalkSpeed = BattleWalkingSpeed;
 }

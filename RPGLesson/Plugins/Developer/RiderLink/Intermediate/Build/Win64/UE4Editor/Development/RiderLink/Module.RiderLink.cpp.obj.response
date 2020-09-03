@@ -41,9 +41,7 @@
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp
-/I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime
-/I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\logger
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\std
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\types
@@ -59,6 +57,7 @@
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\util
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\base
+/I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\mpark
 /I F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\nonstd

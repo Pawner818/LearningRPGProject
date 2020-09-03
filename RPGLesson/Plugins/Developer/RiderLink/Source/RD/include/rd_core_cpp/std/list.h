@@ -1,8 +1,8 @@
 #ifndef RD_CPP_LIST_H
 #define RD_CPP_LIST_H
 
-#include <cstdint>
 #include <vector>
+#include <cstdint>
 
 namespace rd
 {

@@ -3,10 +3,12 @@
 
 #include "lifetime/LifetimeDefinition.h"
 #include "reactive/interfaces.h"
-#include "std/unordered_map.h"
-#include "thirdparty.hpp"
 #include "util/core_util.h"
 #include "viewable_collections.h"
+
+#include "std/unordered_map.h"
+
+#include "thirdparty.hpp"
 
 namespace rd
 {

@@ -1,11 +1,10 @@
 #ifndef RD_CPP_FRAMEWORK_TRAITS_H
 #define RD_CPP_FRAMEWORK_TRAITS_H
 
-// #include "serialization/SerializationCtx.h"
-// #include "protocol/Buffer.h"
+#include "serialization/Polymorphic.h"
 
-#include <type_traits>
 #include <utility>
+#include <type_traits>
 
 namespace rd
 {

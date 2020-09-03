@@ -1,8 +1,8 @@
 #ifndef RD_CPP_WIREDRDTASKIMPL_H
 #define RD_CPP_WIREDRDTASKIMPL_H
 
-#include "RdTaskResult.h"
 #include "serialization/Polymorphic.h"
+#include "RdTaskResult.h"
 
 namespace rd
 {
@@ -44,13 +44,13 @@ public:
 	void on_wire_received(Buffer buffer) const override
 	{
 		auto read_result = RdTaskResult<T, S>::read(cutpoint->get_serialization_context(), buffer);
-		logReceived.trace("call %s %s received response %s : " + to_string(read_result), to_string(cutpoint->location).c_str(),
-			to_string(rdid).c_str(), to_string(rdid).c_str());
+		logReceived->trace("call {} {} received response {} : {}", to_string(cutpoint->location), to_string(rdid), to_string(rdid),
+			to_string(read_result));
 		scheduler->queue([&, result = std::move(read_result)]() mutable {
 			if (this->result->has_value())
 			{
-				logReceived.trace("call %s %s response was dropped, task result is: " + to_string(result.unwrap()),
-					to_string(location).c_str(), to_string(rdid).c_str());
+				logReceived->trace("call {} {} response was dropped, task result is: {}", to_string(location), to_string(rdid),
+					to_string(result.unwrap()));
 			}
 			else
 			{

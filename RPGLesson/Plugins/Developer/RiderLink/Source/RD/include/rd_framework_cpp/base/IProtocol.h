@@ -2,10 +2,10 @@
 #define RD_CPP_IPROTOCOL_H
 
 #include "IRdDynamic.h"
-#include "base/IWire.h"
+#include "serialization/Serializers.h"
 #include "protocol/Identities.h"
 #include "scheduler/base/IScheduler.h"
-#include "serialization/Serializers.h"
+#include "base/IWire.h"
 
 #include <memory>
 

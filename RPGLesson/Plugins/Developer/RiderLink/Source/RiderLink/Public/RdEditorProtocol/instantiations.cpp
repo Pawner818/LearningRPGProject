@@ -6,11 +6,11 @@ namespace rd {
     ELogVerbosity::Type Polymorphic<ELogVerbosity::Type, void>::read(SerializationCtx& ctx, Buffer& buffer) {
         int32_t x = buffer.read_integral<int32_t>();
         switch (x) {
-            case 10: 
+            case 10:
                return ELogVerbosity::Type::VerbosityMask;
-            case 11: 
+            case 11:
                return ELogVerbosity::Type::SetColor;
-            case 12: 
+            case 12:
                return ELogVerbosity::Type::BreakOnLog;
             default:
                return static_cast<ELogVerbosity::Type>(x);

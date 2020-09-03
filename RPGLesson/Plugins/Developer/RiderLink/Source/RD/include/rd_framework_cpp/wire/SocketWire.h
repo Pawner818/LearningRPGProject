@@ -1,18 +1,18 @@
 #ifndef RD_CPP_SOCKETWIRE_H
 #define RD_CPP_SOCKETWIRE_H
 
-#include "ActiveSocket.h"
-#include "ByteBufferAsyncProcessor.h"
-#include "PassiveSocket.h"
-#include "PkgInputStream.h"
-#include "SimpleSocket.h"
-#include "base/WireBase.h"
-#include "logger/Logger.h"
 #include "scheduler/base/IScheduler.h"
+#include "base/WireBase.h"
+#include "ByteBufferAsyncProcessor.h"
+#include "PkgInputStream.h"
 
+#include "SimpleSocket.h"
+#include "ActiveSocket.h"
+#include "PassiveSocket.h"
+
+#include <string>
 #include <array>
 #include <condition_variable>
-#include <string>
 
 namespace rd
 {
@@ -24,7 +24,7 @@ public:
 	class Base : public WireBase
 	{
 	protected:
-		static Logger logger;
+		static std::shared_ptr<spdlog::logger> logger;
 
 		std::timed_mutex lock;
 		mutable std::mutex socket_send_lock;
@@ -91,7 +91,7 @@ public:
 
 		bool read_data_from_socket(Buffer::word_t* data, size_t len) const
 		{
-			return read_from_socket(reinterpret_cast<Buffer::word_t*>(data), len);
+			return read_from_socket(reinterpret_cast<Buffer::word_t*>(data), static_cast<int32_t>(len));
 		}
 
 	public:

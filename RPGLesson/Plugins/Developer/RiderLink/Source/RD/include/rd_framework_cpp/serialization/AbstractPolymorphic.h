@@ -1,9 +1,9 @@
 #ifndef RD_CPP_ABSTRACTPOLYMORPHIC_H
 #define RD_CPP_ABSTRACTPOLYMORPHIC_H
 
+#include "types/wrapper.h"
 #include "serialization/Polymorphic.h"
 #include "serialization/SerializationCtx.h"
-#include "types/wrapper.h"
 
 namespace rd
 {

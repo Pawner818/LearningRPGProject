@@ -2,12 +2,12 @@
 #define RD_CPP_EXTWIRE_H
 
 #include "base/IWire.h"
-#include "protocol/Buffer.h"
 #include "protocol/RdId.h"
+#include "protocol/Buffer.h"
 
-#include <functional>
-#include <mutex>
 #include <queue>
+#include <mutex>
+#include <functional>
 
 namespace rd
 {

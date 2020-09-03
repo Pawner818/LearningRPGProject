@@ -1,8 +1,8 @@
 #ifndef RD_CPP_RDSET_H
 #define RD_CPP_RDSET_H
 
-#include "base/RdReactiveBase.h"
 #include "reactive/ViewableSet.h"
+#include "base/RdReactiveBase.h"
 #include "serialization/Polymorphic.h"
 #include "std/allocator.h"
 
@@ -43,7 +43,7 @@ public:
 
 	// endregion
 
-	static RdSet<T, S> read(SerializationCtx& ctx, Buffer& buffer)
+	static RdSet<T, S> read(SerializationCtx& /*ctx*/, Buffer& buffer)
 	{
 		RdSet<T, S> result;
 		RdId id = RdId::read(buffer);
@@ -51,7 +51,7 @@ public:
 		return result;
 	}
 
-	void write(SerializationCtx& ctx, Buffer& buffer) const override
+	void write(SerializationCtx& /*ctx*/, Buffer& buffer) const override
 	{
 		rdid.write(buffer);
 	}
@@ -71,8 +71,7 @@ public:
 					buffer.write_enum<AddRemove>(kind);
 					S::write(this->get_serialization_context(), buffer, v);
 
-					logSend.trace("SEND"s + "set " + to_string(location) + " " + to_string(rdid) + ":: " + to_string(kind) +
-								  ":: " + to_string(v));
+					logSend->trace("SENDset {} {}:: {}:: {}", to_string(location), to_string(rdid), to_string(kind), to_string(v));
 				});
 			});
 		});

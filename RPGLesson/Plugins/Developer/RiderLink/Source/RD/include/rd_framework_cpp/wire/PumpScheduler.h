@@ -4,8 +4,8 @@
 #include "scheduler/base/IScheduler.h"
 
 #include <condition_variable>
-#include <queue>
 #include <thread>
+#include <queue>
 
 namespace rd
 {

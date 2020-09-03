@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/.idea.RPGLesson.iml" filepath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/.idea.RPGLesson.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/.idea.RPGLesson/riderModule.iml" filepath="$PROJECT_DIR$/.idea/.idea.RPGLesson/riderModule.iml" />
     </modules>
   </component>

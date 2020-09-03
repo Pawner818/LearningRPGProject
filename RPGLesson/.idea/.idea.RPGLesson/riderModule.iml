@@ -253,9 +253,9 @@
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/MicrosoftSpatialAudio" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/MixedRealityCaptureFramework" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/MobilePatchingUtils" />
-    <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/Nvidia/Ansel" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/NetworkPrediction" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/NetworkPredictionExtras" />
+    <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/Nvidia/Ansel" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/OSC" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/Oculus/OculusAudio" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Runtime/Oculus/OculusAvatar" />

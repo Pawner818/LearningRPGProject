@@ -3,8 +3,8 @@
 
 #include "types/Void.h"
 
-#include <string>
 #include <type_traits>
+#include <string>
 
 namespace rd
 {

@@ -1,16 +1,16 @@
 #ifndef RD_CPP_UNSAFEBUFFER_H
 #define RD_CPP_UNSAFEBUFFER_H
 
+#include "types/DateTime.h"
+#include "util/core_util.h"
+#include "types/wrapper.h"
 #include "std/allocator.h"
 #include "std/list.h"
-#include "types/DateTime.h"
-#include "types/wrapper.h"
-#include "util/core_util.h"
 
+#include <vector>
+#include <type_traits>
 #include <functional>
 #include <memory>
-#include <type_traits>
-#include <vector>
 
 namespace rd
 {
@@ -144,7 +144,8 @@ public:
 		}
 	}
 
-	template <template <class, class> class C, typename T, typename A = allocator<T>>
+	template <template <class, class> class C, typename T, typename A = allocator<T>,
+		typename = typename std::enable_if_t<!std::is_abstract<T>::value>>
 	void write_array(C<T, A> const& container, std::function<void(T const&)> writer)
 	{
 		write_integral<int32_t>(::rd::size(container));

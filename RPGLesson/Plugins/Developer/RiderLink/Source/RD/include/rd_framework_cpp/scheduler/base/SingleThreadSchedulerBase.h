@@ -1,8 +1,9 @@
 #ifndef RD_CPP_SINGLETHREADSCHEDULERBASE_H
 #define RD_CPP_SINGLETHREADSCHEDULERBASE_H
 
-#include "lifetime/Lifetime.h"
 #include "scheduler/base/IScheduler.h"
+#include "lifetime/Lifetime.h"
+#include "spdlog/spdlog.h"
 
 #include <utility>
 
@@ -16,7 +17,7 @@ namespace rd
 class SingleThreadSchedulerBase : public IScheduler
 {
 protected:
-	Logger log;
+	std::shared_ptr<spdlog::logger> log;
 	std::string name;
 
 	std::atomic_uint32_t tasks_executing{0};

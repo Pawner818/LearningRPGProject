@@ -1,11 +1,12 @@
 #ifndef RD_CPP_IPROPERTYBASE_H
 #define RD_CPP_IPROPERTYBASE_H
 
-#include "lifetime/SequentialLifetimes.h"
-#include "reactive/SignalX.h"
-#include "reactive/interfaces.h"
-#include "thirdparty.hpp"
 #include "types/wrapper.h"
+#include "reactive/interfaces.h"
+#include "reactive/SignalX.h"
+#include "lifetime/SequentialLifetimes.h"
+
+#include "thirdparty.hpp"
 
 namespace rd
 {
@@ -51,7 +52,7 @@ public:
 		Lifetime lf = lifetime.create_nested();
 		std::shared_ptr<SequentialLifetimes> seq = std::make_shared<SequentialLifetimes>(lf);
 
-		this->advise_before(lf, [lf, seq](T const& v) {
+		this->advise_before(lf, [lf, seq](T const& /*v*/) {
 			if (!lf->is_terminated())
 			{
 				seq->terminate_current();

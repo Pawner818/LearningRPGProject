@@ -47,6 +47,8 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
 	class AAIController*AIController;
 
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
+	// class AEnemyAIController *EAIController;
 
 protected:
 	// Called when the game starts or when spawned
@@ -83,8 +85,11 @@ public:
 	UFUNCTION(BLueprintCallable)
     void MoveToTarget(class ARPGLessonCharacter* Character);
 
-	ARPGLessonCharacter*CharacterToMove;
+	//Ref to the Character
+	UPROPERTY()
+	class ARPGLessonCharacter*CharacterToMove;
 
+	//Timer for creating a little delay between animations
 	struct FTimerHandle DelayTimerBetweenStates;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")

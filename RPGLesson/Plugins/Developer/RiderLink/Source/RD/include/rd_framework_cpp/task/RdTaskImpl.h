@@ -1,8 +1,9 @@
 #ifndef RD_CPP_RDTASKIMPL_H
 #define RD_CPP_RDTASKIMPL_H
 
-#include "RdTaskResult.h"
 #include "serialization/Polymorphic.h"
+#include "RdTaskResult.h"
+
 #include "thirdparty.hpp"
 
 namespace rd

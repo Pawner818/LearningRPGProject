@@ -2,8 +2,8 @@
 #define RD_CPP_RDPROPERTY_H
 
 #include "base/RdPropertyBase.h"
-#include "serialization/ISerializable.h"
 #include "serialization/Polymorphic.h"
+#include "serialization/ISerializable.h"
 #include "std/allocator.h"
 
 #pragma warning(push)

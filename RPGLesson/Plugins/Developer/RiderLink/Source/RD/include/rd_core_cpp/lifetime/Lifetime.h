@@ -2,6 +2,7 @@
 #define RD_CPP_CORE_LIFETIMEWRAPPER_H
 
 #include "LifetimeImpl.h"
+
 #include "std/hash.h"
 
 #include <memory>

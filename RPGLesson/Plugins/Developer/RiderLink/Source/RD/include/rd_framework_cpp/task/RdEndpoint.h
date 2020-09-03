@@ -1,8 +1,8 @@
 #ifndef RD_CPP_RDENDPOINT_H
 #define RD_CPP_RDENDPOINT_H
 
-#include "RdTask.h"
 #include "serialization/Polymorphic.h"
+#include "RdTask.h"
 
 #pragma warning(push)
 #pragma warning(disable : 4250)
@@ -52,7 +52,7 @@ public:
 	virtual ~RdEndpoint() = default;
 	// endregion
 
-	static RdEndpoint<TReq, TRes, ReqSer, ResSer> read(SerializationCtx& ctx, Buffer& buffer)
+	static RdEndpoint<TReq, TRes, ReqSer, ResSer> read(SerializationCtx& /*ctx*/, Buffer& buffer)
 	{
 		RdEndpoint<TReq, TRes, ReqSer, ResSer> res;
 		const RdId& id = RdId::read(buffer);
@@ -60,7 +60,7 @@ public:
 		return res;
 	}
 
-	void write(SerializationCtx& ctx, Buffer& buffer) const override
+	void write(SerializationCtx& /*ctx*/, Buffer& buffer) const override
 	{
 		rdid.write(buffer);
 	}
@@ -96,7 +96,7 @@ public:
 	{
 		auto task_id = RdId::read(buffer);
 		auto value = ReqSer::read(get_serialization_context(), buffer);
-		logReceived.trace("endpoint %s::%s request = " + to_string(value), to_string(location).c_str(), to_string(rdid).c_str());
+		logReceived->trace("endpoint {}::{} request = {}", to_string(location), to_string(rdid), to_string(value));
 		if (!handler)
 		{
 			throw std::invalid_argument("handler is empty for RdEndPoint");
@@ -111,8 +111,7 @@ public:
 			task.fault(e);
 		}
 		task.advise(*bind_lifetime, [this, task_id, &task](RdTaskResult<TRes, ResSer> const& task_result) {
-			logSend.trace("endpoint %s::%s response = %s", to_string(location).c_str(), to_string(rdid).c_str(),
-				to_string(*task.result).c_str());
+			logSend->trace("endpoint {}::{} response = {}", to_string(location), to_string(rdid), to_string(*task.result));
 			get_wire()->send(task_id, [&](Buffer& inner_buffer) { task_result.write(get_serialization_context(), inner_buffer); });
 			// todo remove from awaiting_tasks
 		});
@@ -128,7 +127,7 @@ public:
 		return !(rhs == lhs);
 	}
 
-	friend std::string to_string(RdEndpoint const& value)
+	friend std::string to_string(RdEndpoint const& /*value*/)
 	{
 		return "RdEndpoint";
 	}

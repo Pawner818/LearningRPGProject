@@ -1,8 +1,8 @@
 #ifndef RD_CPP_RDMAP_H
 #define RD_CPP_RDMAP_H
 
-#include "base/RdReactiveBase.h"
 #include "reactive/ViewableMap.h"
+#include "base/RdReactiveBase.h"
 #include "serialization/Polymorphic.h"
 #include "util/shared_function.h"
 
@@ -69,7 +69,7 @@ public:
 	virtual ~RdMap() = default;
 	// endregion
 
-	static RdMap<K, V, KS, VS> read(SerializationCtx& ctx, Buffer& buffer)
+	static RdMap<K, V, KS, VS> read(SerializationCtx& /*ctx*/, Buffer& buffer)
 	{
 		RdMap<K, V, KS, VS> res;
 		RdId id = RdId::read(buffer);
@@ -77,7 +77,7 @@ public:
 		return res;
 	}
 
-	void write(SerializationCtx& ctx, Buffer& buffer) const override
+	void write(SerializationCtx& /*ctx*/, Buffer& buffer) const override
 	{
 		rdid.write(buffer);
 	}
@@ -123,7 +123,7 @@ public:
 						VS::write(this->get_serialization_context(), buffer, *new_value);
 					}
 
-					logSend.trace("SEND" + logmsg(op, next_version - 1, e.get_key(), new_value));
+					logSend->trace("SEND{}", logmsg(op, next_version - 1, e.get_key(), new_value));
 				});
 			});
 		});
@@ -184,11 +184,11 @@ public:
 			}
 			if (errmsg.empty())
 			{
-				logReceived.trace(logmsg(Op::ACK, version, &(wrapper::get<K>(key))));
+				logReceived->trace(logmsg(Op::ACK, version, &(wrapper::get<K>(key))));
 			}
 			else
 			{
-				logReceived.error(logmsg(Op::ACK, version, &(wrapper::get<K>(key))) + " >> " + errmsg);
+				logReceived->error(logmsg(Op::ACK, version, &(wrapper::get<K>(key))) + " >> " + errmsg);
 			}
 		}
 		else
@@ -205,7 +205,7 @@ public:
 
 			if (msg_versioned || !is_master || pendingForAck.count(key) == 0)
 			{
-				logReceived.trace("RECV" + logmsg(op, version, &(wrapper::get<K>(key)), value));
+				logReceived->trace("RECV{}", logmsg(op, version, &(wrapper::get<K>(key)), value));
 				if (value.has_value())
 				{
 					map::set(std::move(key), *std::move(value));
@@ -217,7 +217,7 @@ public:
 			}
 			else
 			{
-				logReceived.trace(logmsg(op, version, &(wrapper::get<K>(key)), value) + " >> REJECTED");
+				logReceived->trace("{} >> REJECTED", logmsg(op, version, &(wrapper::get<K>(key)), value));
 			}
 
 			if (msg_versioned)
@@ -233,7 +233,7 @@ public:
 				get_wire()->send(rdid, std::move(writer));
 				if (is_master)
 				{
-					logReceived.error("Both ends are masters: %s", to_string(location).c_str());
+					logReceived->error("Both ends are masters: {}", to_string(location));
 				}
 			}
 		}

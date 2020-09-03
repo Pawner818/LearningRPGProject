@@ -1,8 +1,8 @@
 #ifndef RD_CPP_CORE_SEQUENTIAL_LIFETIMES_H
 #define RD_CPP_CORE_SEQUENTIAL_LIFETIMES_H
 
-#include "lifetime/Lifetime.h"
 #include "lifetime/LifetimeDefinition.h"
+#include "lifetime/Lifetime.h"
 
 namespace rd
 {

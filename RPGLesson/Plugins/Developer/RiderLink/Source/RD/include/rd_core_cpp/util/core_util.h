@@ -2,33 +2,36 @@
 #define RD_CPP_CORE_CPP_UTIL_H
 
 #include "erase_if.h"
-#include "std/hash.h"
-#include "std/to_string.h"
-#include "thirdparty.hpp"
-#include "types/wrapper.h"
 #include "util/gen_util.h"
 #include "util/overloaded.h"
 #include "util/shared_function.h"
+#include "std/hash.h"
+#include "std/to_string.h"
+#include "types/wrapper.h"
 
-#include <atomic>
-#include <cassert>
-#include <iostream>
+#include "thirdparty.hpp"
+
+#include "spdlog/spdlog.h"
+
 #include <memory>
-#include <sstream>
 #include <string>
 #include <thread>
+#include <atomic>
+#include <iostream>
+#include <sstream>
+#include <cassert>
 
-#define RD_ASSERT_MSG(expr, msg)                      \
-	if (!(expr))                                      \
-	{                                                 \
-		std::cerr << std::endl << (msg) << std::endl; \
-		assert(expr);                                 \
+#define RD_ASSERT_MSG(expr, msg)      \
+	if (!(expr))                      \
+	{                                 \
+		spdlog::error("{}\n", msg);   \
+		assert(expr);                 \
 	}
-#define RD_ASSERT_THROW_MSG(expr, msg)                \
-	if (!(expr))                                      \
-	{                                                 \
-		std::cerr << std::endl << (msg) << std::endl; \
-		throw std::runtime_error(msg);                \
+#define RD_ASSERT_THROW_MSG(expr, msg) \
+	if (!(expr))                       \
+	{                                  \
+		spdlog::error("{}\n", msg);    \
+		throw std::runtime_error(msg); \
 	}
 
 namespace rd

@@ -1,8 +1,10 @@
 #ifndef RD_CPP_RDEXTBASE_H
 #define RD_CPP_RDEXTBASE_H
 
-#include "ExtWire.h"
 #include "base/RdReactiveBase.h"
+#include "ExtWire.h"
+
+#include "spdlog/spdlog.h"
 
 #pragma warning(push)
 #pragma warning(disable : 4250)
@@ -47,7 +49,7 @@ public:
 
 	void sendState(IWire const& wire, ExtState state) const;
 
-	void traceMe(const Logger& logger, string_view message) const;
+	void traceMe(std::shared_ptr<spdlog::logger> logger, string_view message) const;
 };
 
 std::string to_string(RdExtBase::ExtState state);

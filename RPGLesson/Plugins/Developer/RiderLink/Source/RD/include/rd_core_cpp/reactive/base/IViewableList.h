@@ -2,16 +2,18 @@
 #define RD_CPP_IVIEWABLELIST_H
 
 #include "lifetime/LifetimeDefinition.h"
-#include "reactive/interfaces.h"
-#include "std/unordered_map.h"
-#include "thirdparty.hpp"
-#include "types/wrapper.h"
 #include "util/overloaded.h"
+#include "reactive/interfaces.h"
 #include "viewable_collections.h"
+#include "types/wrapper.h"
 
-#include <algorithm>
-#include <utility>
+#include "std/unordered_map.h"
+
 #include <vector>
+#include <utility>
+#include <algorithm>
+
+#include "thirdparty.hpp"
 
 namespace rd
 {
@@ -79,7 +81,7 @@ public:
 	T const* get_new_value() const
 	{
 		return visit(util::make_visitor([](Add const& e) { return e.new_value; }, [](Update const& e) { return e.new_value; },
-						 [](Remove const& e) { return static_cast<T const*>(nullptr); }),
+						 [](Remove const& /*e*/) { return static_cast<T const*>(nullptr); }),
 			v);
 	}
 

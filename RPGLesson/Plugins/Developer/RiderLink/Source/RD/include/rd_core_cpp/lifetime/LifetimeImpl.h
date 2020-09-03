@@ -2,14 +2,15 @@
 #define RD_CPP_CORE_LIFETIME_H
 
 #include "std/hash.h"
-#include "thirdparty.hpp"
 
-#include <atomic>
 #include <functional>
 #include <map>
 #include <memory>
 #include <mutex>
+#include <atomic>
 #include <utility>
+
+#include "thirdparty.hpp"
 
 namespace rd
 {

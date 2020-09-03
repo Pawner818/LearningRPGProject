@@ -2,14 +2,15 @@
 #define RD_CPP_CORE_VIEWABLE_MAP_H
 
 #include "base/IViewableMap.h"
-#include "logger/Logger.h"
 #include "reactive/SignalX.h"
-#include "std/unordered_map.h"
-#include "thirdparty.hpp"
 #include "util/core_util.h"
+
+#include "std/unordered_map.h"
 
 #include <iterator>
 #include <utility>
+
+#include "thirdparty.hpp"
 
 namespace rd
 {

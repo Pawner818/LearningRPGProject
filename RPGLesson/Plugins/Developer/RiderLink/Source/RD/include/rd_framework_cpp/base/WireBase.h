@@ -1,9 +1,9 @@
 #ifndef RD_CPP_WIREBASE_H
 #define RD_CPP_WIREBASE_H
 
+#include "reactive/Property.h"
 #include "base/IWire.h"
 #include "protocol/MessageBroker.h"
-#include "reactive/Property.h"
 
 namespace rd
 {

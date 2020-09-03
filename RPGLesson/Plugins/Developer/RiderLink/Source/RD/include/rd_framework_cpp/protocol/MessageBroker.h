@@ -2,8 +2,10 @@
 #define RD_CPP_MESSAGEBROKER_H
 
 #include "base/IRdReactive.h"
-#include "logger/Logger.h"
+
 #include "std/unordered_map.h"
+
+#include "spdlog/spdlog.h"
 
 #include <queue>
 
@@ -38,7 +40,7 @@ private:
 
 	mutable std::recursive_mutex lock;
 
-	static Logger logger;
+	static std::shared_ptr<spdlog::logger> logger;
 
 	void invoke(const IRdReactive* that, Buffer msg, bool sync = false) const;
 

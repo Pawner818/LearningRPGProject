@@ -1,9 +1,9 @@
 #ifndef RD_CPP_FILESYSTEM_H
 #define RD_CPP_FILESYSTEM_H
 
+#include <string>
 #include <cassert>
 #include <cstdlib>
-#include <string>
 
 namespace rd
 {

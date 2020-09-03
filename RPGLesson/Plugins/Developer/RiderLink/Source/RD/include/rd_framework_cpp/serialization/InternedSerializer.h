@@ -1,9 +1,9 @@
 #ifndef RD_CPP_INTERNEDSERIALIZER_H
 #define RD_CPP_INTERNEDSERIALIZER_H
 
-#include "framework_traits.h"
-#include "serialization/Polymorphic.h"
 #include "serialization/SerializationCtx.h"
+#include "serialization/Polymorphic.h"
+#include "framework_traits.h"
 
 namespace rd
 {

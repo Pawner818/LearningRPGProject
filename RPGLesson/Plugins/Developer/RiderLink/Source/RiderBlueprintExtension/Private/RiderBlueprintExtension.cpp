@@ -6,7 +6,7 @@
 // ReSharper disable once CppUnusedIncludeDirective
 #include "Windows/PreWindowsApi.h"
 
-#include "RdEditorProtocol/RdEditorModel/RdEditorModel.h"
+#include "RdEditorProtocol/RdEditorModel/RdEditorModel.Generated.h"
 
 // ReSharper disable once CppUnusedIncludeDirective
 #include "Windows/PostWindowsApi.h"
@@ -53,9 +53,7 @@ void FRiderBlueprintExtensionModule::StartupModule()
 {
     UE_LOG(FLogRiderBlueprintExtensionModule, Verbose, TEXT("STARTUP START"));
 
-    FRiderLinkModule& RiderLinkModule = FModuleManager::GetModuleChecked<
-                        FRiderLinkModule>(
-                        FRiderLinkModule::GetModuleName());
+    FRiderLinkModule& RiderLinkModule = FRiderLinkModule::Get();
 
     const FAssetRegistryModule* AssetRegistryModule = &FModuleManager::LoadModuleChecked<FAssetRegistryModule>
         (AssetRegistryConstants::ModuleName);
@@ -66,7 +64,7 @@ void FRiderBlueprintExtensionModule::StartupModule()
         // TODO: Fix loading uasset's on 4.23-
         // BluePrintProvider::AddAsset(AssetData);
     });
-    Jetbrains::EditorPlugin::RdEditorModel& UnrealToBackendModel = FRiderLinkModule::Get().RdConnection.UnrealToBackendModel;
+    Jetbrains::EditorPlugin::RdEditorModel& UnrealToBackendModel = RiderLinkModule.RdConnection.UnrealToBackendModel;
     const rd::Lifetime NestedLifetime = RiderLinkModule.CreateNestedLifetime();
     UnrealToBackendModel.get_openBlueprint().advise( NestedLifetime,
 [this, &UnrealToBackendModel](Jetbrains::EditorPlugin::BlueprintReference const& s) {
@@ -74,6 +72,8 @@ void FRiderBlueprintExtensionModule::StartupModule()
             AllowSetForeGroundForEditor(UnrealToBackendModel);
 
             auto Window = FGlobalTabmanager::Get()->GetRootWindow();
+            if(!Window.IsValid()) return;
+
             if (Window->IsWindowMinimized()) {
                 Window->Restore();
             } else {
@@ -89,10 +89,9 @@ void FRiderBlueprintExtensionModule::StartupModule()
         return BluePrintProvider::IsBlueprint(pathName);
     });
 
-
-    BluePrintProvider::OnBlueprintAdded.BindLambda([this](UBlueprint* Blueprint) {
-        FRiderLinkModule::Get().RdConnection.Scheduler.queue([this, Blueprint] {
-            FRiderLinkModule::Get().RdConnection.UnrealToBackendModel.get_onBlueprintAdded().fire(
+    BluePrintProvider::OnBlueprintAdded.BindLambda([this, &UnrealToBackendModel](UBlueprint* Blueprint) {
+        FRiderLinkModule::Get().RdConnection.Scheduler.queue([this, Blueprint, &UnrealToBackendModel] {
+            UnrealToBackendModel.get_onBlueprintAdded().fire(
                 Jetbrains::EditorPlugin::UClass(Blueprint->GetPathName()));
         });
     });
@@ -103,6 +102,6 @@ void FRiderBlueprintExtensionModule::StartupModule()
 void FRiderBlueprintExtensionModule::ShutdownModule()
 {
     UE_LOG(FLogRiderBlueprintExtensionModule, Verbose, TEXT("SHUTDOWN START"));
-
+    BluePrintProvider::OnBlueprintAdded.Unbind();
     UE_LOG(FLogRiderBlueprintExtensionModule, Verbose, TEXT("SHUTDOWN FINISH"));
 }

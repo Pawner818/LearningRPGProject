@@ -2,8 +2,8 @@
 #define RD_CPP_FRAMEWORK_IRDREACTIVE_H
 
 #include "IRdBindable.h"
-#include "IRdWireable.h"
 #include "scheduler/base/IScheduler.h"
+#include "IRdWireable.h"
 
 namespace rd
 {

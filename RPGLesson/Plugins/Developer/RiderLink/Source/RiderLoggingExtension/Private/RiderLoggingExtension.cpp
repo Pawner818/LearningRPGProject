@@ -1,9 +1,12 @@
 #include "RiderLoggingExtension.hpp"
 
 #include "RiderLink.hpp"
-#include "RdEditorProtocol/UE4Library/LogMessageInfo.h"
-#include "RdEditorProtocol/UE4Library/UnrealLogEvent.h"
+#include "BlueprintProvider.hpp"
+#include "RdEditorProtocol/UE4Library/LogMessageInfo.Generated.h"
+#include "RdEditorProtocol/UE4Library/StringRange.Generated.h"
+#include "RdEditorProtocol/UE4Library/UnrealLogEvent.Generated.h"
 
+#include "Internationalization/Regex.h"
 #include "Misc/DateTime.h"
 #include "Modules/ModuleManager.h"
 
@@ -12,6 +15,34 @@
 DEFINE_LOG_CATEGORY(FLogRiderLoggingExtensionModule);
 
 IMPLEMENT_MODULE(FRiderLoggingExtensionModule, RiderLoggingExtension);
+
+static TArray<rd::Wrapper<Jetbrains::EditorPlugin::StringRange>> GetPathRanges(const FRegexPattern &Pattern, const FString &Str)
+{
+    using Jetbrains::EditorPlugin::StringRange;
+    FRegexMatcher Matcher(Pattern, Str);
+    TArray<rd::Wrapper<StringRange>> Ranges;
+    while (Matcher.FindNext())
+    {
+        const int Start = Matcher.GetMatchBeginning();
+        const int End = Matcher.GetMatchEnding();
+        FString PathName = Str.Mid(Start, End - Start - 1);
+        if (BluePrintProvider::IsBlueprint(PathName))
+            Ranges.Emplace(StringRange(Start, End));
+    }
+    return Ranges;
+}
+
+static TArray<rd::Wrapper<Jetbrains::EditorPlugin::StringRange>> GetMethodRanges(const FRegexPattern &Pattern, const FString &Str)
+{
+    using Jetbrains::EditorPlugin::StringRange;
+    FRegexMatcher Matcher(Pattern, Str);
+    TArray<rd::Wrapper<StringRange>> Ranges;
+    while (Matcher.FindNext())
+    {
+        Ranges.Emplace(StringRange(Matcher.GetMatchBeginning(), Matcher.GetMatchEnding()));
+    }
+    return Ranges;
+}
 
 void FRiderLoggingExtensionModule::StartupModule()
 {
@@ -24,49 +55,50 @@ void FRiderLoggingExtensionModule::StartupModule()
             static_cast<int64>(Time)));
     };
 
+    FRiderLinkModule& RiderLinkModule = FRiderLinkModule::Get();
+
+    RdConnection& RdConnection = RiderLinkModule.RdConnection;
+
     outputDevice.onSerializeMessage.BindLambda(
-        [this](const TCHAR* msg, ELogVerbosity::Type Type,
+        [this, &RdConnection](const TCHAR* msg, ELogVerbosity::Type Type,
                const class FName& Name, TOptional<double> Time)
         {
             if (Type > ELogVerbosity::All) return;
 
-            FRiderLinkModule& RiderLinkModule = FModuleManager::GetModuleChecked<FRiderLinkModule>(
-                FRiderLinkModule::GetModuleName());
+            rd::ISignal<Jetbrains::EditorPlugin::UnrealLogEvent> const & UnrealLog = RdConnection.UnrealToBackendModel.get_unrealLog();
+            rd::optional<rd::DateTime> DateTime;
+            if (Time)
+            {
+                DateTime = GetTimeNow(Time.GetValue());
+            }
 
-            RiderLinkModule.RdConnection.Scheduler.queue([this, tail = FString(msg), Type,
+            RdConnection.Scheduler.queue([&UnrealLog, Msg = FString(msg), Type,
                     Name = Name.GetPlainNameString(),
-                    Time]() mutable
+                    DateTime]()
                 {
-                    rd::optional<rd::DateTime> DateTime;
-                    if (Time)
-                    {
-                        DateTime = GetTimeNow(Time.GetValue());
-                    }
-                    Jetbrains::EditorPlugin::LogMessageInfo MessageInfo =
-                        Jetbrains::EditorPlugin::LogMessageInfo(Type, Name, DateTime);
-
-                    FRiderLinkModule& RiderLinkModule = FModuleManager::GetModuleChecked<
-                        FRiderLinkModule>(
-                        FRiderLinkModule::GetModuleName());
+                    Jetbrains::EditorPlugin::LogMessageInfo MessageInfo{Type, Name, DateTime};
 
                     // [HACK]: fix https://github.com/JetBrains/UnrealLink/issues/17
                     // while we won't change BP hyperlink parsing
-                    tail = tail.Left(4096);
+                    FString Tail = Msg.Left(4096);
 
-                    FString toSend;
-                    while (tail.Split("\n", &toSend, &tail))
+                    const FRegexPattern PathPattern = FRegexPattern(TEXT("[^\\s]*/[^\\s]+"));
+                    const FRegexPattern MethodPattern = FRegexPattern(TEXT("[0-9a-z_A-Z]+::~?[0-9a-z_A-Z]+"));
+                    FString ToSend;
+                    while (Tail.Split("\n", &ToSend, &Tail))
                     {
-                        toSend.TrimEndInline();
-                        RiderLinkModule
-                            .RdConnection.UnrealToBackendModel.get_unrealLog().fire(
-                                Jetbrains::EditorPlugin::UnrealLogEvent{
-                                    std::move(MessageInfo), std::move(toSend)
-                                });
+                        ToSend.TrimEndInline();
+                        UnrealLog.fire(
+                            Jetbrains::EditorPlugin::UnrealLogEvent{
+                                MessageInfo, ToSend, GetPathRanges(PathPattern, ToSend),
+                                GetMethodRanges(MethodPattern, ToSend)
+                            });
                     }
-                    tail.TrimEndInline();
-                    RiderLinkModule.RdConnection.UnrealToBackendModel.get_unrealLog().fire(
+                    Tail.TrimEndInline();
+                    UnrealLog.fire(
                         Jetbrains::EditorPlugin::UnrealLogEvent{
-                            MessageInfo, std::move(tail)
+                            MessageInfo, Tail, GetPathRanges(PathPattern, Tail),
+                            GetMethodRanges(MethodPattern, Tail)
                         });
                 });
         });

@@ -1,9 +1,9 @@
 #ifndef RD_CPP_IWIRE_H
 #define RD_CPP_IWIRE_H
 
+#include "reactive/interfaces.h"
 #include "base/IRdReactive.h"
 #include "reactive/Property.h"
-#include "reactive/interfaces.h"
 
 namespace rd
 {

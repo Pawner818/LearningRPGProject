@@ -3,3 +3,15 @@
 
 #include "EnemyAIController.h"
 
+void AEnemyAIController::BeginPlay()
+{
+    Super::BeginPlay();
+
+
+}
+
+void AEnemyAIController::Tick(float DeltaSeconds)
+{
+}
+
+

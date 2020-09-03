@@ -2,12 +2,14 @@
 #define RD_CPP_IVIEWABLEMAP_H
 
 #include "lifetime/LifetimeDefinition.h"
-#include "reactive/interfaces.h"
-#include "std/unordered_map.h"
-#include "thirdparty.hpp"
-#include "util/core_util.h"
 #include "util/overloaded.h"
+#include "reactive/interfaces.h"
 #include "viewable_collections.h"
+#include "util/core_util.h"
+
+#include "std/unordered_map.h"
+
+#include "thirdparty.hpp"
 
 namespace rd
 {
@@ -85,7 +87,7 @@ public:
 	{
 		return visit(util::make_visitor([](typename MapEvent::Add const& e) { return e.new_value; },
 						 [](typename MapEvent::Update const& e) { return e.new_value; },
-						 [](typename MapEvent::Remove const& e) { return static_cast<V const*>(nullptr); }),
+						 [](typename MapEvent::Remove const& /*e*/) { return static_cast<V const*>(nullptr); }),
 			v);
 	}
 

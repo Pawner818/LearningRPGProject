@@ -1,14 +1,16 @@
 #ifndef RD_CPP_FRAMEWORK_RDID_H
 #define RD_CPP_FRAMEWORK_RDID_H
 
-#include "hashing.h"
 #include "protocol/Buffer.h"
+#include "hashing.h"
 #include "std/hash.h"
+
 #include "thirdparty.hpp"
 
 #include <cstdint>
-#include <memory>
 #include <string>
+
+#include <memory>
 
 namespace rd
 {

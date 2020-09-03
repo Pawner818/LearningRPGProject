@@ -1,10 +1,10 @@
 #ifndef RD_CPP_DEFAULTABSTRACTDECLARATION_H
 #define RD_CPP_DEFAULTABSTRACTDECLARATION_H
 
-#include "base/IUnknownInstance.h"
+#include "types/wrapper.h"
 #include "protocol/RdId.h"
 #include "serialization/ISerializable.h"
-#include "types/wrapper.h"
+#include "base/IUnknownInstance.h"
 
 namespace rd
 {

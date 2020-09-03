@@ -5,9 +5,9 @@
 #include "reactive/interfaces.h"
 #include "util/core_util.h"
 
-#include <atomic>
-#include <functional>
 #include <utility>
+#include <functional>
+#include <atomic>
 
 namespace rd
 {

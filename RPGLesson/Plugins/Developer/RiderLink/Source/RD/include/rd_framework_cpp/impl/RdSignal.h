@@ -1,11 +1,11 @@
 #ifndef RD_CPP_RDSIGNAL_H
 #define RD_CPP_RDSIGNAL_H
 
-#include "base/RdReactiveBase.h"
 #include "lifetime/Lifetime.h"
-#include "reactive/SignalX.h"
 #include "reactive/interfaces.h"
 #include "scheduler/base/IScheduler.h"
+#include "reactive/SignalX.h"
+#include "base/RdReactiveBase.h"
 #include "serialization/Polymorphic.h"
 
 #pragma warning(push)
@@ -56,7 +56,7 @@ public:
 	virtual ~RdSignal() = default;
 	// endregion
 
-	static RdSignal<T, S> read(SerializationCtx& ctx, Buffer& buffer)
+	static RdSignal<T, S> read(SerializationCtx& /*ctx*/, Buffer& buffer)
 	{
 		RdSignal<T, S> res;
 		const RdId& id = RdId::read(buffer);
@@ -64,7 +64,7 @@ public:
 		return res;
 	}
 
-	void write(SerializationCtx& ctx, Buffer& buffer) const override
+	void write(SerializationCtx& /*ctx*/, Buffer& buffer) const override
 	{
 		rdid.write(buffer);
 	}
@@ -79,7 +79,7 @@ public:
 	void on_wire_received(Buffer buffer) const override
 	{
 		auto value = S::read(this->get_serialization_context(), buffer);
-		logReceived.trace("RECV" + logmsg(wrapper::get<T>(value)));
+		logReceived->trace("RECV{}", logmsg(wrapper::get<T>(value)));
 
 		signal.fire(wrapper::get<T>(value));
 	}
@@ -94,7 +94,7 @@ public:
 			assert_threading();
 		}
 		get_wire()->send(rdid, [this, &value](Buffer& buffer) {
-			logSend.trace("SEND" + logmsg(value));
+			logSend->trace("SEND{}", logmsg(value));
 			S::write(get_serialization_context(), buffer, value);
 		});
 		signal.fire(value);
