@@ -1,7 +1,6 @@
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UE4Editor\Development\RiderLink\Definitions.RiderLink.h
-F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderLink.cpp
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderLink.hpp
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdConnection.hpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/ProtocolFactory.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Private\ProtocolFactory.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/WindowsHWrapper.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
@@ -104,7 +103,8 @@ C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\imm.h
 C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\ime_cmodes.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PostWindowsApi.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp/base/IProtocol.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp/protocol/Protocol.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/IProtocol.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base\IRdDynamic.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RName.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\thirdparty.hpp
@@ -251,10 +251,6 @@ F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\Ri
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\reactive\base\IPropertyBase.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/SequentialLifetimes.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_core_cpp\lifetime/LifetimeDefinition.h
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp/scheduler/SingleThreadScheduler.h
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\base/SingleThreadSchedulerBase.h
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol/RdEditorModel/RdEditorModel.Generated.h
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/Protocol.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\INCLUDE\regex
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\INCLUDE\locale
@@ -269,6 +265,42 @@ F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\Ri
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\intern\InternScheduler.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedAnySerializer.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/SerializationCtx.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PostWindowsApi.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp/wire/SocketWire.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\base/WireBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\protocol/MessageBroker.h
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\INCLUDE\queue
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\ByteBufferAsyncProcessor.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\wire\PkgInputStream.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\SimpleSocket.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\io.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\corecrt_io.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\winsock2.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\ws2def.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\inaddr.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\qos.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um\Ws2tcpip.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\ws2ipdef.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared\in6addr.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\Host.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\StatTimer.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\ActiveSocket.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\thirdparty\clsocket\src\PassiveSocket.h
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\INCLUDE\array
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\HAL/PlatformFilemanager.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PostWindowsApi.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
+F:\Games\UE_4.25\Engine\Source\Runtime/Launch/Resources/Version.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RdConnection.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdConnection.hpp
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
+F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp/scheduler/SingleThreadScheduler.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\scheduler\base/SingleThreadSchedulerBase.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol/RdEditorModel/RdEditorModel.Generated.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdSignal.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/Polymorphic.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\impl/RdProperty.h
@@ -291,7 +323,6 @@ F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\Ri
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\serialization/InternedSerializer.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext/RdExtBase.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\ext\ExtWire.h
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\INCLUDE\queue
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task/RdCall.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTask.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RD\include\rd_framework_cpp\task\RdTaskImpl.h
@@ -312,11 +343,15 @@ F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\Ri
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol\RdEditorModel\../UE4Library/PlayState.Generated.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PostWindowsApi.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol/UE4Library/UE4Library.Generated.h
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/RiderLink.cpp
+F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RiderLink.hpp
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/AllowWindowsPlatformTypes.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PreWindowsApi.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/PostWindowsApi.h
 F:\Games\UE_4.25\Engine\Source\Runtime\Core\Public\Windows/HideWindowsPlatformTypes.h
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Private/UE4TypesMarshallers.cpp
+F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/instantiations.cpp
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/RdEditorModel/RdEditorModel.Generated.cpp
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol\RdEditorModel\../RdEditorRoot/RdEditorRoot.Generated.h
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/RdEditorRoot/RdEditorRoot.Generated.cpp
@@ -348,7 +383,6 @@ F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\Ri
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/UE4Library/StringRange.Generated.cpp
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/UE4Library/UClass.Generated.cpp
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/UE4Library/UE4Library.Generated.cpp
-F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol\UE4Library\UE4Library.Generated.h
 F:\Projects\LearningRPGProject\LearningRPGProject\RPGLesson\Plugins\Developer\RiderLink\Source\RiderLink\Public\RdEditorProtocol\UE4Library\../UE4Library/UnableToDisplayScriptCallStack.Generated.h
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/UE4Library/UnableToDisplayScriptCallStack.Generated.cpp
 F:/Projects/LearningRPGProject/LearningRPGProject/RPGLesson/Plugins/Developer/RiderLink/Source/RiderLink/Public/RdEditorProtocol/UE4Library/UnrealLogEvent.Generated.cpp

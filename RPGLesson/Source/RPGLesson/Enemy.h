@@ -4,6 +4,8 @@
 
 
 #include "CoreMinimal.h"
+
+#include "Field/FieldSystemNodes.h"
 #include "GameFramework/Character.h"
 #include "Enemy.generated.h"
 
@@ -75,7 +77,20 @@ public:
 
 
 
-	/* Movement and interaction with the main Character */ 
+	/* Movement and interaction with the main Character */
+
+
+   
+
+	UFUNCTION(BlueprintCallable, Category="AI Movement")
+	void GetRandomPoint(FVector &Direction) const;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement")
+	FVector CurrentLocation;
+	
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement")
+	FVector DirectionToMove;
+
 
 
 	// Main updating function, which is updating every frame 
@@ -85,6 +100,7 @@ public:
 	UFUNCTION(BLueprintCallable)
     void MoveToTarget(class ARPGLessonCharacter* Character);
 
+	
 	//Ref to the Character
 	UPROPERTY()
 	class ARPGLessonCharacter*CharacterToMove;
@@ -103,6 +119,7 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
     bool bCharacterSpottedByEnemy;
 
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
 	bool bCharInsideAgroSphere;
 	
 	void  TargetDetected();
@@ -114,6 +131,7 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
     bool bIsAttackingTarget;
 
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
 	bool bCharInsideCombatSphere;
 
 	void AttackingTarget();

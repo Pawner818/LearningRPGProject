@@ -19,8 +19,29 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="SekeletalMesh")
 	class USkeletalMeshComponent*SkeletalMeshComponent;
 
-    virtual void OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) override;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
+	class UBoxComponent*DamageBoxComponent;
 
-    virtual void OnOverlapEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Particles")
+	class UParticleSystemComponent*ParticleSystemComponent;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	float Damage;
+
+	protected:
+	
+	virtual void BeginPlay() override;
+
+	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) override;
+
+	virtual void OnOverlapEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
+
+	UFUNCTION()
+    void OnCombatBegin (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	UFUNCTION()
+    void OnCombatEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 	
 };

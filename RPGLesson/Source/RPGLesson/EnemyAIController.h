@@ -28,9 +28,6 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 	UPROPERTY()
 	class UBlackBoardComponent*EnemyBlackBoardComponent;*/
 
-	
-	protected:
-
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
