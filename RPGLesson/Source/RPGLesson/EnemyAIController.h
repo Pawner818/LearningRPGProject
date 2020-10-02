@@ -4,7 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+#include "EnemyPathFollowingComponent.h"
+
 #include "EnemyAIController.generated.h"
+
+/* Forward declaration */
+class UEnemyPathFollowingComponent;
 
 /**
  * 
@@ -16,20 +21,21 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 
 	public:
 
-	
-	/* TODO: Behavior of the enemies using BT && BH 
-	 *
 	UPROPERTY()
-	class UBehaviorTree*EnemyBehaviorTree;
-	
+	AEnemyAIController*EAIController = nullptr;
+
+	//Ref to the Character
 	UPROPERTY()
-	class UBrainComponent*EnemyBrainComponent;
+	class ARPGLessonCharacter*CharacterToMove;
 	
-	UPROPERTY()
-	class UBlackBoardComponent*EnemyBlackBoardComponent;*/
+	AEnemyAIController(const FObjectInitializer& ObjectInitializer);
 
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void MoveToTarget(class ARPGLessonCharacter* Character);
+
+	
 	
 };

@@ -4,12 +4,12 @@
 
 
 #include "CoreMinimal.h"
-
+#include "EnemyAIController.h"
 #include "Field/FieldSystemNodes.h"
 #include "GameFramework/Character.h"
 #include "Enemy.generated.h"
 
-
+class AEnemyAIController;
 
 UENUM(BlueprintType)
 enum class EEnemyMovementStatus : uint8
@@ -31,7 +31,7 @@ class RPGLESSON_API AEnemy : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	AEnemy();
+	AEnemy(const FObjectInitializer& ObjectInitializer);
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Movement")
 	EEnemyMovementStatus EnemyMovementStatus;
@@ -46,11 +46,11 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
     USphereComponent*CombatSphere;
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
-	class AAIController*AIController;
+	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
+	// class AAIController*AIController;
 
-	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
-	// class AEnemyAIController *EAIController;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
+	class AEnemyAIController *EAIController;
 
 protected:
 	// Called when the game starts or when spawned
@@ -79,26 +79,23 @@ public:
 
 	/* Movement and interaction with the main Character */
 
-
-   
-
-	UFUNCTION(BlueprintCallable, Category="AI Movement")
-	void GetRandomPoint(FVector &Direction) const;
-
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement")
 	FVector CurrentLocation;
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement")
 	FVector DirectionToMove;
 
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement")
+	float AcceptableDistance;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement") 	
+	FVector GoalLocationToMove;
+
 
 
 	// Main updating function, which is updating every frame 
 	void EnemyStatusUpdating(float DeltaValue);
 
-	// Allows the Enemy move to his target (in our case, to the main Character)
-	UFUNCTION(BLueprintCallable)
-    void MoveToTarget(class ARPGLessonCharacter* Character);
 
 	
 	//Ref to the Character

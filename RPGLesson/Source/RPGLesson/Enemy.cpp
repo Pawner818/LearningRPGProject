@@ -4,20 +4,19 @@
 #include "Enemy.h"
 #include "Components/SphereComponent.h"
 #include "AIController.h"
-
+#include "EnemyAIController.h"
 #include "RPGLessonCharacter.h"
 #include "Kismet/KismetSystemLibrary.h"
-#include "NavigationData.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "TimerManager.h"
-#include "Actions/PawnAction_Move.h"
-#include "Animation/AnimTypes.h"
 #include "Engine/EngineTypes.h"
-#include "Field/FieldSystemNodes.h"
+
 
 
 // Sets default values
-AEnemy::AEnemy()
+
+AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
+   : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("PathFollowingComponent")))
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -46,6 +45,7 @@ AEnemy::AEnemy()
 	NormalWalkingSpeed = 400.f;
 	BattleWalkingSpeed = 500.f;
 
+	AcceptableDistance = 250.f;
 	CurrentLocation = GetActorLocation();
 }
 
@@ -54,8 +54,7 @@ void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 
-	/*EAIController = Cast<AEnemyAIController>(GetController());*/
-	AIController = Cast<AAIController>(GetController());
+	EAIController = Cast<AEnemyAIController>(GetController());;
 
 	// Initializing overlap spheres
 	AgroSphere -> OnComponentBeginOverlap.AddDynamic(this,&AEnemy::AgroSphereOnOverlapBegin);
@@ -103,10 +102,11 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
         case EEnemyMovementStatus::EMS_Walking:
 
         //TODO: move to random location using navdata
-        DirectionToMove = CurrentLocation.GetClampedToMaxSize2D(25.f);
-		
-		AIController->MoveToLocation(DirectionToMove,250.f,true,
-            true,false,true);
+        DirectionToMove = CurrentLocation.GetSafeNormal() ;
+
+		GoalLocationToMove = DirectionToMove*AcceptableDistance;
+
+		EAIController->MoveToLocation(DirectionToMove,250.f);
         
       
         
@@ -157,7 +157,7 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		else if (bCharInsideAgroSphere && !bCharInsideCombatSphere)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF"));
-			MoveToTarget(CharacterToMove);
+			EAIController->MoveToTarget(CharacterToMove);
 			if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
 			{
 				TargetLost();
@@ -197,6 +197,8 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		break;
 	}
 }
+
+
 
 // Called every frame
 void AEnemy::Tick(float DeltaTime)
@@ -275,41 +277,6 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 	}
 }
 
-void AEnemy::GetRandomPoint(FVector& Direction) const
-{
-	
-	Direction += CurrentLocation;
-}
-
-
-void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
-{
-	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-	if(AIController)
-	{
-		/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
-		FAIMoveRequest MoveRequest;
-		MoveRequest.SetGoalActor(Character);
-		MoveRequest.SetAcceptanceRadius(15.0f);
-
-		FNavPathSharedPtr NavigationPath;
-
-		AIController->MoveTo(MoveRequest,&NavigationPath);
-
-		
-		
-
-		// Draw debug sphere which shows the shortest path from Enemy to the main Character
-		
-		// auto PathPoints = NavigationPath ->GetPathPoints();
-		// for (auto Point : PathPoints)
-		// {
-		// FVector Location = Point.Location;
-		// 	UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
-		//  		8,FLinearColor::Blue,2.5f,1.5f);
-		// };
-	}
-}
 
 void AEnemy::ResetTimer()
 {
@@ -340,4 +307,3 @@ void AEnemy::StopAttackingTarget()
 {
 	bIsAttackingTarget = false;
 }
-
