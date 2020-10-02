@@ -26,7 +26,7 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 
 	//Ref to the Character
 	UPROPERTY()
-	class ARPGLessonCharacter*CharacterToMove;
+	class ARPGLessonCharacter*MainChar;
 	
 	AEnemyAIController(const FObjectInitializer& ObjectInitializer);
 

@@ -5,7 +5,8 @@
 #include "RPGLessonCharacter.h"
 #include "Navigation/PathFollowingComponent.h"
 
-class UPathFollowingComponent;
+class UEnemyPathFollowingComponent;
+class ARPGLessonCharacter;
 
 
 AEnemyAIController::AEnemyAIController(const FObjectInitializer& ObjectInitializer)
@@ -25,9 +26,9 @@ void AEnemyAIController::Tick(float DeltaSeconds)
 {
 }
 
-void AEnemyAIController::MoveToTarget(ARPGLessonCharacter* Character)
+void AEnemyAIController::MoveToTarget(ARPGLessonCharacter* CharacterToMove)
 {
-    if(Character)
+    if(CharacterToMove)
     {
         AAIController*AIController = Cast<AEnemyAIController>(EAIController);
         
@@ -35,7 +36,7 @@ void AEnemyAIController::MoveToTarget(ARPGLessonCharacter* Character)
         {
             /* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
             FAIMoveRequest MoveRequest;
-            MoveRequest.SetGoalActor(Character);
+            MoveRequest.SetGoalActor(CharacterToMove);
             MoveRequest.SetAcceptanceRadius(15.0f);
 
             FNavPathSharedPtr NavigationPath;
