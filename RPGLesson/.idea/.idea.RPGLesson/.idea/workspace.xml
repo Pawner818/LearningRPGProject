@@ -24,7 +24,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1af6dbee-70ab-46ae-aa76-2273ca65a72a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_BS.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/E_MasterGrunt/E_MasterGrunt_BS.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/HUD/HealthBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/HealthBar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/HUD/StaminaBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/StaminaBar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Level_01.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Level_01.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/Plugins/Developer/RiderLink/Binaries/Win64/UE4Editor.modules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/EnemyAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/EnemyAnimInstance.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +70,11 @@
         <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyPathFollowingComponent.cpp" />
         <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyPathFollowingComponent.h" />
+        <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAnimInstance.h" />
+        <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" />
+        <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" />
         <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" />
         <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" />
-        <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" />
-        <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" />
       </list>
     </option>
   </component>
@@ -78,6 +95,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="C++ Project.RPGLesson">
     <configuration name="RPGLesson" type="CppProject" factoryName="C++ Project">
@@ -312,7 +330,11 @@
       <workItem from="1601226753435" duration="727000" />
       <workItem from="1601301469704" duration="7050000" />
       <workItem from="1601485214635" duration="7225000" />
-      <workItem from="1601627624278" duration="5454000" />
+      <workItem from="1601627624278" duration="9214000" />
+      <workItem from="1601904239009" duration="151000" />
+      <workItem from="1601904529576" duration="7140000" />
+      <workItem from="1603728041369" duration="911000" />
+      <workItem from="1603729089371" duration="4380000" />
     </task>
     <servers />
   </component>
@@ -337,9 +359,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601143246041">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601636327389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601143246041" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601636327389" />
   </component>
 </project>

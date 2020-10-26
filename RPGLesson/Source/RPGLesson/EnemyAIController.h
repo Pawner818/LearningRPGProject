@@ -20,21 +20,20 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 	GENERATED_BODY()
 
 	public:
-
-	UPROPERTY()
-	AEnemyAIController*EAIController = nullptr;
-
-	//Ref to the Character
-	UPROPERTY()
-	class ARPGLessonCharacter*MainChar;
 	
 	AEnemyAIController(const FObjectInitializer& ObjectInitializer);
 
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
+	
+	//Ref to the Character
+	UPROPERTY()
+	class ARPGLessonCharacter*MainChar;
+	
+	
 
-	virtual void MoveToTarget(class ARPGLessonCharacter* Character);
+	
 
 	
 	

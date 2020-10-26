@@ -16,7 +16,7 @@
 // Sets default values
 
 AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
-   : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("PathFollowingComponent")))
+   : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("AEnemyAIController")))
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -48,6 +48,8 @@ AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
 	AcceptableDistance = 250.f;
 	CurrentLocation = GetActorLocation();
 }
+
+
 
 // Called when the game starts or when spawned
 void AEnemy::BeginPlay()
@@ -100,18 +102,25 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		
 		/* EMS_Walking *//***********************************************************************************/
         case EEnemyMovementStatus::EMS_Walking:
+        	UE_LOG(LogTemp, Warning, TEXT("we are inside THE WALKING STATE"))
 
-        //TODO: move to random location using navdata
-        DirectionToMove = CurrentLocation.GetSafeNormal() ;
+		TargetLost();
+		
+		
 
-		GoalLocationToMove = DirectionToMove*AcceptableDistance;
+        	
 
-		EAIController->MoveToLocation(DirectionToMove,250.f);
+  //       //TODO: move to random location using navdata
+  //       DirectionToMove = CurrentLocation.GetSafeNormal() ;
+  //
+		// GoalLocationToMove = DirectionToMove*AcceptableDistance;
+  //
+		// EAIController->MoveToLocation(DirectionToMove,250.f);
         
       
         
 		if(bCharInsideAgroSphere)
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_CharacterDetected);
 		break;
 		
 		
@@ -145,6 +154,8 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		/* EMS_MoveToTarget *//***********************************************************************************/
 		case EEnemyMovementStatus::EMS_MoveToTarget:
 		UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET "));
+
+		
 		StopAttackingTarget(); // bIsAttackingTarget = false;
 		bCanMoveToTarget = true;
 
@@ -157,13 +168,19 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		else if (bCharInsideAgroSphere && !bCharInsideCombatSphere)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF"));
-			EAIController->MoveToTarget(CharacterToMove);
-			if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
-			{
-				TargetLost();
-				UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF IF"));
-				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
-			}
+
+			
+				MoveToTarget(CharacterToMove);
+			 
+			
+			
+			
+		}
+		else if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
+		{
+			TargetLost();
+			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF IF"));
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
 		}
 		else
 		{
@@ -277,12 +294,40 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 	}
 }
 
+void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
+
+{
+	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
+		if(EAIController)
+		{
+			UE_LOG(LogTemp,Error,TEXT("MOVE TO IS NOT WORKING, EAIController IS FOUND"));
+			/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
+			FAIMoveRequest MoveRequest;
+			MoveRequest.SetGoalActor(Character);
+			MoveRequest.SetAcceptanceRadius(15.0f);
+    
+			FNavPathSharedPtr NavigationPath;
+    
+			EAIController->MoveTo(MoveRequest,&NavigationPath);
+    
+			// Draw debug sphere which shows the shortest path from Enemy to the main Character
+		  
+			// auto PathPoints = NavigationPath ->GetPathPoints();
+			// for (auto Point : PathPoints)
+			// {
+			// FVector Location = Point.Location;
+			// 	UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
+			//  		8,FLinearColor::Blue,2.5f,1.5f);
+			// };
+		}
+}
+
 
 void AEnemy::ResetTimer()
 {
 	GetWorld()->GetTimerManager().ClearTimer(DelayTimerBetweenStates);
 	bCanMoveToTarget = true;
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,"Timer Was reset"); // debug 
+	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,"Timer Was reset, bCanMoveToTarget = true"); // debug 
 }
 
 // Toggles to control the Enemies reaction to the Character (depends on how far we are from the enemy)
