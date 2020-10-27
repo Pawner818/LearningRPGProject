@@ -51,11 +51,10 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
     USphereComponent*CombatSphere;
 
-	// UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
-	// class AAIController*AIController;
-	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
 	class AEnemyAIController *EAIController;
+
+
 
 	/* Function which allows the Enemy to reach the Character */
 	void MoveToTarget(ARPGLessonCharacter* Character);

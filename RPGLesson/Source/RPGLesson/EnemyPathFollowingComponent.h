@@ -16,8 +16,6 @@ class RPGLESSON_API UEnemyPathFollowingComponent : public UPathFollowingComponen
 
 	public:
 
-
-	
 	/** follow current path segment */
 	virtual void FollowPathSegment(float DeltaTime) override;
 

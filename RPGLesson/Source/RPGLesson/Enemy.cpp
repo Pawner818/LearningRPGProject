@@ -16,7 +16,7 @@
 // Sets default values
 
 AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
-   : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("AEnemyAIController")))
+    : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("AEnemyAIController")))
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -55,7 +55,7 @@ AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	EAIController = Cast<AEnemyAIController>(GetController());;
 
 	// Initializing overlap spheres
@@ -66,16 +66,72 @@ void AEnemy::BeginPlay()
 	CombatSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::CombatSphereOnOverlapEnd);
 }
 
+/* Spheres */
+/************************************************************************************************************/
+void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+    UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if(OtherActor)
+	{
+		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
+		if(CharacterToMove)
+		{
+			bCharInsideAgroSphere = true;
+			TargetDetected(); // bCharacterSpottedByEnemy = true;
+		}
+	}
+}
+
+void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+    UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	if(OtherActor)
+	{
+		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
+		if(CharacterToMove)
+		{
+			bCharInsideAgroSphere = false;
+			TargetLost(); // bCharacterSpottedByEnemy = false;
+		}
+	}
+}
+
+void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+    UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if(OtherActor)
+	{
+		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
+		if(CharacterToMove)
+		{
+			bCharInsideCombatSphere = true;
+			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP BEGIN"));
+		}
+	}
+}
+
+void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+    UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	if(OtherActor)
+	{
+		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
+		if(CharacterToMove)
+		{
+			bCharInsideCombatSphere = false;
+			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP END"));
+		}
+	}
+}
+
 // Updating enemy states, called in Tick function. 
 void AEnemy::EnemyStatusUpdating(float DeltaValue)
 {
-	DeltaValue = GetWorld()->GetDeltaSeconds();
-
 	switch (EnemyMovementStatus)
 	{
 		/* EMS_IDLE *///***********************************************************************************/
 		case EEnemyMovementStatus::EMS_Idle:
-		// UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE "));
+		 UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE "));
 
 		if(bCharacterSpottedByEnemy && bCharInsideAgroSphere && !bCharInsideCombatSphere)
 		{
@@ -103,28 +159,23 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		/* EMS_Walking *//***********************************************************************************/
         case EEnemyMovementStatus::EMS_Walking:
         	UE_LOG(LogTemp, Warning, TEXT("we are inside THE WALKING STATE"))
-
-		TargetLost();
 		
-		
+        //TODO: move to random location using navdata
 
-        	
-
-  //       //TODO: move to random location using navdata
-  //       DirectionToMove = CurrentLocation.GetSafeNormal() ;
-  //
+		/*DirectionToMove = CurrentLocation.GetSafeNormal() ;
+  
 		// GoalLocationToMove = DirectionToMove*AcceptableDistance;
-  //
-		// EAIController->MoveToLocation(DirectionToMove,250.f);
-        
-      
-        
+  
+		// EAIController->MoveToLocation(DirectionToMove,250.f); */
+ 
 		if(bCharInsideAgroSphere)
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_CharacterDetected);
-		break;
-		
-		
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
 
+		else
+			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
+		break;
+
+		
 		/* EMS_CharacterDetected *//***********************************************************************************/
 		case EEnemyMovementStatus::EMS_CharacterDetected:
 		UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED "));
@@ -132,7 +183,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		if(bCharInsideAgroSphere && !bCharInsideCombatSphere && bCanMoveToTarget)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED IF"));
-			
 				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 		}
 		else
@@ -155,7 +205,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		case EEnemyMovementStatus::EMS_MoveToTarget:
 		UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET "));
 
-		
 		StopAttackingTarget(); // bIsAttackingTarget = false;
 		bCanMoveToTarget = true;
 
@@ -168,13 +217,7 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 		else if (bCharInsideAgroSphere && !bCharInsideCombatSphere)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF"));
-
-			
 				MoveToTarget(CharacterToMove);
-			 
-			
-			
-			
 		}
 		else if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
 		{
@@ -215,8 +258,6 @@ void AEnemy::EnemyStatusUpdating(float DeltaValue)
 	}
 }
 
-
-
 // Called every frame
 void AEnemy::Tick(float DeltaTime)
 {
@@ -225,100 +266,47 @@ void AEnemy::Tick(float DeltaTime)
 	EnemyStatusUpdating(DeltaTime);
 }
 
-
 // Called to bind functionality to input
 void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-
-
-
-
-                              /* Spheres */
-/************************************************************************************************************/
-void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	if(OtherActor)
-	{
-		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		if(CharacterToMove)
-		{
-			bCharInsideAgroSphere = true;
-			TargetDetected(); // bCharacterSpottedByEnemy = true;
-		}
-	}
-}
-
-void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	if(OtherActor)
-	{
-		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		if(CharacterToMove)
-		{
-			bCharInsideAgroSphere = false;
-			TargetLost(); // bCharacterSpottedByEnemy = false;
-		}
-	}
-}
-
-void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	if(OtherActor)
-	{
-		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		if(CharacterToMove)
-		{
-			bCharInsideCombatSphere = true;
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP BEGIN"));
-		}
-	}
-}
-
-void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	if(OtherActor)
-	{
-		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
-		if(CharacterToMove)
-		{
-			bCharInsideCombatSphere = false;
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP END"));
-		}
-	}
-}
-
 void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
-
 {
 	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
 		if(EAIController)
 		{
-			UE_LOG(LogTemp,Error,TEXT("MOVE TO IS NOT WORKING, EAIController IS FOUND"));
+			UE_LOG(LogTemp,Error,TEXT("we are inside ENSURE CHECK, EAICONTROLLER IS OK"));
+
+			if(Character)
+			{
+				UE_LOG(LogTemp,Error,TEXT("CHARACTER IS FOUND, SO WHAT? "));
+				EAIController->MoveToTheMainCharacter(Character);
+			}
+			else {UE_LOG(LogTemp,Error,TEXT("CHARACTER IS NOT FOUND, THATS BAD "));}
+
+		
 			/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
-			FAIMoveRequest MoveRequest;
+			/*FAIMoveRequest MoveRequest;
 			MoveRequest.SetGoalActor(Character);
 			MoveRequest.SetAcceptanceRadius(15.0f);
-    
+       
 			FNavPathSharedPtr NavigationPath;
+			*/
+
+			
+			/*EAIController->MoveTo(MoveRequest,&NavigationPath);*/
     
-			EAIController->MoveTo(MoveRequest,&NavigationPath);
-    
-			// Draw debug sphere which shows the shortest path from Enemy to the main Character
+			/* Draw debug sphere which shows the shortest path from Enemy to the main Character */
 		  
-			// auto PathPoints = NavigationPath ->GetPathPoints();
-			// for (auto Point : PathPoints)
-			// {
-			// FVector Location = Point.Location;
-			// 	UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
-			//  		8,FLinearColor::Blue,2.5f,1.5f);
-			// };
+			/*auto PathPoints = NavigationPath ->GetPathPoints();
+			for (auto Point : PathPoints)
+			{
+			FVector Location = Point.Location;
+				UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
+			 		8,FLinearColor::Blue,2.5f,1.5f);
+			};*/
 		}
 }
 

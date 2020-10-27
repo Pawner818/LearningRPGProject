@@ -145,10 +145,13 @@
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Lumin/MagicLeapScreens" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Lumin/MagicLeapSharedFile" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Lumin/MagicLeapTablet" />
+    <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/AsyncLoadingScreen" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/EasyFileDialog" />
+    <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/RadialMenu" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/Restart" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/SurfaceFootstepSystem" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/TargetSystemComponent" />
+    <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Marketplace/UIWS" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Media/AjaMedia" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Media/AndroidCamera" />
     <content url="file://$MODULE_DIR$/../../../../../../Games/UE_4.25/Engine/Plugins/Media/AndroidMedia" />
