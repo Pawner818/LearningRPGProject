@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
+#include "Components/TimelineComponent.h"
+
 #include "EnemyAnimInstance.generated.h"
 
 

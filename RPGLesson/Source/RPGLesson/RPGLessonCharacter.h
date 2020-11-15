@@ -132,6 +132,11 @@ public:
 	void ShiftKeyDown();
 	void ShiftKeyUp();
 
+	UFUNCTION(BlueprintCallable)
+	void SpaceKeyDown();
+	UFUNCTION(BlueprintCallable)
+	void SpaceKeyUp();
+	
 	// Mouse buttons 
 	void LMBPressed();
 	void LMBReleased();
@@ -249,7 +254,7 @@ public:
 	bool bAttacking;
 
 	void Attack();
-
+	
 	UFUNCTION(BlueprintCallable)
 	void AttackEnd();
 

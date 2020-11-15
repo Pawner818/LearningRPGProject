@@ -9,21 +9,22 @@ class UEnemyPathFollowingComponent;
 class ARPGLessonCharacter;
 
 
-AEnemyAIController::AEnemyAIController()/*(const FObjectInitializer& ObjectInitializer)
-   : Super(ObjectInitializer.SetDefaultSubobjectClass<UEnemyPathFollowingComponent>(TEXT("PathFollowingComponent")))*/
+AEnemyAIController::AEnemyAIController()
+   
 {
-  
+    
 }
 
 void AEnemyAIController::BeginPlay()
 {
     Super::BeginPlay();
-    EnemyAIControllerRef = Cast<AEnemyAIController>(GetCharacter()->GetController());
-    AIControllerRef = Cast<AAIController>(EnemyAIControllerRef);
+    
+    
 }
 
 void AEnemyAIController::Tick(float DeltaSeconds)
 {
+    
 }
 
 void AEnemyAIController::MoveToTheMainCharacter(ARPGLessonCharacter*CharacterToMoveRef)

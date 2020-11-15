@@ -10,6 +10,8 @@
 /* Forward declaration */
 /*class UEnemyPathFollowingComponent;*/
 class ARPGLessonCharacter;
+class UBlackboardComponent;
+class UBehaviorTree;
 
 /**
  * 
@@ -26,19 +28,10 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
-	
-	
-
-	//Ref to the Character
-	/*UPROPERTY()
-	class ARPGLessonCharacter *MainChar;*/
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
 	AEnemyAIController*EnemyAIControllerRef;
 	
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
-	AAIController*AIControllerRef;
-
 	virtual void MoveToTheMainCharacter(ARPGLessonCharacter* CharacterToMoveRef);
 
 	

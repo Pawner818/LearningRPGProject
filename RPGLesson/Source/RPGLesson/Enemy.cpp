@@ -8,15 +8,13 @@
 #include "RPGLessonCharacter.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "TimerManager.h"
 #include "Engine/EngineTypes.h"
 
 
 
 // Sets default values
 
-AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
-    : Super(ObjectInitializer.SetDefaultSubobjectClass<AEnemyAIController>(TEXT("AEnemyAIController")))
+    AEnemy::AEnemy()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -31,6 +29,8 @@ AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
 
 	// INITIALIZING ENUMS 
 	EnemyMovementStatus = EEnemyMovementStatus::EMS_Walking;
+	
+	
 
     // INITIALIZING BOOLS 
 	bCharacterSpottedByEnemy = false; // Is an enemy "see" and ready to attack our character (changes to "true" if we reach the necessary agro distance)
@@ -42,21 +42,20 @@ AEnemy::AEnemy(const FObjectInitializer& ObjectInitializer)
 	// INITIALIZING STATS
 
 	// Depends on current mode 
-	NormalWalkingSpeed = 400.f;
-	BattleWalkingSpeed = 500.f;
+	MaxHealth = 1000.f;
+	CurrentHealth = 1000.f;
+	Damage = 50.f;
 
 	AcceptableDistance = 250.f;
 	CurrentLocation = GetActorLocation();
 }
-
-
 
 // Called when the game starts or when spawned
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	EAIController = Cast<AEnemyAIController>(GetController());;
+	// EAIController = Cast<AEnemyAIController>(GetController());;
 
 	// Initializing overlap spheres
 	AgroSphere -> OnComponentBeginOverlap.AddDynamic(this,&AEnemy::AgroSphereOnOverlapBegin);
@@ -66,7 +65,7 @@ void AEnemy::BeginPlay()
 	CombatSphere->OnComponentEndOverlap.AddDynamic(this,&AEnemy::CombatSphereOnOverlapEnd);
 }
 
-/* Spheres */
+/* Spheres Overlapping /StopOverlapping*/
 /************************************************************************************************************/
 void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
     UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -77,7 +76,6 @@ void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, 
 		if(CharacterToMove)
 		{
 			bCharInsideAgroSphere = true;
-			TargetDetected(); // bCharacterSpottedByEnemy = true;
 		}
 	}
 }
@@ -91,7 +89,6 @@ void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AA
 		if(CharacterToMove)
 		{
 			bCharInsideAgroSphere = false;
-			TargetLost(); // bCharacterSpottedByEnemy = false;
 		}
 	}
 }
@@ -105,7 +102,6 @@ void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent
 		if(CharacterToMove)
 		{
 			bCharInsideCombatSphere = true;
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP BEGIN"));
 		}
 	}
 }
@@ -119,151 +115,134 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 		if(CharacterToMove)
 		{
 			bCharInsideCombatSphere = false;
-			// UE_LOG(LogTemp, Warning, TEXT("we are inside COMBATSPHERE OVERLAP END"));
 		}
 	}
 }
 
-// Updating enemy states, called in Tick function. 
-void AEnemy::EnemyStatusUpdating(float DeltaValue)
-{
-	switch (EnemyMovementStatus)
-	{
-		/* EMS_IDLE *///***********************************************************************************/
-		case EEnemyMovementStatus::EMS_Idle:
-		 UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE "));
-
-		if(bCharacterSpottedByEnemy && bCharInsideAgroSphere && !bCharInsideCombatSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE IF "));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_CharacterDetected);
-			
-			// Timer which allows to play an animation before the Enemy starts moving to the Character
-			GetWorld()->GetTimerManager().SetTimer(DelayTimerBetweenStates,this, &AEnemy::ResetTimer,2.90f,false);
-		}
-
-		// The Character isn't inside the agro/combat radius. 
-		else if (!bCharInsideAgroSphere && !bCharInsideCombatSphere )
-		{
-			
-			TargetLost();
-			bCanMoveToTarget = false;
-			
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE IDLE ELSE IF"));	
-		}
-		
-		break;
-
-		
-		/* EMS_Walking *//***********************************************************************************/
-        case EEnemyMovementStatus::EMS_Walking:
-        	UE_LOG(LogTemp, Warning, TEXT("we are inside THE WALKING STATE"))
-		
-        //TODO: move to random location using navdata
-
-		/*DirectionToMove = CurrentLocation.GetSafeNormal() ;
-  
-		// GoalLocationToMove = DirectionToMove*AcceptableDistance;
-  
-		// EAIController->MoveToLocation(DirectionToMove,250.f); */
- 
-		if(bCharInsideAgroSphere)
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
-
-		else
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
-		break;
-
-		
-		/* EMS_CharacterDetected *//***********************************************************************************/
-		case EEnemyMovementStatus::EMS_CharacterDetected:
-		UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED "));
-		
-		if(bCharInsideAgroSphere && !bCharInsideCombatSphere && bCanMoveToTarget)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED IF"));
-				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-		}
-		else
-		{
-			if(!bCharInsideAgroSphere)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED ELSE IF"));
-				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
-			}
-
-			else if(bCharInsideCombatSphere)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("we are inside THE CHARACTERDETECTED ELSE ELSE IF"));
-				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
-			}
-		}
-		break;
-
-		/* EMS_MoveToTarget *//***********************************************************************************/
-		case EEnemyMovementStatus::EMS_MoveToTarget:
-		UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET "));
-
-		StopAttackingTarget(); // bIsAttackingTarget = false;
-		bCanMoveToTarget = true;
-
-		// Checking if we inside the Combat / Agro sphere. If so, the status will change to the necessary one. 
-		if(bCharInsideCombatSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET IF"));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
-		}
-		else if (bCharInsideAgroSphere && !bCharInsideCombatSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF"));
-				MoveToTarget(CharacterToMove);
-		}
-		else if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
-		{
-			TargetLost();
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE IF IF"));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE MOVETOTARGET ELSE"));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
-		}
-		break;
-
-		/* EMS_Attacking *//***********************************************************************************/
-		case EEnemyMovementStatus::EMS_Attacking:
-		UE_LOG(LogTemp, Warning, TEXT("we are inside THE ATTACKING "));
-		
-		if (bCharInsideCombatSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE ATTACKING IF"));
-			AttackingTarget(); //bIsAttacking = true;
-		}
-		else if (!bCharInsideCombatSphere && bCharInsideAgroSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE ATTACKING ELSE IF"));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-		}
-		else if (!bCharInsideCombatSphere && !bCharInsideAgroSphere)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("we are inside THE ATTACKING ELSE IF (LAST ONE)"));
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
-		}
-		break;
-
-		default:
-		break;
-	}
-}
-
+// // Updating enemy states, called in Tick function. 
+// void AEnemy::EnemyStatusUpdating(float DeltaValue)
+// {
+// 	switch (EnemyMovementStatus)
+// 	{
+// 		/* EMS_IDLE *///***********************************************************************************/
+// 		case EEnemyMovementStatus::EMS_Idle:
+//
+// 			if(EAIController) EAIController->StopMovement();
+// 		
+//
+// 		if(bCharacterSpottedByEnemy && bCharInsideAgroSphere && !bCharInsideCombatSphere)
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_CharacterDetected);
+// 		
+// 			// Timer which allows to play an animation before the Enemy starts moving to the Character
+// 			GetWorld()->GetTimerManager().SetTimer(DelayTimerBetweenStates,this, &AEnemy::ResetTimer,2.90f,false);
+// 		}
+//
+// 		// The Character isn't inside the agro/combat radius. 
+// 		else if (!bCharInsideAgroSphere && !bCharInsideCombatSphere )
+// 		{
+// 			bCanMoveToTarget = false;
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);	
+// 		}
+// 		
+// 		break;
+//
+// 		/* EMS_Walking *//***********************************************************************************/
+//         case EEnemyMovementStatus::EMS_Walking:
+// 		
+//         //TODO: move to random location using navdata
+//
+// 		/*DirectionToMove = CurrentLocation.GetSafeNormal() ;
+//   
+// 		// GoalLocationToMove = DirectionToMove*AcceptableDistance;
+//   
+// 		// EAIController->MoveToLocation(DirectionToMove,250.f); */
+//  
+// 		if(bCharInsideAgroSphere)
+// 			
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+// 		
+//
+// 		else
+// 			
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Walking);
+// 		
+// 		break;
+//
+// 		/* EMS_CharacterDetected *//***********************************************************************************/
+// 		case EEnemyMovementStatus::EMS_CharacterDetected:
+//
+// 		
+// 		if(bCharInsideAgroSphere && !bCharInsideCombatSphere && bCanMoveToTarget)
+// 			
+// 				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
+// 		
+// 		
+// 		else
+// 		{
+// 			if(!bCharInsideAgroSphere)
+// 				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+// 			
+// 			else if(bCharInsideCombatSphere)
+// 				SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
+// 		}
+// 		
+// 		break;
+//
+// 		/* EMS_MoveToTarget *//***********************************************************************************/
+// 		case EEnemyMovementStatus::EMS_MoveToTarget:
+//
+// 		StopAttackingTarget(); // bIsAttackingTarget = false;
+// 		bCanMoveToTarget = true;
+//
+// 		// Checking if we inside the Combat / Agro sphere. If so, the status will change to the necessary one. 
+// 		if(bCharInsideCombatSphere)
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
+// 		}
+// 		else if (bCharInsideAgroSphere && !bCharInsideCombatSphere)
+// 		{
+// 				MoveToTarget(CharacterToMove);
+// 		}
+// 		else if(!bCharInsideAgroSphere && !bCharInsideCombatSphere)
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+// 		}
+// 		else
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+// 		}
+// 		break;
+//
+// 		/* EMS_Attacking *//***********************************************************************************/
+// 		case EEnemyMovementStatus::EMS_Attacking:
+// 		
+// 		if (bCharInsideCombatSphere)
+// 		{
+// 			AttackingTarget(); //bIsAttacking = true;
+// 		}
+// 		else if (!bCharInsideCombatSphere && bCharInsideAgroSphere)
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
+// 		}
+// 		else if (!bCharInsideCombatSphere && !bCharInsideAgroSphere)
+// 		{
+// 			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Idle);
+// 		}
+// 		
+// 		break;
+//
+// 		default:
+// 		break;
+// 	}
+// }
+//
 // Called every frame
 void AEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	EnemyStatusUpdating(DeltaTime);
+	// EnemyStatusUpdating(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -272,71 +251,95 @@ void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
-{
-	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
-		if(EAIController)
-		{
-			UE_LOG(LogTemp,Error,TEXT("we are inside ENSURE CHECK, EAICONTROLLER IS OK"));
-
-			if(Character)
-			{
-				UE_LOG(LogTemp,Error,TEXT("CHARACTER IS FOUND, SO WHAT? "));
-				EAIController->MoveToTheMainCharacter(Character);
-			}
-			else {UE_LOG(LogTemp,Error,TEXT("CHARACTER IS NOT FOUND, THATS BAD "));}
-
-		
-			/* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
-			/*FAIMoveRequest MoveRequest;
-			MoveRequest.SetGoalActor(Character);
-			MoveRequest.SetAcceptanceRadius(15.0f);
-       
-			FNavPathSharedPtr NavigationPath;
-			*/
-
-			
-			/*EAIController->MoveTo(MoveRequest,&NavigationPath);*/
-    
-			/* Draw debug sphere which shows the shortest path from Enemy to the main Character */
-		  
-			/*auto PathPoints = NavigationPath ->GetPathPoints();
-			for (auto Point : PathPoints)
-			{
-			FVector Location = Point.Location;
-				UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
-			 		8,FLinearColor::Blue,2.5f,1.5f);
-			};*/
-		}
-}
+// void AEnemy::MoveToTarget(ARPGLessonCharacter* Character)
+// {
+// 	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
+// 		if(EAIController)
+// 		{
+// 			if(Character)
+// 			{
+// 				EAIController->MoveToTheMainCharacter(Character);
+// 			}
+// 			
+// 			/* Draw debug sphere which shows the shortest path from Enemy to the main Character */
+// 		  
+// 			/*auto PathPoints = NavigationPath ->GetPathPoints();
+// 			for (auto Point : PathPoints)
+// 			{
+// 			FVector Location = Point.Location;
+// 				UKismetSystemLibrary::DrawDebugSphere(this,Location,25.f,
+// 			 		8,FLinearColor::Blue,2.5f,1.5f);
+// 			};*/
+// 		}
+// }
+//
+//
 
 
-void AEnemy::ResetTimer()
-{
-	GetWorld()->GetTimerManager().ClearTimer(DelayTimerBetweenStates);
-	bCanMoveToTarget = true;
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,"Timer Was reset, bCanMoveToTarget = true"); // debug 
-}
 
 // Toggles to control the Enemies reaction to the Character (depends on how far we are from the enemy)
 void AEnemy::TargetDetected()
 {
 	bCharacterSpottedByEnemy = true;
-	GetCharacterMovement()->MaxWalkSpeed = BattleWalkingSpeed;
+	
 }
 
 void AEnemy::TargetLost()
 {
 	bCharacterSpottedByEnemy = false;
-	GetCharacterMovement()->MaxWalkSpeed = NormalWalkingSpeed;
+	
 }
 
 void AEnemy::AttackingTarget()
 {
 	bIsAttackingTarget = true;
+	AttackTheCharacter();
 }
 
 void AEnemy::StopAttackingTarget()
 {
 	bIsAttackingTarget = false;
+}
+
+void AEnemy::AttackTheCharacter()
+{
+	bIsAttackingTarget = true;
+	UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
+	if(AnimInstance && EnemyCombatMontage)
+	{
+
+		int32 MontageSection = FMath::RandRange(0,3);
+		switch (MontageSection)
+		{
+		case 0:
+			AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
+			AnimInstance->Montage_JumpToSection(FName("Attack_1"), EnemyCombatMontage);
+			break;
+				
+		case 1:
+			AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
+			AnimInstance->Montage_JumpToSection(FName("Attack_2"), EnemyCombatMontage);
+			break;
+				
+		case 2:
+			AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
+			AnimInstance->Montage_JumpToSection(FName("Attack_3"), EnemyCombatMontage);
+			break;
+				
+		case 3:
+			AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
+			AnimInstance->Montage_JumpToSection(FName("Attack_4"), EnemyCombatMontage);
+			break;
+				
+		default:
+			break;
+		}
+			
+	}
+	
+}
+
+void AEnemy::AttackEnd()
+{
+
 }

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "EnemyAIController.h"
 #include "Field/FieldSystemNodes.h"
 #include "GameFramework/Character.h"
 #include "Enemy.generated.h"
@@ -34,7 +33,7 @@ class RPGLESSON_API AEnemy : public ACharacter
 public:
 	
 	// Sets default values for this character's properties
-	AEnemy(const FObjectInitializer& ObjectInitializer);
+	AEnemy();
 
 	/* Sets Enemy Movement status from the Enum list */
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Movement")
@@ -43,7 +42,7 @@ public:
 	/* Setter for the EnemyMovementStatus */
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status){EnemyMovementStatus = Status;}
 
-	/* AgroSphere is invicible in the game, but when the Character cross the border, our Enemy status switches to DetectCharacter and so on */
+	/* AgroSphere is invisible in the game, but when the Character cross the border, our Enemy status switches to DetectCharacter and so on */
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
 	class USphereComponent*AgroSphere;
 
@@ -51,13 +50,11 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
     USphereComponent*CombatSphere;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
-	class AEnemyAIController *EAIController;
+	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
+	// class AEnemyAIController *EAIController;
 
-
-
-	/* Function which allows the Enemy to reach the Character */
-	void MoveToTarget(ARPGLessonCharacter* Character);
+	// /* Function which allows the Enemy to reach the Character */
+	// void MoveToTarget(ARPGLessonCharacter* Character);
 
 protected:
 	
@@ -102,8 +99,8 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement") 	
 	FVector GoalLocationToMove;
 
-	/* Main updating function, which is updating every frame */
-	void EnemyStatusUpdating(float DeltaValue);
+	// /* Main updating function, which is updating every frame */
+	// void EnemyStatusUpdating(float DeltaValue);
 
 	/* Reference to the Character */ 
 	UPROPERTY()
@@ -120,10 +117,6 @@ public:
 	/* When the Enemy detect the Character (or lost), we change this boolean to enable/disable moving function, switch the state */
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
 	bool bCanMoveToTarget;
-
-	/* Works with FTimerHandle struct */
-	UFUNCTION()
-	void ResetTimer();
 
 	/* If the Character is inside the AgroSphere, the Enemy starts reacting, status changes to CharacterDetected */
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
@@ -156,16 +149,22 @@ public:
 	 */
 
 	//TODO:
-	// float CurrentHealth;
-	//
-	// float MaxHealth;
-	//
-	// float Damage;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="AI | Stats ")
-	float NormalWalkingSpeed;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
+	float CurrentHealth;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="AI | Stats ")
-	float BattleWalkingSpeed;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
+	float MaxHealth;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
+	float Damage;
+
+	void AttackTheCharacter();
+
+	UFUNCTION(BlueprintCallable)
+    void AttackEnd();
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
+	class UAnimMontage*EnemyCombatMontage;
 	
 };

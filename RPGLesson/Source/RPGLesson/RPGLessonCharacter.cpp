@@ -102,8 +102,8 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 {
 	// Keyboard input
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ARPGLessonCharacter::SpaceKeyDown);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ARPGLessonCharacter::SpaceKeyUp);
 
 	PlayerInputComponent->BindAction("Walk", IE_Pressed, this, &ARPGLessonCharacter::AltDown);
 	PlayerInputComponent->BindAction("Walk", IE_Released, this, &ARPGLessonCharacter::AltUp);
@@ -153,7 +153,6 @@ void ARPGLessonCharacter::Attack()
 		UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
 		if(AnimInstance && CombatMontage)
 		{
-
 			int32 MontageSection = FMath::RandRange(0,3);
 			switch (MontageSection)
 			{
@@ -174,7 +173,7 @@ void ARPGLessonCharacter::Attack()
 				
 				case 3:
 				AnimInstance->Montage_Play(CombatMontage, 1.0f);
-				AnimInstance->Montage_JumpToSection(FName("Attack_4"), CombatMontage);
+				AnimInstance->Montage_JumpToSection(FName("Attack_Range"), CombatMontage);
 				break;
 				
 				default:
@@ -317,8 +316,6 @@ void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 // Updating movement status updated every frame
 void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 {
-	DeltaValue = GetWorld()->GetDeltaSeconds();
-
 	// Switching moving status according to the currently clicked buttons - Shift-Sprint, Ctrl-Walk, Alt-Crouch
 	switch(MovementStatus)
 	{
@@ -582,6 +579,17 @@ void ARPGLessonCharacter::ShiftKeyDown()
 void ARPGLessonCharacter::ShiftKeyUp()
 {
 	bShiftKeyDown = false;
+}
+
+void ARPGLessonCharacter::SpaceKeyDown()
+{
+	
+	Jump();
+}
+
+void ARPGLessonCharacter::SpaceKeyUp()
+{
+	StopJumping();
 }
 
 void ARPGLessonCharacter::LMBPressed()

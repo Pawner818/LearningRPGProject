@@ -32,12 +32,10 @@ void UMainAnimIntance::UpdateAnimationProperties()
         const FVector Speed = Pawn->GetVelocity(); // getting the velocity (speed) from our Pawn
         const FVector LateralSpeed = FVector(Speed.X,Speed.Y,0.f);  
         MovementSpeed = LateralSpeed.Size(); // we will use it in BP as a main speed parameter for the Character.
-
+        
         // direction calculation 
-        const FRotator ActorRotation = Pawn->GetActorRotation();
+        const FRotator ActorRotation = Pawn ->GetActorRotation();
         Direction = CalculateDirection(Speed,ActorRotation);
-
-        // UE_LOG(LogTemp,Warning, TEXT("Speed is: %f"), &MovementSpeed);
         
         IsInAir = Pawn->GetMovementComponent()->IsFalling(); // getting from the MovementComponent IsFalling state function
         
