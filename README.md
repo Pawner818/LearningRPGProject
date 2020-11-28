@@ -8,5 +8,5 @@ This project will focus on 3D-Person Character setup and RPG gameplay features:
 
 This file will be updated according to the current progress.
 
-UPD (26.10.2020):
-This project is developing very slowly due to lack of time and little experience, but I try to devote enough time to it to improve my skills in UE4. For now I did some refactoring work, still working on transitions between states in C++ style. The main problem is that I have no experience in coding custom AI controller, and when I'm trying to customize my own (not the standart AIControlller), some functions dont work properly. Of course we have dozens ways to programme AI behaviour (like BB,Trees,Custom NavPathFinding ... ), and I still dont know which one is better for my purposes.  
+UPD (11.15.2020): I decided to rebuild all Enemy system, indcluding locomotion and AI-logic. I also choose a new way to build this system - now it's all about BehaviorTree. I think that for my purposes it's just the best solution and I don't want to invent a wheel again. BehaviorTree is easy to implement, controll, update and to test - that's what I'm looking for when I build a PROTOTYPE of game mechanics. Also it's something that I've never used before and I'm really with how actually my BehaviorTree is working for now. More AI-updates are coming soon!   
+
