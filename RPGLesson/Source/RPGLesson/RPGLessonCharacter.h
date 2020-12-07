@@ -17,10 +17,11 @@
 UENUM(BlueprintType)
 enum class EMovementStatus : uint8
 {
-	EMS_Running UMETA(DisplayName = "Running"),
-	EMS_Walking UMETA(DisplayName = "Walking"),
-	EMS_Sprinting UMETA(DisplayName = "Sprinting"),
+	EMS_Idle UMETA (DisplayName = "Idle"),
 	EMS_Crouching UMETA (DisplayName = "Crouching"),
+	EMS_Walking UMETA(DisplayName = "Walking"),
+	EMS_Running UMETA(DisplayName = "Running"),
+	EMS_Sprinting UMETA(DisplayName = "Sprinting"),
 	
 	EMS_MAX UMETA(DisplayName = "DefaultMAX")
 };
@@ -52,6 +53,8 @@ public:
 	//press T to see the previous location of the picked up coins  
 	UFUNCTION(BlueprintCallable)
     void ShowPickupLocation();
+
+	
 	
 	/***********************************************************************************
 	 *
@@ -93,6 +96,9 @@ public:
     UFUNCTION(BlueprintCallable,Category="Movement")
 	void MovementStatusUpdating(float DeltaValue);
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Movement | Booleans")
+	bool bCharacterMoving;
+	
 	// 150.f
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
     float CrouchingSpeed;
@@ -136,6 +142,10 @@ public:
 	void SpaceKeyDown();
 	UFUNCTION(BlueprintCallable)
 	void SpaceKeyUp();
+
+	void EKeyUp();
+	void EKeyDown();
+	bool bEKeyPressed;
 	
 	// Mouse buttons 
 	void LMBPressed();
@@ -250,6 +260,16 @@ public:
 	///
 	**********************************************************************************/
 
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Items")
+	class AWeapon*EquippedWeapon;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Items")
+	class AItem*ActiveOverlappItem;
+
+	void SetEquippedWeapon(AWeapon*WeaponToSet);
+	FORCEINLINE AWeapon* GetEquippedWeapon(){return EquippedWeapon;}
+	FORCEINLINE void SetActiveOvelappingItem(AItem*ActiveItem){ActiveOverlappItem=ActiveItem;}
+	
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
 	bool bAttacking;
 
