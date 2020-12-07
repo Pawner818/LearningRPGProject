@@ -13,8 +13,7 @@
 #include "GameFramework/Actor.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Components/SkeletalMeshComponent.h"
-#include "Animation/AnimInstance.h"
-#include "Weapon.h"
+#include "Animation/AnimInstance.h" 
 
 
 
@@ -50,7 +49,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	SpringArm->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
 	SpringArm->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
-	// Camera lag setup (light smooth effect when you move your camera around the Character)
+	// Camera lag setup (light smooth effect when you moving around the Character)
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagMaxDistance = 70;
 	SpringArm->CameraLagSpeed = 5;
@@ -60,11 +59,11 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera->SetupAttachment(SpringArm, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	/* Default values for the player stats */
+	// Default values for the player stats 
     MaxHealth = 100.f;
 	Health = 100.f;
 	
-	Coins = 0; // pickable item
+	Coins = 0;
 
 	MaxStamina = 350.f;
 	MinStamina = 0.f;
@@ -73,30 +72,24 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	StaminaExhausted = 50.f;
 	bCouldWeDrainStamina = false;
 
-    // locomotion stats
 	CrouchingSpeed = 150.f;
 	WalkingSpeed = 300.f;
 	RunningSpeed = 600.f;
 	SprintingSpeed = 1200.f;
 	
-	// bools 
 	bShiftKeyDown = false;
 	bIsAltPressed = false;
 	bIsCtrlPressed = false;
-	bEKeyPressed = false;
-
-	
-	bCharacterMoving = false;
 
 	// Initialize ENUMS
-	MovementStatus = EMovementStatus::EMS_Idle;
+	MovementStatus = EMovementStatus::EMS_Running;
 	StaminaStatus = EStaminaStatus::ESS_Normal;
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
 
-// debug sphere, when we pickup coins , press "T" to see their location 
+// debug sphere, when we pickup coins , press "T" to see the location 
 void ARPGLessonCharacter::ShowPickupLocation()
 {
 	for (FVector Location : PickupLocation)
@@ -120,9 +113,6 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ARPGLessonCharacter::ShiftKeyDown);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ARPGLessonCharacter::ShiftKeyUp);
-
-	PlayerInputComponent->BindAction("PickUp", IE_Pressed, this, &ARPGLessonCharacter::EKeyDown);
-	PlayerInputComponent->BindAction("PickUp", IE_Released, this, &ARPGLessonCharacter::EKeyUp);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ARPGLessonCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ARPGLessonCharacter::MoveRight);
@@ -155,7 +145,6 @@ void ARPGLessonCharacter::BeginPlay()
 	Super::BeginPlay();
 }
 
-// Combat montage
 void ARPGLessonCharacter::Attack()
 {
 	if(!bAttacking)
@@ -190,10 +179,13 @@ void ARPGLessonCharacter::Attack()
 				default:
 				break;
 			}
+			
 		}
 	}
 	
 }
+
+
 
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
@@ -293,50 +285,27 @@ void ARPGLessonCharacter::Death()
 	//TODO: add functionality
 }
 
-void ARPGLessonCharacter::SetEquippedWeapon(AWeapon* WeaponToSet)
-{
-	if(EquippedWeapon)
-	{
-		EquippedWeapon -> Destroy(); // we destroy the old weapon that was picked up by the Player. TODO: we could save all weapons in an inventory
-	}
-	
-	EquippedWeapon = WeaponToSet;
-	
-}
-
 void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
 {
 	MovementStatus = Status;
 	
 	switch (MovementStatus)
 	{
-		// speed is 0
-		case EMovementStatus::EMS_Idle:
-		bCharacterMoving = false;
-		break;
-		
         // speed is 150.f
 	    case EMovementStatus::EMS_Crouching:
         GetCharacterMovement()->MaxWalkSpeed = CrouchingSpeed;
-		bCharacterMoving = true;
 	    break;
-		
 		// speed is 300.f
 		case EMovementStatus::EMS_Walking:
 		GetCharacterMovement()->MaxWalkSpeed = WalkingSpeed;
-		bCharacterMoving = true;
 		break;
-		
         // speed is 600.f
 		case EMovementStatus::EMS_Running:
 		GetCharacterMovement()->MaxWalkSpeed = RunningSpeed;
-		bCharacterMoving = true;
 		break;
-		
         // speed is 1200.f
 		case EMovementStatus::EMS_Sprinting:
-		GetCharacterMovement()->MaxWalkSpeed = SprintingSpeed;
-		bCharacterMoving = true;
+		GetCharacterMovement()->MaxWalkSpeed=SprintingSpeed;
 		break;
 
 		default:
@@ -350,58 +319,34 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 	// Switching moving status according to the currently clicked buttons - Shift-Sprint, Ctrl-Walk, Alt-Crouch
 	switch(MovementStatus)
 	{
-	/* 
+		/* 
 		* Movement Status : Running (Default)
 		*/
 	
 		// By default we are in this status. When we press WASD, we are able to run. Also, this is a toggle to
 		// other movement statuses.
-		case EMovementStatus::EMS_Idle:
-
-			if(bIsAltPressed && GetMovementComponent()->Velocity.Size()>0.f || GetMovementComponent()->Velocity.Size()>0.f )
-			{
-				SetMovementStatus(EMovementStatus::EMS_Walking);
-			}
-
-			else if(bIsCtrlPressed )
-			{
-				SetMovementStatus(EMovementStatus::EMS_Crouching);
-			}
-
-		break;
-
-		/* 
-		* Movement Status : Walking
-		*/
-		
-	case EMovementStatus::EMS_Walking:
-		{
-			if(GetMovementComponent()->Velocity.Size()==0.f)
-			{
-				SetMovementStatus(EMovementStatus::EMS_Idle);
-			}
-			else if(bIsAltPressed)
-			{
-				SetMovementStatus(EMovementStatus::EMS_Walking);
-			}
-			else if (GetMovementComponent()->Velocity.Size()>300.f)
-			{
-				SetMovementStatus(EMovementStatus::EMS_Running);
-			}
-		}
-		
-		break;
 		
 		case EMovementStatus::EMS_Running: 
 			{
-				if(bShiftKeyDown && StaminaStatus!=EStaminaStatus::ESS_Recovering &&bCharacterMoving)
-				{
-					SetMovementStatus(EMovementStatus::EMS_Sprinting);
-				}
-				else if (bIsAltPressed || GetMovementComponent()->Velocity.Size()<=300.f)
-				{
-				    SetMovementStatus(EMovementStatus::EMS_Walking);
-				}
+				// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE"));
+				
+					if(bShiftKeyDown && StaminaStatus!=EStaminaStatus::ESS_Recovering)
+					{
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE SHIFT KEY DOWN"));
+						SetMovementStatus(EMovementStatus::EMS_Sprinting);
+					}
+				    
+					if(bIsCtrlPressed)
+					{
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE CTRL KEY DOWN"));
+						SetMovementStatus(EMovementStatus::EMS_Crouching);
+					}
+					
+					if (bIsAltPressed)
+					{
+						// UE_LOG(LogTemp, Warning, TEXT("EMS RUNNING CASE ALT KEY DOWN"));
+						SetMovementStatus(EMovementStatus::EMS_Walking);
+					}	
 			}
 			
 		break;
@@ -412,12 +357,8 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 
 		case EMovementStatus::EMS_Sprinting:
 			{
+				// UE_LOG(LogTemp, Warning, TEXT("EMS SPRINTING CASE"));
 				bCouldWeDrainStamina=true;
-
-				if(GetMovementComponent()->Velocity.Size()<50.f)
-				{
-					SetMovementStatus(EMovementStatus::EMS_Idle);
-				}
 			}
 		break;
 
@@ -427,17 +368,37 @@ void ARPGLessonCharacter::MovementStatusUpdating(float DeltaValue)
 		
 		case EMovementStatus::EMS_Crouching:
 			{
+				// UE_LOG(LogTemp, Warning, TEXT("EMS CROUCHING CASE"));
 				if(bIsCtrlPressed)
 				{
 					SetMovementStatus(EMovementStatus::EMS_Crouching);
 				}
 				else
 				{
-					SetMovementStatus(EMovementStatus::EMS_Idle);
+					SetMovementStatus(EMovementStatus::EMS_Running);
 				}
+				
 			}
 		break;
 		
+		/* 
+		* Movement Status : Walking
+		*/
+		
+		case EMovementStatus::EMS_Walking:
+			{
+				// UE_LOG(LogTemp, Warning, TEXT("EMS WALKING CASE"));
+				if(bIsAltPressed)
+				{
+					SetMovementStatus(EMovementStatus::EMS_Walking);
+				}
+				else
+				{
+					SetMovementStatus(EMovementStatus::EMS_Running);
+				}
+			}
+		break;
+
 		default:
 		break;
 	}
@@ -466,10 +427,10 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 
 	/*
 	 * When we are in the normal state (not moving), we have two options.
-	 * The first allows you to switch to a different movement status (sprint) and start using stamina when we press the shift key.
+	 * The first allows you to switch to a different movement status (sprint) and start using mana when we press the shift key.
 	 * If we do not press the key, we go into Recovery mode and wait until the stamina indicator is complete.
 	 * 
-	 * There is also a status when the stamina indicator changes a color to green - BelowMin status.
+	 * There is also a status when the stamina indicator changes its color to green - BelowMin status.
 	 * It occurs when the stamina indicator drops less the StaminaExhausted value (by def. it's 50.f)	
 	 */
 	
@@ -482,15 +443,17 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		
 	case EStaminaStatus::ESS_Normal:
 		
-		if(bShiftKeyDown && bCharacterMoving)
+		if(bShiftKeyDown)
 		
 		{
 			if(CurrentStamina>=StaminaExhausted)
-			{ 
+			{
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD IF"));  
 				CurrentStamina-=DeltaStamina;
 			}
 			else
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKD ELSE")); 
 				SetStaminaStatus(EStaminaStatus::ESS_BelowMinimum);
 			}
 		}
@@ -498,6 +461,7 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		{
 			if(CurrentStamina<MaxStamina)
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP IF"));
 				if(CurrentStamina<MaxStamina && CurrentStamina>=StaminaExhausted)
 				{
 					SetStaminaStatus(EStaminaStatus::ESS_Recovering);
@@ -506,6 +470,7 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 			}
 			else
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_NORMAL, SKUP ELSE"));
 				CurrentStamina=MaxStamina;                 
 			}
 		}
@@ -522,10 +487,13 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 		{
 			if(CurrentStamina > MinStamina && CurrentStamina <= StaminaExhausted) 
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD IF"));
 				CurrentStamina-=DeltaStamina;
 			}
 			else 
 			{
+			
+				// UE_LOG(LogTemp,Warning,TEXT("ESS_BELOWMINIMUM, SKD CURRENTSTAMINA == MINSTAMINA")); 
 				SetStaminaStatus(EStaminaStatus::ESS_Recovering);
 			}
 		}
@@ -544,14 +512,17 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 	*/
 		
     case EStaminaStatus::ESS_Recovering:
+		// UE_LOG(LogTemp,Warning,TEXT("RECOVERING ENTRY"));
 		if(bShiftKeyDown)
 		{
 			if(CurrentStamina<MaxStamina)
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF IF"));
 				CurrentStamina+=DeltaStamina;
 			}
 			else
 			{
+				// UE_LOG(LogTemp,Warning,TEXT("RECOVERING IF ELSE"));
 				SetStaminaStatus(EStaminaStatus::ESS_Normal);
 			}
 		}
@@ -566,6 +537,7 @@ void ARPGLessonCharacter::StaminaStatusUpdating(float DeltaValue)
 			}
 		}
 		SetMovementStatus(EMovementStatus::EMS_Running);
+		
 break;
 
 	case EStaminaStatus::ESS_MAX: break;
@@ -576,21 +548,26 @@ break;
 void ARPGLessonCharacter::AltUp()
 {
 	bIsAltPressed = false;
+	
 }
 
 void ARPGLessonCharacter::AltDown()
 {
 	bIsAltPressed = true;
+	
+	
 }
 
 void ARPGLessonCharacter::CtrlUp()
 {
 	bIsCtrlPressed = false;
+	
 }
 
 void ARPGLessonCharacter::CtrlDown()
 {
-	bIsCtrlPressed = true;	
+	bIsCtrlPressed = true;
+	
 }
 
 void ARPGLessonCharacter::ShiftKeyDown()
@@ -613,26 +590,6 @@ void ARPGLessonCharacter::SpaceKeyDown()
 void ARPGLessonCharacter::SpaceKeyUp()
 {
 	StopJumping();
-}
-
-void ARPGLessonCharacter::EKeyUp()
-{
-	bEKeyPressed = false;
-}
-
-void ARPGLessonCharacter::EKeyDown()
-{
-	bEKeyPressed = true;
-	if(ActiveOverlappItem)
-	{
-		AWeapon*Weapon = Cast<AWeapon>(ActiveOverlappItem);
-		if(Weapon)
-		{
-			Weapon->EquipWeapon(this);
-			SetActiveOvelappingItem(nullptr);
-		}
-	}
-	
 }
 
 void ARPGLessonCharacter::LMBPressed()

@@ -48,15 +48,17 @@ void AItem::Tick(float DeltaTime)
 void AItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	
 	if (OverlapParticles)
 	{
-		
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),OverlapParticles,GetActorLocation(), FRotator(0.f),true);
 	}
 	if(SoundCue)
 	{
 		UGameplayStatics::PlaySound2D(this,SoundCue);
 	}
+	
+	
 	
 }
 

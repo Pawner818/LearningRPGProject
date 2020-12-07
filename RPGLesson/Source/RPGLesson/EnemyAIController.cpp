@@ -18,6 +18,8 @@ AEnemyAIController::AEnemyAIController()
 void AEnemyAIController::BeginPlay()
 {
     Super::BeginPlay();
+    
+    
 }
 
 void AEnemyAIController::Tick(float DeltaSeconds)
