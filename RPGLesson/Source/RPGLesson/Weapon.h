@@ -6,6 +6,15 @@
 #include "Item.h"
 #include "Weapon.generated.h"
 
+UENUM(BlueprintType)
+enum class EWeaponStates :uint8
+{
+	EWS_Pickup		UMETA (DisplayName = "Pickup"),
+    EWS_Equipped	UMETA (DisplayName = "Equipped"),
+
+    EWS_MAX			UMETA (DisplayName = "DefaultMAX")
+};
+
 
 UCLASS()
 class RPGLESSON_API AWeapon : public AItem
@@ -15,6 +24,23 @@ class RPGLESSON_API AWeapon : public AItem
 public:
 
 	AWeapon();
+	
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Item")
+	EWeaponStates WeaponState;
+
+	FORCEINLINE void SetWeaponState(EWeaponStates State) {WeaponState = State;}
+	FORCEINLINE EWeaponStates GetWeaponState() const {return WeaponState;}
+
+	void EquipWeapon(class ARPGLessonCharacter*Character);
+	
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Particles")
+	class UParticleSystem*ParticleSystem;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Item | Particles")
+	bool bWeaponParticle;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Item | Sound")
+	class USoundCue*OnEquppedSound;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="SekeletalMesh")
 	class USkeletalMeshComponent*SkeletalMeshComponent;
@@ -27,6 +53,8 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
 	float Damage;
+
+	
 
 	protected:
 	

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_RPGLesson.48362080.00" t="ExcludeRecursive" />
+    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_RPGLesson.48362080.00" t="ExcludeRecursive" />
     <e p="F:\Games\UE_4.25\Engine\Config" t="Include">
       <e p="Android" t="Include">
         <e p="AndroidEngine.ini" t="Include" />
@@ -1866,298 +1866,404 @@
       <e p="RiderLink.uplugin" t="Include" />
       <e p="Source" t="Include">
         <e p="RD" t="Include">
-          <e p="include" t="Include">
+          <e p="RD.Build.cs" t="Include" />
+          <e p="RD.cpp" t="Include" />
+          <e p="RD.h" t="Include" />
+          <e p="src" t="Include">
             <e p="rd_core_cpp" t="Include">
-              <e p="Lifetime" t="Include">
-                <e p="Lifetime.h" t="Include" />
-                <e p="LifetimeDefinition.h" t="Include" />
-                <e p="LifetimeImpl.h" t="Include" />
-                <e p="SequentialLifetimes.h" t="Include" />
-              </e>
-              <e p="pch.h" t="Include" />
-              <e p="reactive" t="Include">
-                <e p="base" t="Include">
-                  <e p="IProperty.h" t="Include" />
-                  <e p="IPropertyBase.h" t="Include" />
-                  <e p="IViewableList.h" t="Include" />
-                  <e p="IViewableMap.h" t="Include" />
-                  <e p="IViewableSet.h" t="Include" />
-                  <e p="viewable_collections.h" t="Include" />
+              <e p="rd_core_export.h" t="Include" />
+              <e p="src" t="Include">
+                <e p="main" t="Include">
+                  <e p="Lifetime" t="Include">
+                    <e p="Lifetime.cpp" t="Include" />
+                    <e p="Lifetime.h" t="Include" />
+                    <e p="LifetimeDefinition.cpp" t="Include" />
+                    <e p="LifetimeDefinition.h" t="Include" />
+                    <e p="LifetimeImpl.cpp" t="Include" />
+                    <e p="LifetimeImpl.h" t="Include" />
+                    <e p="SequentialLifetimes.cpp" t="Include" />
+                    <e p="SequentialLifetimes.h" t="Include" />
+                  </e>
+                  <e p="reactive" t="Include">
+                    <e p="base" t="Include">
+                      <e p="interfaces.h" t="Include" />
+                      <e p="IProperty.h" t="Include" />
+                      <e p="IPropertyBase.h" t="Include" />
+                      <e p="IViewableList.h" t="Include" />
+                      <e p="IViewableMap.h" t="Include" />
+                      <e p="IViewableSet.h" t="Include" />
+                      <e p="SignalCookie.cpp" t="Include" />
+                      <e p="SignalCookie.h" t="Include" />
+                      <e p="SignalX.h" t="Include" />
+                      <e p="viewable_collections.h" t="Include" />
+                    </e>
+                    <e p="Property.h" t="Include" />
+                    <e p="ViewableList.h" t="Include" />
+                    <e p="ViewableMap.h" t="Include" />
+                    <e p="ViewableSet.h" t="Include" />
+                  </e>
+                  <e p="std" t="Include">
+                    <e p="allocator.h" t="Include" />
+                    <e p="hash.h" t="Include" />
+                    <e p="List.h" t="Include" />
+                    <e p="to_string.h" t="Include" />
+                    <e p="unordered_map.h" t="Include" />
+                    <e p="unordered_set.h" t="Include" />
+                  </e>
+                  <e p="Types" t="Include">
+                    <e p="DateTime.cpp" t="Include" />
+                    <e p="DateTime.h" t="Include" />
+                    <e p="Void.h" t="Include" />
+                    <e p="wrapper.h" t="Include" />
+                  </e>
+                  <e p="Util" t="Include">
+                    <e p="core_traits.h" t="Include" />
+                    <e p="core_util.h" t="Include" />
+                    <e p="enum.h" t="Include" />
+                    <e p="erase_if.h" t="Include" />
+                    <e p="gen_util.h" t="Include" />
+                    <e p="overloaded.h" t="Include" />
+                    <e p="shared_function.h" t="Include" />
+                  </e>
                 </e>
-                <e p="interfaces.h" t="Include" />
-                <e p="Property.h" t="Include" />
-                <e p="SignalX.h" t="Include" />
-                <e p="ViewableList.h" t="Include" />
-                <e p="ViewableMap.h" t="Include" />
-                <e p="ViewableSet.h" t="Include" />
-              </e>
-              <e p="std" t="Include">
-                <e p="allocator.h" t="Include" />
-                <e p="FileSystem.h" t="Include" />
-                <e p="hash.h" t="Include" />
-                <e p="List.h" t="Include" />
-                <e p="to_string.h" t="Include" />
-                <e p="unordered_map.h" t="Include" />
-                <e p="unordered_set.h" t="Include" />
-              </e>
-              <e p="Types" t="Include">
-                <e p="DateTime.h" t="Include" />
-                <e p="Void.h" t="Include" />
-                <e p="wrapper.h" t="Include" />
-              </e>
-              <e p="Util" t="Include">
-                <e p="core_traits.h" t="Include" />
-                <e p="core_util.h" t="Include" />
-                <e p="enum.h" t="Include" />
-                <e p="erase_if.h" t="Include" />
-                <e p="gen_util.h" t="Include" />
-                <e p="overloaded.h" t="Include" />
-                <e p="shared_function.h" t="Include" />
               </e>
             </e>
             <e p="rd_framework_cpp" t="Include">
-              <e p="base" t="Include">
-                <e p="IProtocol.h" t="Include" />
-                <e p="IRdBindable.h" t="Include" />
-                <e p="IRdDynamic.h" t="Include" />
-                <e p="IRdReactive.h" t="Include" />
-                <e p="IRdWireable.h" t="Include" />
-                <e p="ISerializersOwner.h" t="Include" />
-                <e p="IUnknownInstance.h" t="Include" />
-                <e p="IWire.h" t="Include" />
-                <e p="RdBindableBase.h" t="Include" />
-                <e p="RdPropertyBase.h" t="Include" />
-                <e p="RdReactiveBase.h" t="Include" />
-                <e p="WireBase.h" t="Include" />
-              </e>
-              <e p="ext" t="Include">
-                <e p="ExtWire.h" t="Include" />
-                <e p="RdExtBase.h" t="Include" />
-              </e>
-              <e p="Impl" t="Include">
-                <e p="RdList.h" t="Include" />
-                <e p="RdMap.h" t="Include" />
-                <e p="RdProperty.h" t="Include" />
-                <e p="RdSet.h" t="Include" />
-                <e p="RdSignal.h" t="Include" />
-                <e p="RName.h" t="Include" />
-              </e>
-              <e p="intern" t="Include">
-                <e p="InternRoot.h" t="Include" />
-                <e p="InternScheduler.h" t="Include" />
-              </e>
-              <e p="pch.h" t="Include" />
-              <e p="protocol" t="Include">
-                <e p="Buffer.h" t="Include" />
-                <e p="Identities.h" t="Include" />
-                <e p="MessageBroker.h" t="Include" />
-                <e p="Protocol.h" t="Include" />
-                <e p="RdId.h" t="Include" />
-              </e>
-              <e p="scheduler" t="Include">
-                <e p="base" t="Include">
-                  <e p="IScheduler.h" t="Include" />
-                  <e p="SingleThreadSchedulerBase.h" t="Include" />
+              <e p="rd_framework_export.h" t="Include" />
+              <e p="src" t="Include">
+                <e p="main" t="Include">
+                  <e p="base" t="Include">
+                    <e p="IProtocol.cpp" t="Include" />
+                    <e p="IProtocol.h" t="Include" />
+                    <e p="IRdBindable.h" t="Include" />
+                    <e p="IRdDynamic.h" t="Include" />
+                    <e p="IRdReactive.h" t="Include" />
+                    <e p="IRdWireable.cpp" t="Include" />
+                    <e p="IRdWireable.h" t="Include" />
+                    <e p="ISerializersOwner.cpp" t="Include" />
+                    <e p="ISerializersOwner.h" t="Include" />
+                    <e p="IUnknownInstance.cpp" t="Include" />
+                    <e p="IUnknownInstance.h" t="Include" />
+                    <e p="IWire.h" t="Include" />
+                    <e p="RdBindableBase.cpp" t="Include" />
+                    <e p="RdBindableBase.h" t="Include" />
+                    <e p="RdPropertyBase.h" t="Include" />
+                    <e p="RdReactiveBase.cpp" t="Include" />
+                    <e p="RdReactiveBase.h" t="Include" />
+                    <e p="WireBase.cpp" t="Include" />
+                    <e p="WireBase.h" t="Include" />
+                  </e>
+                  <e p="ext" t="Include">
+                    <e p="ExtWire.cpp" t="Include" />
+                    <e p="ExtWire.h" t="Include" />
+                    <e p="RdExtBase.cpp" t="Include" />
+                    <e p="RdExtBase.h" t="Include" />
+                  </e>
+                  <e p="Impl" t="Include">
+                    <e p="RdList.h" t="Include" />
+                    <e p="RdMap.h" t="Include" />
+                    <e p="RdProperty.h" t="Include" />
+                    <e p="RdSet.h" t="Include" />
+                    <e p="RdSignal.h" t="Include" />
+                    <e p="RName.cpp" t="Include" />
+                    <e p="RName.h" t="Include" />
+                  </e>
+                  <e p="intern" t="Include">
+                    <e p="InternRoot.cpp" t="Include" />
+                    <e p="InternRoot.h" t="Include" />
+                    <e p="InternScheduler.cpp" t="Include" />
+                    <e p="InternScheduler.h" t="Include" />
+                  </e>
+                  <e p="protocol" t="Include">
+                    <e p="Buffer.cpp" t="Include" />
+                    <e p="Buffer.h" t="Include" />
+                    <e p="Identities.cpp" t="Include" />
+                    <e p="Identities.h" t="Include" />
+                    <e p="MessageBroker.cpp" t="Include" />
+                    <e p="MessageBroker.h" t="Include" />
+                    <e p="Protocol.cpp" t="Include" />
+                    <e p="Protocol.h" t="Include" />
+                    <e p="RdId.cpp" t="Include" />
+                    <e p="RdId.h" t="Include" />
+                  </e>
+                  <e p="scheduler" t="Include">
+                    <e p="base" t="Include">
+                      <e p="IScheduler.cpp" t="Include" />
+                      <e p="IScheduler.h" t="Include" />
+                      <e p="SingleThreadSchedulerBase.cpp" t="Include" />
+                      <e p="SingleThreadSchedulerBase.h" t="Include" />
+                    </e>
+                    <e p="SimpleScheduler.cpp" t="Include" />
+                    <e p="SimpleScheduler.h" t="Include" />
+                    <e p="SingleThreadScheduler.cpp" t="Include" />
+                    <e p="SingleThreadScheduler.h" t="Include" />
+                    <e p="SynchronousScheduler.cpp" t="Include" />
+                    <e p="SynchronousScheduler.h" t="Include" />
+                  </e>
+                  <e p="Serialization" t="Include">
+                    <e p="AbstractPolymorphic.h" t="Include" />
+                    <e p="ArraySerializer.h" t="Include" />
+                    <e p="DefaultAbstractDeclaration.cpp" t="Include" />
+                    <e p="DefaultAbstractDeclaration.h" t="Include" />
+                    <e p="InternedAnySerializer.h" t="Include" />
+                    <e p="InternedSerializer.h" t="Include" />
+                    <e p="ISerializable.cpp" t="Include" />
+                    <e p="ISerializable.h" t="Include" />
+                    <e p="NullableSerializer.h" t="Include" />
+                    <e p="Polymorphic.cpp" t="Include" />
+                    <e p="Polymorphic.h" t="Include" />
+                    <e p="RdAny.cpp" t="Include" />
+                    <e p="RdAny.h" t="Include" />
+                    <e p="SerializationCtx.cpp" t="Include" />
+                    <e p="SerializationCtx.h" t="Include" />
+                    <e p="Serializers.cpp" t="Include" />
+                    <e p="Serializers.h" t="Include" />
+                  </e>
+                  <e p="task" t="Include">
+                    <e p="RdCall.h" t="Include" />
+                    <e p="RdEndpoint.h" t="Include" />
+                    <e p="RdSymmetricCall.h" t="Include" />
+                    <e p="RdTask.h" t="Include" />
+                    <e p="RdTaskImpl.h" t="Include" />
+                    <e p="RdTaskResult.h" t="Include" />
+                    <e p="WiredRdTask.h" t="Include" />
+                    <e p="WiredRdTaskImpl.h" t="Include" />
+                  </e>
+                  <e p="Util" t="Include">
+                    <e p="framework_traits.h" t="Include" />
+                    <e p="guards.h" t="Include" />
+                    <e p="hashing.cpp" t="Include" />
+                    <e p="hashing.h" t="Include" />
+                    <e p="thread_util.cpp" t="Include" />
+                    <e p="thread_util.h" t="Include" />
+                  </e>
+                  <e p="wire" t="Include">
+                    <e p="ByteBufferAsyncProcessor.cpp" t="Include" />
+                    <e p="ByteBufferAsyncProcessor.h" t="Include" />
+                    <e p="PkgInputStream.cpp" t="Include" />
+                    <e p="PkgInputStream.h" t="Include" />
+                    <e p="PumpScheduler.cpp" t="Include" />
+                    <e p="PumpScheduler.h" t="Include" />
+                    <e p="SocketWire.cpp" t="Include" />
+                    <e p="SocketWire.h" t="Include" />
+                    <e p="WireUtil.cpp" t="Include" />
+                    <e p="WireUtil.h" t="Include" />
+                  </e>
                 </e>
-                <e p="SimpleScheduler.h" t="Include" />
-                <e p="SingleThreadScheduler.h" t="Include" />
-                <e p="SynchronousScheduler.h" t="Include" />
-              </e>
-              <e p="Serialization" t="Include">
-                <e p="AbstractPolymorphic.h" t="Include" />
-                <e p="ArraySerializer.h" t="Include" />
-                <e p="DefaultAbstractDeclaration.h" t="Include" />
-                <e p="InternedAnySerializer.h" t="Include" />
-                <e p="InternedSerializer.h" t="Include" />
-                <e p="ISerializable.h" t="Include" />
-                <e p="NullableSerializer.h" t="Include" />
-                <e p="Polymorphic.h" t="Include" />
-                <e p="RdAny.h" t="Include" />
-                <e p="SerializationCtx.h" t="Include" />
-                <e p="Serializers.h" t="Include" />
-              </e>
-              <e p="task" t="Include">
-                <e p="RdCall.h" t="Include" />
-                <e p="RdEndpoint.h" t="Include" />
-                <e p="RdSymmetricCall.h" t="Include" />
-                <e p="RdTask.h" t="Include" />
-                <e p="RdTaskImpl.h" t="Include" />
-                <e p="RdTaskResult.h" t="Include" />
-                <e p="WiredRdTask.h" t="Include" />
-                <e p="WiredRdTaskImpl.h" t="Include" />
-              </e>
-              <e p="Util" t="Include">
-                <e p="framework_traits.h" t="Include" />
-                <e p="guards.h" t="Include" />
-                <e p="hashing.h" t="Include" />
-              </e>
-              <e p="wire" t="Include">
-                <e p="ByteBufferAsyncProcessor.h" t="Include" />
-                <e p="PkgInputStream.h" t="Include" />
-                <e p="PumpScheduler.h" t="Include" />
-                <e p="SocketWire.h" t="Include" />
-                <e p="WireUtil.h" t="Include" />
               </e>
             </e>
-            <e p="ThirdParty" t="Include">
-              <e p="clsocket" t="Include">
-                <e p="src" t="Include">
-                  <e p="ActiveSocket.h" t="Include" />
-                  <e p="Host.h" t="Include" />
-                  <e p="PassiveSocket.h" t="Include" />
-                  <e p="SimpleSocket.h" t="Include" />
-                  <e p="StatTimer.h" t="Include" />
-                </e>
-              </e>
-              <e p="mpark" t="Include">
-                <e p="config.hpp" t="Include" />
-                <e p="in_place.hpp" t="Include" />
-                <e p="lib.hpp" t="Include" />
-                <e p="variant.hpp" t="Include" />
-              </e>
-              <e p="nonstd" t="Include">
-                <e p="string_view.hpp" t="Include" />
-              </e>
-              <e p="optional" t="Include">
-                <e p="tl" t="Include">
-                  <e p="optional.hpp" t="Include" />
-                </e>
-              </e>
-              <e p="spdlog" t="Include">
-                <e p="Async.h" t="Include" />
-                <e p="async_logger-inl.h" t="Include" />
-                <e p="async_logger.h" t="Include" />
-                <e p="cfg" t="Include">
-                  <e p="argv.h" t="Include" />
-                  <e p="env.h" t="Include" />
-                  <e p="helpers-inl.h" t="Include" />
-                  <e p="helpers.h" t="Include" />
-                  <e p="log_levels.h" t="Include" />
-                </e>
-                <e p="common-inl.h" t="Include" />
-                <e p="Common.h" t="Include" />
-                <e p="Details" t="Include">
-                  <e p="backtracer-inl.h" t="Include" />
-                  <e p="backtracer.h" t="Include" />
-                  <e p="circular_q.h" t="Include" />
-                  <e p="console_globals.h" t="Include" />
-                  <e p="file_helper-inl.h" t="Include" />
-                  <e p="file_helper.h" t="Include" />
-                  <e p="fmt_helper.h" t="Include" />
-                  <e p="log_msg-inl.h" t="Include" />
-                  <e p="log_msg.h" t="Include" />
-                  <e p="log_msg_buffer-inl.h" t="Include" />
-                  <e p="log_msg_buffer.h" t="Include" />
-                  <e p="mpmc_blocking_q.h" t="Include" />
-                  <e p="null_mutex.h" t="Include" />
-                  <e p="os-inl.h" t="Include" />
-                  <e p="os.h" t="Include" />
-                  <e p="periodic_worker-inl.h" t="Include" />
-                  <e p="periodic_worker.h" t="Include" />
-                  <e p="registry-inl.h" t="Include" />
-                  <e p="registry.h" t="Include" />
-                  <e p="synchronous_factory.h" t="Include" />
-                  <e p="tcp_client-windows.h" t="Include" />
-                  <e p="tcp_client.h" t="Include" />
-                  <e p="thread_pool-inl.h" t="Include" />
-                  <e p="thread_pool.h" t="Include" />
-                  <e p="windows_include.h" t="Include" />
-                </e>
-                <e p="fmt" t="Include">
-                  <e p="bin_to_hex.h" t="Include" />
-                  <e p="bundled" t="Include">
-                    <e p="chrono.h" t="Include" />
-                    <e p="Color.h" t="Include" />
-                    <e p="compile.h" t="Include" />
-                    <e p="Core.h" t="Include" />
-                    <e p="format-inl.h" t="Include" />
-                    <e p="format.h" t="Include" />
-                    <e p="LICENSE.rst" t="Include" />
-                    <e p="locale.h" t="Include" />
-                    <e p="ostream.h" t="Include" />
-                    <e p="posix.h" t="Include" />
-                    <e p="printf.h" t="Include" />
-                    <e p="ranges.h" t="Include" />
-                  </e>
-                  <e p="fmt.h" t="Include" />
-                  <e p="ostr.h" t="Include" />
-                </e>
-                <e p="formatter.h" t="Include" />
-                <e p="fwd.h" t="Include" />
-                <e p="logger-inl.h" t="Include" />
-                <e p="logger.h" t="Include" />
-                <e p="pattern_formatter-inl.h" t="Include" />
-                <e p="pattern_formatter.h" t="Include" />
-                <e p="sinks" t="Include">
-                  <e p="android_sink.h" t="Include" />
-                  <e p="ansicolor_sink-inl.h" t="Include" />
-                  <e p="ansicolor_sink.h" t="Include" />
-                  <e p="base_sink-inl.h" t="Include" />
-                  <e p="base_sink.h" t="Include" />
-                  <e p="basic_file_sink-inl.h" t="Include" />
-                  <e p="basic_file_sink.h" t="Include" />
-                  <e p="daily_file_sink.h" t="Include" />
-                  <e p="dist_sink.h" t="Include" />
-                  <e p="dup_filter_sink.h" t="Include" />
-                  <e p="msvc_sink.h" t="Include" />
-                  <e p="null_sink.h" t="Include" />
-                  <e p="ostream_sink.h" t="Include" />
-                  <e p="ringbuffer_sink.h" t="Include" />
-                  <e p="rotating_file_sink-inl.h" t="Include" />
-                  <e p="rotating_file_sink.h" t="Include" />
-                  <e p="sink-inl.h" t="Include" />
-                  <e p="sink.h" t="Include" />
-                  <e p="stdout_color_sinks-inl.h" t="Include" />
-                  <e p="stdout_color_sinks.h" t="Include" />
-                  <e p="stdout_sinks-inl.h" t="Include" />
-                  <e p="stdout_sinks.h" t="Include" />
-                  <e p="syslog_sink.h" t="Include" />
-                  <e p="systemd_sink.h" t="Include" />
-                  <e p="tcp_sink.h" t="Include" />
-                  <e p="win_eventlog_sink.h" t="Include" />
-                  <e p="wincolor_sink-inl.h" t="Include" />
-                  <e p="wincolor_sink.h" t="Include" />
-                </e>
-                <e p="spdlog-inl.h" t="Include" />
-                <e p="spdlog.h" t="Include" />
-                <e p="tweakme.h" t="Include" />
-                <e p="Version.h" t="Include" />
-              </e>
-              <e p="thirdparty.hpp" t="Include" />
-              <e p="tsl" t="Include">
-                <e p="ordered_hash.h" t="Include" />
-                <e p="ordered_map.h" t="Include" />
-                <e p="ordered_set.h" t="Include" />
+            <e p="rd_gen_cpp" t="Include">
+              <e p="src" t="Include">
+                <e p="RdTextBuffer.cpp" t="Include" />
+                <e p="RdTextBuffer.h" t="Include" />
               </e>
             </e>
           </e>
-          <e p="RD.Build.cs" t="Include" />
-          <e p="win-vs17" t="Include">
-            <e p="libs" t="Include">
-              <e p="Win" t="Include">
-                <e p="x64" t="Include">
-                  <e p="Release" t="Include">
-                    <e p="clsocket.lib" t="Include" />
-                    <e p="rd_core_cpp.lib" t="Include" />
-                    <e p="rd_framework_cpp.lib" t="Include" />
-                    <e p="spdlog.lib" t="Include" />
-                  </e>
-                </e>
+          <e p="ThirdParty" t="Include">
+            <e p="clsocket" t="Include">
+              <e p="README" t="Include" />
+              <e p="src" t="Include">
+                <e p="ActiveSocket.cpp" t="Include" />
+                <e p="ActiveSocket.h" t="Include" />
+                <e p="Host.h" t="Include" />
+                <e p="PassiveSocket.cpp" t="Include" />
+                <e p="PassiveSocket.h" t="Include" />
+                <e p="SimpleSocket.cpp" t="Include" />
+                <e p="SimpleSocket.h" t="Include" />
+                <e p="StatTimer.h" t="Include" />
               </e>
             </e>
-          </e>
-          <e p="win-vs19" t="Include">
-            <e p="libs" t="Include">
-              <e p="Win" t="Include">
-                <e p="x64" t="Include">
-                  <e p="Release" t="Include">
-                    <e p="clsocket.lib" t="Include" />
-                    <e p="rd_core_cpp.lib" t="Include" />
-                    <e p="rd_framework_cpp.lib" t="Include" />
-                    <e p="spdlog.lib" t="Include" />
-                  </e>
+            <e p="countdownlatch" t="Include">
+              <e p="countdownlatch.cpp" t="Include" />
+              <e p="countdownlatch.hpp" t="Include" />
+              <e p="LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="CTPL" t="Include">
+              <e p="include" t="Include">
+                <e p="ctpl_stl.h" t="Include" />
+              </e>
+              <e p="LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="optional" t="Include">
+              <e p="COPYING" t="Include" />
+              <e p="README.md" t="Include" />
+              <e p="tl" t="Include">
+                <e p="optional.hpp" t="Include" />
+              </e>
+            </e>
+            <e p="ordered-map" t="Include">
+              <e p="include" t="Include">
+                <e p="tsl" t="Include">
+                  <e p="ordered_hash.h" t="Include" />
+                  <e p="ordered_map.h" t="Include" />
+                  <e p="ordered_set.h" t="Include" />
                 </e>
               </e>
+              <e p="LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="spdlog" t="Include">
+              <e p="cmake" t="Include">
+                <e p="ide.cmake" t="Include" />
+                <e p="pch.h.in" t="Include" />
+                <e p="spdlog.pc.in" t="Include" />
+                <e p="spdlogConfig.cmake.in" t="Include" />
+                <e p="spdlogCPack.cmake" t="Include" />
+                <e p="utils.cmake" t="Include" />
+                <e p="version.rc.in" t="Include" />
+              </e>
+              <e p="include" t="Include">
+                <e p="spdlog" t="Include">
+                  <e p="Async.h" t="Include" />
+                  <e p="async_logger-inl.h" t="Include" />
+                  <e p="async_logger.h" t="Include" />
+                  <e p="cfg" t="Include">
+                    <e p="argv.h" t="Include" />
+                    <e p="env.h" t="Include" />
+                    <e p="helpers-inl.h" t="Include" />
+                    <e p="helpers.h" t="Include" />
+                    <e p="log_levels.h" t="Include" />
+                  </e>
+                  <e p="common-inl.h" t="Include" />
+                  <e p="Common.h" t="Include" />
+                  <e p="Details" t="Include">
+                    <e p="backtracer-inl.h" t="Include" />
+                    <e p="backtracer.h" t="Include" />
+                    <e p="circular_q.h" t="Include" />
+                    <e p="console_globals.h" t="Include" />
+                    <e p="file_helper-inl.h" t="Include" />
+                    <e p="file_helper.h" t="Include" />
+                    <e p="fmt_helper.h" t="Include" />
+                    <e p="log_msg-inl.h" t="Include" />
+                    <e p="log_msg.h" t="Include" />
+                    <e p="log_msg_buffer-inl.h" t="Include" />
+                    <e p="log_msg_buffer.h" t="Include" />
+                    <e p="mpmc_blocking_q.h" t="Include" />
+                    <e p="null_mutex.h" t="Include" />
+                    <e p="os-inl.h" t="Include" />
+                    <e p="os.h" t="Include" />
+                    <e p="periodic_worker-inl.h" t="Include" />
+                    <e p="periodic_worker.h" t="Include" />
+                    <e p="registry-inl.h" t="Include" />
+                    <e p="registry.h" t="Include" />
+                    <e p="synchronous_factory.h" t="Include" />
+                    <e p="tcp_client-windows.h" t="Include" />
+                    <e p="tcp_client.h" t="Include" />
+                    <e p="thread_pool-inl.h" t="Include" />
+                    <e p="thread_pool.h" t="Include" />
+                    <e p="windows_include.h" t="Include" />
+                  </e>
+                  <e p="fmt" t="Include">
+                    <e p="bin_to_hex.h" t="Include" />
+                    <e p="bundled" t="Include">
+                      <e p="chrono.h" t="Include" />
+                      <e p="Color.h" t="Include" />
+                      <e p="compile.h" t="Include" />
+                      <e p="Core.h" t="Include" />
+                      <e p="format-inl.h" t="Include" />
+                      <e p="format.h" t="Include" />
+                      <e p="LICENSE.rst" t="Include" />
+                      <e p="locale.h" t="Include" />
+                      <e p="ostream.h" t="Include" />
+                      <e p="posix.h" t="Include" />
+                      <e p="printf.h" t="Include" />
+                      <e p="ranges.h" t="Include" />
+                    </e>
+                    <e p="fmt.h" t="Include" />
+                    <e p="ostr.h" t="Include" />
+                  </e>
+                  <e p="formatter.h" t="Include" />
+                  <e p="fwd.h" t="Include" />
+                  <e p="logger-inl.h" t="Include" />
+                  <e p="logger.h" t="Include" />
+                  <e p="pattern_formatter-inl.h" t="Include" />
+                  <e p="pattern_formatter.h" t="Include" />
+                  <e p="sinks" t="Include">
+                    <e p="android_sink.h" t="Include" />
+                    <e p="ansicolor_sink-inl.h" t="Include" />
+                    <e p="ansicolor_sink.h" t="Include" />
+                    <e p="base_sink-inl.h" t="Include" />
+                    <e p="base_sink.h" t="Include" />
+                    <e p="basic_file_sink-inl.h" t="Include" />
+                    <e p="basic_file_sink.h" t="Include" />
+                    <e p="daily_file_sink.h" t="Include" />
+                    <e p="dist_sink.h" t="Include" />
+                    <e p="dup_filter_sink.h" t="Include" />
+                    <e p="msvc_sink.h" t="Include" />
+                    <e p="null_sink.h" t="Include" />
+                    <e p="ostream_sink.h" t="Include" />
+                    <e p="ringbuffer_sink.h" t="Include" />
+                    <e p="rotating_file_sink-inl.h" t="Include" />
+                    <e p="rotating_file_sink.h" t="Include" />
+                    <e p="sink-inl.h" t="Include" />
+                    <e p="sink.h" t="Include" />
+                    <e p="stdout_color_sinks-inl.h" t="Include" />
+                    <e p="stdout_color_sinks.h" t="Include" />
+                    <e p="stdout_sinks-inl.h" t="Include" />
+                    <e p="stdout_sinks.h" t="Include" />
+                    <e p="syslog_sink.h" t="Include" />
+                    <e p="systemd_sink.h" t="Include" />
+                    <e p="tcp_sink.h" t="Include" />
+                    <e p="win_eventlog_sink.h" t="Include" />
+                    <e p="wincolor_sink-inl.h" t="Include" />
+                    <e p="wincolor_sink.h" t="Include" />
+                  </e>
+                  <e p="spdlog-inl.h" t="Include" />
+                  <e p="spdlog.h" t="Include" />
+                  <e p="tweakme.h" t="Include" />
+                  <e p="Version.h" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+              <e p="logos" t="Include">
+                <e p="jetbrains-variant-4.svg" t="Include" />
+              </e>
+              <e p="README.md" t="Include" />
+              <e p="scripts" t="Include">
+                <e p="extract_version.py" t="Include" />
+                <e p="format.sh" t="Include" />
+              </e>
+              <e p="src" t="Include">
+                <e p="Async.cpp" t="Include" />
+                <e p="cfg.cpp" t="Include" />
+                <e p="color_sinks.cpp" t="Include" />
+                <e p="file_sinks.cpp" t="Include" />
+                <e p="fmt.cpp" t="Include" />
+                <e p="spdlog.cpp" t="Include" />
+                <e p="stdout_sinks.cpp" t="Include" />
+              </e>
+            </e>
+            <e p="string-view-lite" t="Include">
+              <e p="cmake" t="Include">
+                <e p="string_view-lite-config.cmake.in" t="Include" />
+              </e>
+              <e p="include" t="Include">
+                <e p="nonstd" t="Include">
+                  <e p="string_view.hpp" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE.txt" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="thirdparty.cpp" t="Include" />
+            <e p="thirdparty.hpp" t="Include" />
+            <e p="variant" t="Include">
+              <e p="cmake" t="Include">
+                <e p="mpark_variant-config.cmake.in" t="Include" />
+              </e>
+              <e p="CMakeLists.txt" t="Include" />
+              <e p="include" t="Include">
+                <e p="mpark" t="Include">
+                  <e p="config.hpp" t="Include" />
+                  <e p="in_place.hpp" t="Include" />
+                  <e p="lib.hpp" t="Include" />
+                  <e p="variant.hpp" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE.md" t="Include" />
+              <e p="README.md" t="Include" />
             </e>
           </e>
         </e>
@@ -2190,60 +2296,67 @@
             <e p="UE4TypesMarshallers.cpp" t="Include" />
           </e>
           <e p="Public" t="Include">
-            <e p="RdConnection.hpp" t="Include" />
-            <e p="RdEditorProtocol" t="Include">
-              <e p="CMakeLists.txt" t="Include" />
-              <e p="instantiations.cpp" t="Include" />
-              <e p="instantiations.h" t="Include" />
-              <e p="RdEditorModel" t="Include">
-                <e p="RdEditorModel.Generated.cpp" t="Include" />
-                <e p="RdEditorModel.Generated.h" t="Include" />
+            <e p="Model" t="Include">
+              <e p="Library" t="Include">
+                <e p="CMakeLists.txt" t="Include" />
+                <e p="instantiationsLibrary.cpp" t="Include" />
+                <e p="instantiationsLibrary.h" t="Include" />
+                <e p="UE4Library" t="Include">
+                  <e p="BlueprintFunction.Generated.cpp" t="Include" />
+                  <e p="BlueprintFunction.Generated.h" t="Include" />
+                  <e p="BlueprintHighlighter.Generated.cpp" t="Include" />
+                  <e p="BlueprintHighlighter.Generated.h" t="Include" />
+                  <e p="BlueprintReference.Generated.cpp" t="Include" />
+                  <e p="BlueprintReference.Generated.h" t="Include" />
+                  <e p="EmptyScriptCallStack.Generated.cpp" t="Include" />
+                  <e p="EmptyScriptCallStack.Generated.h" t="Include" />
+                  <e p="IScriptCallStack.Generated.cpp" t="Include" />
+                  <e p="IScriptCallStack.Generated.h" t="Include" />
+                  <e p="IScriptCallStack_Unknown.Generated.cpp" t="Include" />
+                  <e p="IScriptCallStack_Unknown.Generated.h" t="Include" />
+                  <e p="IScriptMsg.Generated.cpp" t="Include" />
+                  <e p="IScriptMsg.Generated.h" t="Include" />
+                  <e p="IScriptMsg_Unknown.Generated.cpp" t="Include" />
+                  <e p="IScriptMsg_Unknown.Generated.h" t="Include" />
+                  <e p="LogMessageInfo.Generated.cpp" t="Include" />
+                  <e p="LogMessageInfo.Generated.h" t="Include" />
+                  <e p="PlayState.Generated.cpp" t="Include" />
+                  <e p="PlayState.Generated.h" t="Include" />
+                  <e p="ScriptCallStack.Generated.cpp" t="Include" />
+                  <e p="ScriptCallStack.Generated.h" t="Include" />
+                  <e p="ScriptCallStackFrame.Generated.cpp" t="Include" />
+                  <e p="ScriptCallStackFrame.Generated.h" t="Include" />
+                  <e p="ScriptMsgCallStack.Generated.cpp" t="Include" />
+                  <e p="ScriptMsgCallStack.Generated.h" t="Include" />
+                  <e p="ScriptMsgException.Generated.cpp" t="Include" />
+                  <e p="ScriptMsgException.Generated.h" t="Include" />
+                  <e p="StringRange.Generated.cpp" t="Include" />
+                  <e p="StringRange.Generated.h" t="Include" />
+                  <e p="UClass.Generated.cpp" t="Include" />
+                  <e p="UClass.Generated.h" t="Include" />
+                  <e p="UE4Library.Generated.cpp" t="Include" />
+                  <e p="UE4Library.Generated.h" t="Include" />
+                  <e p="UnableToDisplayScriptCallStack.Generated.cpp" t="Include" />
+                  <e p="UnableToDisplayScriptCallStack.Generated.h" t="Include" />
+                  <e p="UnrealLogEvent.Generated.cpp" t="Include" />
+                  <e p="UnrealLogEvent.Generated.h" t="Include" />
+                </e>
               </e>
-              <e p="RdEditorRoot" t="Include">
-                <e p="RdEditorRoot.Generated.cpp" t="Include" />
-                <e p="RdEditorRoot.Generated.h" t="Include" />
-              </e>
-              <e p="UE4Library" t="Include">
-                <e p="BlueprintFunction.Generated.cpp" t="Include" />
-                <e p="BlueprintFunction.Generated.h" t="Include" />
-                <e p="BlueprintHighlighter.Generated.cpp" t="Include" />
-                <e p="BlueprintHighlighter.Generated.h" t="Include" />
-                <e p="BlueprintReference.Generated.cpp" t="Include" />
-                <e p="BlueprintReference.Generated.h" t="Include" />
-                <e p="EmptyScriptCallStack.Generated.cpp" t="Include" />
-                <e p="EmptyScriptCallStack.Generated.h" t="Include" />
-                <e p="IScriptCallStack.Generated.cpp" t="Include" />
-                <e p="IScriptCallStack.Generated.h" t="Include" />
-                <e p="IScriptCallStack_Unknown.Generated.cpp" t="Include" />
-                <e p="IScriptCallStack_Unknown.Generated.h" t="Include" />
-                <e p="IScriptMsg.Generated.cpp" t="Include" />
-                <e p="IScriptMsg.Generated.h" t="Include" />
-                <e p="IScriptMsg_Unknown.Generated.cpp" t="Include" />
-                <e p="IScriptMsg_Unknown.Generated.h" t="Include" />
-                <e p="LogMessageInfo.Generated.cpp" t="Include" />
-                <e p="LogMessageInfo.Generated.h" t="Include" />
-                <e p="PlayState.Generated.cpp" t="Include" />
-                <e p="PlayState.Generated.h" t="Include" />
-                <e p="ScriptCallStack.Generated.cpp" t="Include" />
-                <e p="ScriptCallStack.Generated.h" t="Include" />
-                <e p="ScriptCallStackFrame.Generated.cpp" t="Include" />
-                <e p="ScriptCallStackFrame.Generated.h" t="Include" />
-                <e p="ScriptMsgCallStack.Generated.cpp" t="Include" />
-                <e p="ScriptMsgCallStack.Generated.h" t="Include" />
-                <e p="ScriptMsgException.Generated.cpp" t="Include" />
-                <e p="ScriptMsgException.Generated.h" t="Include" />
-                <e p="StringRange.Generated.cpp" t="Include" />
-                <e p="StringRange.Generated.h" t="Include" />
-                <e p="UClass.Generated.cpp" t="Include" />
-                <e p="UClass.Generated.h" t="Include" />
-                <e p="UE4Library.Generated.cpp" t="Include" />
-                <e p="UE4Library.Generated.h" t="Include" />
-                <e p="UnableToDisplayScriptCallStack.Generated.cpp" t="Include" />
-                <e p="UnableToDisplayScriptCallStack.Generated.h" t="Include" />
-                <e p="UnrealLogEvent.Generated.cpp" t="Include" />
-                <e p="UnrealLogEvent.Generated.h" t="Include" />
+              <e p="RdEditorProtocol" t="Include">
+                <e p="CMakeLists.txt" t="Include" />
+                <e p="instantiationsRdEditorProtocol.cpp" t="Include" />
+                <e p="instantiationsRdEditorProtocol.h" t="Include" />
+                <e p="RdEditorModel" t="Include">
+                  <e p="RdEditorModel.Generated.cpp" t="Include" />
+                  <e p="RdEditorModel.Generated.h" t="Include" />
+                </e>
+                <e p="RdEditorRoot" t="Include">
+                  <e p="RdEditorRoot.Generated.cpp" t="Include" />
+                  <e p="RdEditorRoot.Generated.h" t="Include" />
+                </e>
               </e>
             </e>
+            <e p="RdConnection.hpp" t="Include" />
             <e p="RiderLink.hpp" t="Include" />
             <e p="UE4TypesMarshallers.h" t="Include" />
           </e>
@@ -10169,6 +10282,46 @@
         </e>
       </e>
     </e>
+    <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\ModuleGeneration" t="Include">
+      <e p="ModuleGeneration.uplugin" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="{ModuleName}" t="Include">
+          <e p="Private" t="Include">
+            <e p="Logging.cpp" t="Include" />
+            <e p="Logging.h" t="Include" />
+            <e p="{ModuleName}.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="{ModuleName}.h" t="Include" />
+          </e>
+          <e p="{ModuleName}.Build.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Source" t="Include">
+        <e p="ModuleGeneration" t="Include">
+          <e p="ModuleGeneration.Build.cs" t="Include" />
+          <e p="Private" t="Include">
+            <e p="Logging.cpp" t="Include" />
+            <e p="Logging.h" t="Include" />
+            <e p="ModuleGeneration.cpp" t="Include" />
+            <e p="ModuleGenerationCommands.cpp" t="Include" />
+            <e p="NewModule" t="Include">
+              <e p="NewModuleLogic.cpp" t="Include" />
+              <e p="SNewModuleDialog.cpp" t="Include" />
+            </e>
+          </e>
+          <e p="Public" t="Include">
+            <e p="ModuleGeneration.h" t="Include" />
+            <e p="ModuleGenerationCommands.h" t="Include" />
+            <e p="NewModule" t="Include">
+              <e p="NewModuleEvents.h" t="Include" />
+              <e p="NewModuleLogic.h" t="Include" />
+              <e p="SNewModuleDialog.h" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+    </e>
     <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\RadialMenu" t="Include">
       <e p="RadialMenu.uplugin" t="Include" />
       <e p="Resources" t="Include">
@@ -10213,6 +10366,185 @@
             <e p="RestartStyle.h" t="Include" />
           </e>
           <e p="Restart.Build.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\SafeDelete" t="Include">
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="SafeDelete.uplugin" t="Include" />
+      <e p="Source" t="Include">
+        <e p="SafeDelete" t="Include">
+          <e p="Private" t="Include">
+            <e p="SafeDelete.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="SafeDelete.h" t="Include" />
+          </e>
+          <e p="SafeDelete.Build.cs" t="Include" />
+        </e>
+      </e>
+    </e>
+    <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\SaveExtension" t="Include">
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="SaveExtension.uplugin" t="Include" />
+      <e p="Source" t="Include">
+        <e p="Editor" t="Include">
+          <e p="Private" t="Include">
+            <e p="Asset" t="Include">
+              <e p="AssetTypeAction_SavePreset.cpp" t="Include" />
+              <e p="AssetTypeAction_SavePreset.h" t="Include" />
+              <e p="AssetTypeAction_SlotData.cpp" t="Include" />
+              <e p="AssetTypeAction_SlotData.h" t="Include" />
+              <e p="AssetTypeAction_SlotInfo.cpp" t="Include" />
+              <e p="AssetTypeAction_SlotInfo.h" t="Include" />
+              <e p="SavePresetFactory.cpp" t="Include" />
+              <e p="SavePresetFactory.h" t="Include" />
+              <e p="SlotDataFactory.cpp" t="Include" />
+              <e p="SlotDataFactory.h" t="Include" />
+              <e p="SlotInfoFactory.cpp" t="Include" />
+              <e p="SlotInfoFactory.h" t="Include" />
+            </e>
+            <e p="Customizations" t="Include">
+              <e p="ActorClassFilterCustomization.cpp" t="Include" />
+              <e p="ActorClassFilterCustomization.h" t="Include" />
+              <e p="ClassFilter" t="Include">
+                <e p="ClassFilterHelpers.cpp" t="Include" />
+                <e p="ClassFilterHelpers.h" t="Include" />
+                <e p="ClassFilterNode.cpp" t="Include" />
+                <e p="ClassFilterNode.h" t="Include" />
+                <e p="SClassFilter.cpp" t="Include" />
+                <e p="SClassFilter.h" t="Include" />
+                <e p="UnloadedBlueprintData.cpp" t="Include" />
+                <e p="UnloadedBlueprintData.h" t="Include" />
+              </e>
+              <e p="ClassFilterCustomization.cpp" t="Include" />
+              <e p="ClassFilterCustomization.h" t="Include" />
+              <e p="ClassFilterGraphPanelPinFactory.h" t="Include" />
+              <e p="ComponentClassFilterCustomization.cpp" t="Include" />
+              <e p="ComponentClassFilterCustomization.h" t="Include" />
+              <e p="SavePresetDetails.cpp" t="Include" />
+              <e p="SavePresetDetails.h" t="Include" />
+              <e p="SClassFilterGraphPin.cpp" t="Include" />
+              <e p="SClassFilterGraphPin.h" t="Include" />
+            </e>
+            <e p="SaveActorEditorTabSummoner.cpp" t="Include" />
+            <e p="SaveActorEditorTabSummoner.h" t="Include" />
+            <e p="SaveExtensionEditor.cpp" t="Include" />
+            <e p="SaveExtensionEditor.h" t="Include" />
+            <e p="SSaveActorSettingsItem.cpp" t="Include" />
+            <e p="SSaveActorSettingsItem.h" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="ISaveExtensionEditor.h" t="Include" />
+          </e>
+          <e p="SaveExtensionEditor.Build.cs" t="Include" />
+        </e>
+        <e p="SaveExtension" t="Include">
+          <e p="Private" t="Include">
+            <e p="FileAdapter.cpp" t="Include" />
+            <e p="LatentActions" t="Include">
+              <e p="DeleteSlotsAction.cpp" t="Include" />
+              <e p="LoadGameAction.cpp" t="Include" />
+              <e p="LoadInfosAction.cpp" t="Include" />
+              <e p="SaveGameAction.cpp" t="Include" />
+            </e>
+            <e p="LevelStreamingNotifier.cpp" t="Include" />
+            <e p="LifetimeComponent.cpp" t="Include" />
+            <e p="Misc" t="Include">
+              <e p="ClassFilter.cpp" t="Include" />
+              <e p="SlotHelpers.cpp" t="Include" />
+            </e>
+            <e p="Multithreading" t="Include">
+              <e p="DeleteSlotsTask.cpp" t="Include" />
+              <e p="LoadAllSlotInfosTask.cpp" t="Include" />
+              <e p="LoadFileTask.cpp" t="Include" />
+              <e p="LoadSlotInfoTask.cpp" t="Include" />
+              <e p="SaveFileTask.cpp" t="Include" />
+              <e p="ScopedTaskManager.cpp" t="Include" />
+            </e>
+            <e p="SaveExtension.cpp" t="Include" />
+            <e p="SaveExtension.h" t="Include" />
+            <e p="SaveExtensionInterface.cpp" t="Include" />
+            <e p="SaveExtensionLibrary.cpp" t="Include" />
+            <e p="SaveExtensionLibrary.h" t="Include" />
+            <e p="SaveFilter.cpp" t="Include" />
+            <e p="SaveManager.cpp" t="Include" />
+            <e p="SavePreset.cpp" t="Include" />
+            <e p="Serialization" t="Include">
+              <e p="LevelRecords.cpp" t="Include" />
+              <e p="MTTask.cpp" t="Include" />
+              <e p="MTTask_SerializeActors.cpp" t="Include" />
+              <e p="Records.cpp" t="Include" />
+              <e p="SEArchive.cpp" t="Include" />
+              <e p="SlotDataTask.cpp" t="Include" />
+              <e p="SlotDataTask_LevelLoader.cpp" t="Include" />
+              <e p="SlotDataTask_LevelSaver.cpp" t="Include" />
+              <e p="SlotDataTask_Loader.cpp" t="Include" />
+              <e p="SlotDataTask_Saver.cpp" t="Include" />
+            </e>
+            <e p="SlotData.cpp" t="Include" />
+            <e p="SlotInfo.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="FileAdapter.h" t="Include" />
+            <e p="ISaveExtension.h" t="Include" />
+            <e p="LatentActions" t="Include">
+              <e p="DeleteSlotsAction.h" t="Include" />
+              <e p="LoadGameAction.h" t="Include" />
+              <e p="LoadInfosAction.h" t="Include" />
+              <e p="SaveGameAction.h" t="Include" />
+            </e>
+            <e p="LevelStreamingNotifier.h" t="Include" />
+            <e p="LifetimeComponent.h" t="Include" />
+            <e p="Misc" t="Include">
+              <e p="ClassFilter.h" t="Include" />
+              <e p="SlotHelpers.h" t="Include" />
+              <e p="TypeTraits.h" t="Include" />
+            </e>
+            <e p="Multithreading" t="Include">
+              <e p="DeleteSlotsTask.h" t="Include" />
+              <e p="LoadAllSlotInfosTask.h" t="Include" />
+              <e p="LoadFileTask.h" t="Include" />
+              <e p="LoadSlotInfoTask.h" t="Include" />
+              <e p="SaveFileTask.h" t="Include" />
+              <e p="ScopedTaskManager.h" t="Include" />
+            </e>
+            <e p="SaveExtensionInterface.h" t="Include" />
+            <e p="SaveFilter.h" t="Include" />
+            <e p="SaveManager.h" t="Include" />
+            <e p="SavePreset.h" t="Include" />
+            <e p="Serialization" t="Include">
+              <e p="LevelRecords.h" t="Include" />
+              <e p="MTTask.h" t="Include" />
+              <e p="MTTask_SerializeActors.h" t="Include" />
+              <e p="Records.h" t="Include" />
+              <e p="SEArchive.h" t="Include" />
+              <e p="SlotDataTask.h" t="Include" />
+              <e p="SlotDataTask_LevelLoader.h" t="Include" />
+              <e p="SlotDataTask_LevelSaver.h" t="Include" />
+              <e p="SlotDataTask_Loader.h" t="Include" />
+              <e p="SlotDataTask_Saver.h" t="Include" />
+            </e>
+            <e p="SlotData.h" t="Include" />
+            <e p="SlotInfo.h" t="Include" />
+          </e>
+          <e p="SaveExtension.Build.cs" t="Include" />
+        </e>
+        <e p="Test" t="Include">
+          <e p="Private" t="Include">
+            <e p="Save.spec.cpp" t="Include" />
+            <e p="SaveExtensionTest.cpp" t="Include" />
+            <e p="TestHelpers.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="SaveExtensionTest.h" t="Include" />
+            <e p="TestHelpers.h" t="Include" />
+          </e>
+          <e p="SaveExtensionTest.Build.cs" t="Include" />
         </e>
       </e>
     </e>
@@ -11294,7 +11626,7 @@
             <e p="InputDevice.h" t="Include" />
             <e p="JavaScriptKeyCodes.inl" t="Include" />
             <e p="MediaTracks.h" t="Include" />
-            <e p="pch.h" t="Include" />
+            <e p="PCH.h" t="Include" />
             <e p="PixelStreamerDelegates.cpp" t="Include" />
             <e p="PixelStreamerDelegates.h" t="Include" />
             <e p="PixelStreamerInputComponent.cpp" t="Include" />
@@ -43623,413 +43955,6 @@
       </e>
       <e p="MCO_Mocap_Basics.png" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Plugins" t="Include">
-        <e p="Developer" t="Include">
-          <e p="RiderLink" t="Include">
-            <e p="Resources" t="Include">
-              <e p="Icon128.png" t="Include" />
-            </e>
-            <e p="RiderLink.uplugin" t="Include" />
-            <e p="Source" t="Include">
-              <e p="RD" t="Include">
-                <e p="include" t="Include">
-                  <e p="rd_core_cpp" t="Include">
-                    <e p="Lifetime" t="Include">
-                      <e p="Lifetime.h" t="Include" />
-                      <e p="LifetimeDefinition.h" t="Include" />
-                      <e p="LifetimeImpl.h" t="Include" />
-                      <e p="SequentialLifetimes.h" t="Include" />
-                    </e>
-                    <e p="pch.h" t="Include" />
-                    <e p="reactive" t="Include">
-                      <e p="base" t="Include">
-                        <e p="IProperty.h" t="Include" />
-                        <e p="IPropertyBase.h" t="Include" />
-                        <e p="IViewableList.h" t="Include" />
-                        <e p="IViewableMap.h" t="Include" />
-                        <e p="IViewableSet.h" t="Include" />
-                        <e p="viewable_collections.h" t="Include" />
-                      </e>
-                      <e p="interfaces.h" t="Include" />
-                      <e p="Property.h" t="Include" />
-                      <e p="SignalX.h" t="Include" />
-                      <e p="ViewableList.h" t="Include" />
-                      <e p="ViewableMap.h" t="Include" />
-                      <e p="ViewableSet.h" t="Include" />
-                    </e>
-                    <e p="std" t="Include">
-                      <e p="allocator.h" t="Include" />
-                      <e p="FileSystem.h" t="Include" />
-                      <e p="hash.h" t="Include" />
-                      <e p="List.h" t="Include" />
-                      <e p="to_string.h" t="Include" />
-                      <e p="unordered_map.h" t="Include" />
-                      <e p="unordered_set.h" t="Include" />
-                    </e>
-                    <e p="Types" t="Include">
-                      <e p="DateTime.h" t="Include" />
-                      <e p="Void.h" t="Include" />
-                      <e p="wrapper.h" t="Include" />
-                    </e>
-                    <e p="Util" t="Include">
-                      <e p="core_traits.h" t="Include" />
-                      <e p="core_util.h" t="Include" />
-                      <e p="enum.h" t="Include" />
-                      <e p="erase_if.h" t="Include" />
-                      <e p="gen_util.h" t="Include" />
-                      <e p="overloaded.h" t="Include" />
-                      <e p="shared_function.h" t="Include" />
-                    </e>
-                  </e>
-                  <e p="rd_framework_cpp" t="Include">
-                    <e p="base" t="Include">
-                      <e p="IProtocol.h" t="Include" />
-                      <e p="IRdBindable.h" t="Include" />
-                      <e p="IRdDynamic.h" t="Include" />
-                      <e p="IRdReactive.h" t="Include" />
-                      <e p="IRdWireable.h" t="Include" />
-                      <e p="ISerializersOwner.h" t="Include" />
-                      <e p="IUnknownInstance.h" t="Include" />
-                      <e p="IWire.h" t="Include" />
-                      <e p="RdBindableBase.h" t="Include" />
-                      <e p="RdPropertyBase.h" t="Include" />
-                      <e p="RdReactiveBase.h" t="Include" />
-                      <e p="WireBase.h" t="Include" />
-                    </e>
-                    <e p="ext" t="Include">
-                      <e p="ExtWire.h" t="Include" />
-                      <e p="RdExtBase.h" t="Include" />
-                    </e>
-                    <e p="Impl" t="Include">
-                      <e p="RdList.h" t="Include" />
-                      <e p="RdMap.h" t="Include" />
-                      <e p="RdProperty.h" t="Include" />
-                      <e p="RdSet.h" t="Include" />
-                      <e p="RdSignal.h" t="Include" />
-                      <e p="RName.h" t="Include" />
-                    </e>
-                    <e p="intern" t="Include">
-                      <e p="InternRoot.h" t="Include" />
-                      <e p="InternScheduler.h" t="Include" />
-                    </e>
-                    <e p="pch.h" t="Include" />
-                    <e p="protocol" t="Include">
-                      <e p="Buffer.h" t="Include" />
-                      <e p="Identities.h" t="Include" />
-                      <e p="MessageBroker.h" t="Include" />
-                      <e p="Protocol.h" t="Include" />
-                      <e p="RdId.h" t="Include" />
-                    </e>
-                    <e p="scheduler" t="Include">
-                      <e p="base" t="Include">
-                        <e p="IScheduler.h" t="Include" />
-                        <e p="SingleThreadSchedulerBase.h" t="Include" />
-                      </e>
-                      <e p="SimpleScheduler.h" t="Include" />
-                      <e p="SingleThreadScheduler.h" t="Include" />
-                      <e p="SynchronousScheduler.h" t="Include" />
-                    </e>
-                    <e p="Serialization" t="Include">
-                      <e p="AbstractPolymorphic.h" t="Include" />
-                      <e p="ArraySerializer.h" t="Include" />
-                      <e p="DefaultAbstractDeclaration.h" t="Include" />
-                      <e p="InternedAnySerializer.h" t="Include" />
-                      <e p="InternedSerializer.h" t="Include" />
-                      <e p="ISerializable.h" t="Include" />
-                      <e p="NullableSerializer.h" t="Include" />
-                      <e p="Polymorphic.h" t="Include" />
-                      <e p="RdAny.h" t="Include" />
-                      <e p="SerializationCtx.h" t="Include" />
-                      <e p="Serializers.h" t="Include" />
-                    </e>
-                    <e p="task" t="Include">
-                      <e p="RdCall.h" t="Include" />
-                      <e p="RdEndpoint.h" t="Include" />
-                      <e p="RdSymmetricCall.h" t="Include" />
-                      <e p="RdTask.h" t="Include" />
-                      <e p="RdTaskImpl.h" t="Include" />
-                      <e p="RdTaskResult.h" t="Include" />
-                      <e p="WiredRdTask.h" t="Include" />
-                      <e p="WiredRdTaskImpl.h" t="Include" />
-                    </e>
-                    <e p="Util" t="Include">
-                      <e p="framework_traits.h" t="Include" />
-                      <e p="guards.h" t="Include" />
-                      <e p="hashing.h" t="Include" />
-                    </e>
-                    <e p="wire" t="Include">
-                      <e p="ByteBufferAsyncProcessor.h" t="Include" />
-                      <e p="PkgInputStream.h" t="Include" />
-                      <e p="PumpScheduler.h" t="Include" />
-                      <e p="SocketWire.h" t="Include" />
-                      <e p="WireUtil.h" t="Include" />
-                    </e>
-                  </e>
-                  <e p="ThirdParty" t="Include">
-                    <e p="clsocket" t="Include">
-                      <e p="src" t="Include">
-                        <e p="ActiveSocket.h" t="Include" />
-                        <e p="Host.h" t="Include" />
-                        <e p="PassiveSocket.h" t="Include" />
-                        <e p="SimpleSocket.h" t="Include" />
-                        <e p="StatTimer.h" t="Include" />
-                      </e>
-                    </e>
-                    <e p="mpark" t="Include">
-                      <e p="config.hpp" t="Include" />
-                      <e p="in_place.hpp" t="Include" />
-                      <e p="lib.hpp" t="Include" />
-                      <e p="variant.hpp" t="Include" />
-                    </e>
-                    <e p="nonstd" t="Include">
-                      <e p="string_view.hpp" t="Include" />
-                    </e>
-                    <e p="optional" t="Include">
-                      <e p="tl" t="Include">
-                        <e p="optional.hpp" t="Include" />
-                      </e>
-                    </e>
-                    <e p="spdlog" t="Include">
-                      <e p="Async.h" t="Include" />
-                      <e p="async_logger-inl.h" t="Include" />
-                      <e p="async_logger.h" t="Include" />
-                      <e p="cfg" t="Include">
-                        <e p="argv.h" t="Include" />
-                        <e p="env.h" t="Include" />
-                        <e p="helpers-inl.h" t="Include" />
-                        <e p="helpers.h" t="Include" />
-                        <e p="log_levels.h" t="Include" />
-                      </e>
-                      <e p="common-inl.h" t="Include" />
-                      <e p="Common.h" t="Include" />
-                      <e p="Details" t="Include">
-                        <e p="backtracer-inl.h" t="Include" />
-                        <e p="backtracer.h" t="Include" />
-                        <e p="circular_q.h" t="Include" />
-                        <e p="console_globals.h" t="Include" />
-                        <e p="file_helper-inl.h" t="Include" />
-                        <e p="file_helper.h" t="Include" />
-                        <e p="fmt_helper.h" t="Include" />
-                        <e p="log_msg-inl.h" t="Include" />
-                        <e p="log_msg.h" t="Include" />
-                        <e p="log_msg_buffer-inl.h" t="Include" />
-                        <e p="log_msg_buffer.h" t="Include" />
-                        <e p="mpmc_blocking_q.h" t="Include" />
-                        <e p="null_mutex.h" t="Include" />
-                        <e p="os-inl.h" t="Include" />
-                        <e p="os.h" t="Include" />
-                        <e p="periodic_worker-inl.h" t="Include" />
-                        <e p="periodic_worker.h" t="Include" />
-                        <e p="registry-inl.h" t="Include" />
-                        <e p="registry.h" t="Include" />
-                        <e p="synchronous_factory.h" t="Include" />
-                        <e p="tcp_client-windows.h" t="Include" />
-                        <e p="tcp_client.h" t="Include" />
-                        <e p="thread_pool-inl.h" t="Include" />
-                        <e p="thread_pool.h" t="Include" />
-                        <e p="windows_include.h" t="Include" />
-                      </e>
-                      <e p="fmt" t="Include">
-                        <e p="bin_to_hex.h" t="Include" />
-                        <e p="bundled" t="Include">
-                          <e p="chrono.h" t="Include" />
-                          <e p="Color.h" t="Include" />
-                          <e p="compile.h" t="Include" />
-                          <e p="Core.h" t="Include" />
-                          <e p="format-inl.h" t="Include" />
-                          <e p="format.h" t="Include" />
-                          <e p="LICENSE.rst" t="Include" />
-                          <e p="locale.h" t="Include" />
-                          <e p="ostream.h" t="Include" />
-                          <e p="posix.h" t="Include" />
-                          <e p="printf.h" t="Include" />
-                          <e p="ranges.h" t="Include" />
-                        </e>
-                        <e p="fmt.h" t="Include" />
-                        <e p="ostr.h" t="Include" />
-                      </e>
-                      <e p="formatter.h" t="Include" />
-                      <e p="fwd.h" t="Include" />
-                      <e p="logger-inl.h" t="Include" />
-                      <e p="logger.h" t="Include" />
-                      <e p="pattern_formatter-inl.h" t="Include" />
-                      <e p="pattern_formatter.h" t="Include" />
-                      <e p="sinks" t="Include">
-                        <e p="android_sink.h" t="Include" />
-                        <e p="ansicolor_sink-inl.h" t="Include" />
-                        <e p="ansicolor_sink.h" t="Include" />
-                        <e p="base_sink-inl.h" t="Include" />
-                        <e p="base_sink.h" t="Include" />
-                        <e p="basic_file_sink-inl.h" t="Include" />
-                        <e p="basic_file_sink.h" t="Include" />
-                        <e p="daily_file_sink.h" t="Include" />
-                        <e p="dist_sink.h" t="Include" />
-                        <e p="dup_filter_sink.h" t="Include" />
-                        <e p="msvc_sink.h" t="Include" />
-                        <e p="null_sink.h" t="Include" />
-                        <e p="ostream_sink.h" t="Include" />
-                        <e p="ringbuffer_sink.h" t="Include" />
-                        <e p="rotating_file_sink-inl.h" t="Include" />
-                        <e p="rotating_file_sink.h" t="Include" />
-                        <e p="sink-inl.h" t="Include" />
-                        <e p="sink.h" t="Include" />
-                        <e p="stdout_color_sinks-inl.h" t="Include" />
-                        <e p="stdout_color_sinks.h" t="Include" />
-                        <e p="stdout_sinks-inl.h" t="Include" />
-                        <e p="stdout_sinks.h" t="Include" />
-                        <e p="syslog_sink.h" t="Include" />
-                        <e p="systemd_sink.h" t="Include" />
-                        <e p="tcp_sink.h" t="Include" />
-                        <e p="win_eventlog_sink.h" t="Include" />
-                        <e p="wincolor_sink-inl.h" t="Include" />
-                        <e p="wincolor_sink.h" t="Include" />
-                      </e>
-                      <e p="spdlog-inl.h" t="Include" />
-                      <e p="spdlog.h" t="Include" />
-                      <e p="tweakme.h" t="Include" />
-                      <e p="Version.h" t="Include" />
-                    </e>
-                    <e p="thirdparty.hpp" t="Include" />
-                    <e p="tsl" t="Include">
-                      <e p="ordered_hash.h" t="Include" />
-                      <e p="ordered_map.h" t="Include" />
-                      <e p="ordered_set.h" t="Include" />
-                    </e>
-                  </e>
-                </e>
-                <e p="RD.Build.cs" t="Include" />
-                <e p="win-vs17" t="Include">
-                  <e p="libs" t="Include">
-                    <e p="Win" t="Include">
-                      <e p="x64" t="Include">
-                        <e p="Release" t="Include">
-                          <e p="clsocket.lib" t="Include" />
-                          <e p="rd_core_cpp.lib" t="Include" />
-                          <e p="rd_framework_cpp.lib" t="Include" />
-                          <e p="spdlog.lib" t="Include" />
-                        </e>
-                      </e>
-                    </e>
-                  </e>
-                </e>
-                <e p="win-vs19" t="Include">
-                  <e p="libs" t="Include">
-                    <e p="Win" t="Include">
-                      <e p="x64" t="Include">
-                        <e p="Release" t="Include">
-                          <e p="clsocket.lib" t="Include" />
-                          <e p="rd_core_cpp.lib" t="Include" />
-                          <e p="rd_framework_cpp.lib" t="Include" />
-                          <e p="spdlog.lib" t="Include" />
-                        </e>
-                      </e>
-                    </e>
-                  </e>
-                </e>
-              </e>
-              <e p="RiderBlueprintExtension" t="Include">
-                <e p="Private" t="Include">
-                  <e p="BlueprintProvider.cpp" t="Include" />
-                  <e p="RiderBlueprintExtension.cpp" t="Include" />
-                </e>
-                <e p="Public" t="Include">
-                  <e p="BlueprintProvider.hpp" t="Include" />
-                  <e p="RiderBlueprintExtension.hpp" t="Include" />
-                </e>
-                <e p="RiderBlueprintExtension.Build.cs" t="Include" />
-              </e>
-              <e p="RiderGameControlExtension" t="Include">
-                <e p="Private" t="Include">
-                  <e p="RiderGameControlExtension.cpp" t="Include" />
-                </e>
-                <e p="Public" t="Include">
-                  <e p="RiderGameControlExtension.hpp" t="Include" />
-                </e>
-                <e p="RiderGameControlExtension.Build.cs" t="Include" />
-              </e>
-              <e p="RiderLink" t="Include">
-                <e p="Private" t="Include">
-                  <e p="ProtocolFactory.cpp" t="Include" />
-                  <e p="ProtocolFactory.h" t="Include" />
-                  <e p="RdConnection.cpp" t="Include" />
-                  <e p="RiderLink.cpp" t="Include" />
-                  <e p="UE4TypesMarshallers.cpp" t="Include" />
-                </e>
-                <e p="Public" t="Include">
-                  <e p="RdConnection.hpp" t="Include" />
-                  <e p="RdEditorProtocol" t="Include">
-                    <e p="CMakeLists.txt" t="Include" />
-                    <e p="instantiations.cpp" t="Include" />
-                    <e p="instantiations.h" t="Include" />
-                    <e p="RdEditorModel" t="Include">
-                      <e p="RdEditorModel.Generated.cpp" t="Include" />
-                      <e p="RdEditorModel.Generated.h" t="Include" />
-                    </e>
-                    <e p="RdEditorRoot" t="Include">
-                      <e p="RdEditorRoot.Generated.cpp" t="Include" />
-                      <e p="RdEditorRoot.Generated.h" t="Include" />
-                    </e>
-                    <e p="UE4Library" t="Include">
-                      <e p="BlueprintFunction.Generated.cpp" t="Include" />
-                      <e p="BlueprintFunction.Generated.h" t="Include" />
-                      <e p="BlueprintHighlighter.Generated.cpp" t="Include" />
-                      <e p="BlueprintHighlighter.Generated.h" t="Include" />
-                      <e p="BlueprintReference.Generated.cpp" t="Include" />
-                      <e p="BlueprintReference.Generated.h" t="Include" />
-                      <e p="EmptyScriptCallStack.Generated.cpp" t="Include" />
-                      <e p="EmptyScriptCallStack.Generated.h" t="Include" />
-                      <e p="IScriptCallStack.Generated.cpp" t="Include" />
-                      <e p="IScriptCallStack.Generated.h" t="Include" />
-                      <e p="IScriptCallStack_Unknown.Generated.cpp" t="Include" />
-                      <e p="IScriptCallStack_Unknown.Generated.h" t="Include" />
-                      <e p="IScriptMsg.Generated.cpp" t="Include" />
-                      <e p="IScriptMsg.Generated.h" t="Include" />
-                      <e p="IScriptMsg_Unknown.Generated.cpp" t="Include" />
-                      <e p="IScriptMsg_Unknown.Generated.h" t="Include" />
-                      <e p="LogMessageInfo.Generated.cpp" t="Include" />
-                      <e p="LogMessageInfo.Generated.h" t="Include" />
-                      <e p="PlayState.Generated.cpp" t="Include" />
-                      <e p="PlayState.Generated.h" t="Include" />
-                      <e p="ScriptCallStack.Generated.cpp" t="Include" />
-                      <e p="ScriptCallStack.Generated.h" t="Include" />
-                      <e p="ScriptCallStackFrame.Generated.cpp" t="Include" />
-                      <e p="ScriptCallStackFrame.Generated.h" t="Include" />
-                      <e p="ScriptMsgCallStack.Generated.cpp" t="Include" />
-                      <e p="ScriptMsgCallStack.Generated.h" t="Include" />
-                      <e p="ScriptMsgException.Generated.cpp" t="Include" />
-                      <e p="ScriptMsgException.Generated.h" t="Include" />
-                      <e p="StringRange.Generated.cpp" t="Include" />
-                      <e p="StringRange.Generated.h" t="Include" />
-                      <e p="UClass.Generated.cpp" t="Include" />
-                      <e p="UClass.Generated.h" t="Include" />
-                      <e p="UE4Library.Generated.cpp" t="Include" />
-                      <e p="UE4Library.Generated.h" t="Include" />
-                      <e p="UnableToDisplayScriptCallStack.Generated.cpp" t="Include" />
-                      <e p="UnableToDisplayScriptCallStack.Generated.h" t="Include" />
-                      <e p="UnrealLogEvent.Generated.cpp" t="Include" />
-                      <e p="UnrealLogEvent.Generated.h" t="Include" />
-                    </e>
-                  </e>
-                  <e p="RiderLink.hpp" t="Include" />
-                  <e p="UE4TypesMarshallers.h" t="Include" />
-                </e>
-                <e p="RiderLink.Build.cs" t="Include" />
-              </e>
-              <e p="RiderLoggingExtension" t="Include">
-                <e p="Private" t="Include">
-                  <e p="RiderLoggingExtension.cpp" t="Include" />
-                  <e p="RiderOutputDevice.cpp" t="Include" />
-                  <e p="RiderOutputDevice.hpp" t="Include" />
-                </e>
-                <e p="Public" t="Include">
-                  <e p="RiderLoggingExtension.hpp" t="Include" />
-                </e>
-                <e p="RiderLoggingExtension.Build.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
-      </e>
       <e p="RPGLesson.sln" t="IncludeFlat" />
       <e p="RPGLesson.uproject" t="Include" />
       <e p="Source" t="Include">

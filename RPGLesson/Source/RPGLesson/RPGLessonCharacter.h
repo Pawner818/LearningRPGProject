@@ -17,6 +17,8 @@
 UENUM(BlueprintType)
 enum class EMovementStatus : uint8
 {
+
+	EMS_Idle UMETA(DisplayName = "Idle"),
 	EMS_Running UMETA(DisplayName = "Running"),
 	EMS_Walking UMETA(DisplayName = "Walking"),
 	EMS_Sprinting UMETA(DisplayName = "Sprinting"),
@@ -93,6 +95,9 @@ public:
     UFUNCTION(BlueprintCallable,Category="Movement")
 	void MovementStatusUpdating(float DeltaValue);
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Movement | Booleans")
+	bool bCharacterMoving;
+
 	// 150.f
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Movement")
     float CrouchingSpeed;
@@ -132,6 +137,11 @@ public:
 	void ShiftKeyDown();
 	void ShiftKeyUp();
 
+	
+	void EKeyUp();
+	void EKeyDown();
+	bool bEKeyPressed;
+
 	UFUNCTION(BlueprintCallable)
 	void SpaceKeyDown();
 	UFUNCTION(BlueprintCallable)
@@ -148,6 +158,16 @@ public:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category="Input | Booleans")
     bool bIsRMBPressed;
+    
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Items")
+	class AWeapon*EquippedWeapon;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Items")
+	class AItem*ActiveOverlappItem;
+
+	void SetEquippedWeapon(AWeapon*WeaponToSet);
+	FORCEINLINE AWeapon* GetEquippedWeapon(){return EquippedWeapon;}
+	FORCEINLINE void SetActiveOvelappingItem(AItem*ActiveItem){ActiveOverlappItem=ActiveItem;}
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -253,13 +273,16 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
 	bool bAttacking;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	bool bFirstTouchToWeapon;
+
 	void Attack();
 	
 	UFUNCTION(BlueprintCallable)
 	void AttackEnd();
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
-	class UAnimMontage*CombatMontage;
+	class UAnimMontage*	CombatMontage;
 	
 private:
 

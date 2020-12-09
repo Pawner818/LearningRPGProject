@@ -148,7 +148,6 @@ public:
 	 * 
 	 */
 
-	//TODO:
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
 	float CurrentHealth;
