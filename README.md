@@ -8,7 +8,6 @@ This project will focus on 3D-Person Character setup and RPG gameplay features:
 
 This file will be updated according to the current progress.
 
-UPD (11.28.2020): AI BT is working, some bugs are still there but the main functions work just fine - Enemy is able to Patrol/Chase/Search.
-The next stage is to animate my Mesh in a proper way to be able to pick up a Weapon Class (the Paragon Mesh has a weapon by default). After that I'll figure out how to implement damage system. 
+UPD (09.12.2020): added nice looking animations fom the LongSword pack. Transitions between state machines were modified to get smoother effect between animations. The next step is Combat Montage fixing and implementing the Enemy Combat System 
 
 
