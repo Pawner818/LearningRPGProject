@@ -8,6 +8,6 @@ This project will focus on 3D-Person Character setup and RPG gameplay features:
 
 This file will be updated according to the current progress.
 
-UPD (09.12.2020): added nice looking animations fom the LongSword pack. Transitions between state machines were modified to get smoother effect between animations. The next step is Combat Montage fixing and implementing the Enemy Combat System 
+Weekly update (12.16.2020): I improved my Enemy by adding the weapons in his hand, also I added a lot of sounds (like sword swings, Foot Step System etc) and particles to make battles more fun! I like to work with notifies nodes and I like how easily I can get an access to them (using AnimBueprint) and combine them with C++ functions. The next week I'll focus on finishing building the Enemy Combat System - I'll add a damage parameter, Enemy Health Bar and more! 
 
 
