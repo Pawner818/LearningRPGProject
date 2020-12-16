@@ -28,18 +28,5 @@ class RPGLESSON_API AEnemyAIController : public AAIController
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
-
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
-	AEnemyAIController*EnemyAIControllerRef;
-	
-	virtual void MoveToTheMainCharacter(ARPGLessonCharacter* CharacterToMoveRef);
-
-	
-	
-	
-
-	
-
-	
 	
 };

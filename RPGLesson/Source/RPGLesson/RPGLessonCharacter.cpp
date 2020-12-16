@@ -15,7 +15,8 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Animation/AnimInstance.h"
 #include "Weapon.h"
-
+#include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -87,6 +88,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 
 	bCharacterMoving = false;
 	bFirstTouchToWeapon = false;
+	bAttacking = false;
 
 	// Initialize ENUMS
 	MovementStatus = EMovementStatus::EMS_Idle;
@@ -158,33 +160,54 @@ void ARPGLessonCharacter::BeginPlay()
 // Combat montage
 void ARPGLessonCharacter::Attack()
 {
-	if(!bAttacking)
-	{
-		bAttacking = true;
+	 if(!bAttacking)
+	 {
+	 	bAttacking = true;
 		UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
 		if(AnimInstance && CombatMontage)
 		{
-			int32 MontageSection = FMath::RandRange(0,3);
+			
+			int32 MontageSection = FMath::RandRange(0,7);
 			switch (MontageSection)
 			{
 				case 0:
 				AnimInstance->Montage_Play(CombatMontage, 1.0f);
-				AnimInstance->Montage_JumpToSection(FName("Attack_1"), CombatMontage);
+				AnimInstance->Montage_JumpToSection(FName("Attack_01"), CombatMontage);
 				break;
 				
 				case 1:
 				AnimInstance->Montage_Play(CombatMontage, 1.0f);
-				AnimInstance->Montage_JumpToSection(FName("Attack_2"), CombatMontage);
+				AnimInstance->Montage_JumpToSection(FName("Attack_02"), CombatMontage);								
 				break;
 				
 				case 2:
 				AnimInstance->Montage_Play(CombatMontage, 1.0f);
-				AnimInstance->Montage_JumpToSection(FName("Attack_3"), CombatMontage);
+				AnimInstance->Montage_JumpToSection(FName("Attack_03"), CombatMontage);							
 				break;
 				
 				case 3:
 				AnimInstance->Montage_Play(CombatMontage, 1.0f);
-				AnimInstance->Montage_JumpToSection(FName("Attack_Range"), CombatMontage);
+				AnimInstance->Montage_JumpToSection(FName("Attack_04"), CombatMontage);								
+				break;
+
+				case 4:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_05"), CombatMontage);								
+				break;
+				
+				case 5:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_06"), CombatMontage);								
+				break;
+				
+				case 6:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_07"), CombatMontage);								
+				break;
+				
+				case 7:
+				AnimInstance->Montage_Play(CombatMontage, 1.0f);
+				AnimInstance->Montage_JumpToSection(FName("Attack_08"), CombatMontage);							
 				break;
 				
 				default:
@@ -192,8 +215,17 @@ void ARPGLessonCharacter::Attack()
 			}
 			
 		}
-	}
+	 }
+}
+
+void ARPGLessonCharacter::PlaySwingSound(USoundCue*SwingSoundCue)
+{
+	SwingSoundCue = EquippedWeapon->SwingSound;
 	
+    if(SwingSoundCue)
+    {
+    	UGameplayStatics::PlaySound2D(this, SwingSoundCue);
+    }
 }
 
 void ARPGLessonCharacter::SetEquippedWeapon(AWeapon* WeaponToSet)
@@ -613,7 +645,12 @@ void ARPGLessonCharacter::SpaceKeyUp()
 void ARPGLessonCharacter::LMBPressed()
 {
 	bIsLMBPressed = true;
-	Attack();
+	
+	if(EquippedWeapon!=nullptr) //we don't want to use Attacking animations when a weapon is not in the Player's hand
+	{
+		Attack();
+		
+	}
 }
 
 void ARPGLessonCharacter::LMBReleased()

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/GameMode.h"
+#include "Sound/SoundCue.h"
 #include "UObject/ObjectMacros.h"
 
 #include "RPGLessonCharacter.generated.h"
@@ -165,6 +166,9 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Items")
 	class AItem*ActiveOverlappItem;
 
+	UFUNCTION(BlueprintCallable)
+	void PlaySwingSound(USoundCue*SwingSoundCue);
+
 	void SetEquippedWeapon(AWeapon*WeaponToSet);
 	FORCEINLINE AWeapon* GetEquippedWeapon(){return EquippedWeapon;}
 	FORCEINLINE void SetActiveOvelappingItem(AItem*ActiveItem){ActiveOverlappItem=ActiveItem;}
@@ -283,6 +287,12 @@ public:
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
 	class UAnimMontage*	CombatMontage;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Combat")
+	class UParticleSystem*HitParticles;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	class USoundCue*HitSound;
 	
 private:
 

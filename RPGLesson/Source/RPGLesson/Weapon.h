@@ -41,6 +41,9 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Item | Sound")
 	class USoundCue*OnEquppedSound;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Item | Sound")
+    USoundCue*SwingSound;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="SekeletalMesh")
 	class USkeletalMeshComponent*SkeletalMeshComponent;
@@ -51,16 +54,17 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Particles")
 	class UParticleSystemComponent*ParticleSystemComponent;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
-	float Damage;
-
-	
-
 	protected:
 	
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaSeconds) override;
+
+	UFUNCTION(BlueprintCallable)
+	void ActivateCollision();
+
+	UFUNCTION(BlueprintCallable)
+	void DeactivateCollision();
 
 	virtual void OnOverlapBegin (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) override;
 

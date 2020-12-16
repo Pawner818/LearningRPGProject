@@ -10347,6 +10347,29 @@
         </e>
       </e>
     </e>
+    <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\Replica" t="Include">
+      <e p="Replica.uplugin" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="index.html" t="Include" />
+        <e p="replica_r_white.png" t="Include" />
+        <e p="replica_white.svg" t="Include" />
+      </e>
+      <e p="Source" t="Include">
+        <e p="Replica" t="Include">
+          <e p="Private" t="Include">
+            <e p="Replica.cpp" t="Include" />
+            <e p="ReplicaCommands.cpp" t="Include" />
+            <e p="ReplicaStyle.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="Replica.h" t="Include" />
+            <e p="ReplicaCommands.h" t="Include" />
+            <e p="ReplicaStyle.h" t="Include" />
+          </e>
+          <e p="Replica.Build.cs" t="Include" />
+        </e>
+      </e>
+    </e>
     <e p="F:\Games\UE_4.25\Engine\Plugins\Marketplace\Restart" t="Include">
       <e p="Resources" t="Include">
         <e p="ButtonIcon_40x.png" t="Include" />

@@ -14,7 +14,7 @@ class AEnemyAIController;
 UENUM(BlueprintType)
 enum class EEnemyMovementStatus : uint8
 {
-	/* Bunch of States, depends on is an enemy interacting with the main Char at this moment? */
+	/* Bunch of States, depends on is the Enemy interacting with the main Char at this moment? */
 	EMS_Idle UMETA(DisplayName = "Idle"),
 	EMS_Walking UMETA(DisplayName = "Walking"),
 	EMS_CharacterDetected UMETA(DisplayName = "DetectCharacter"),
@@ -50,11 +50,8 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
     USphereComponent*CombatSphere;
 
-	// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
-	// class AEnemyAIController *EAIController;
-
-	// /* Function which allows the Enemy to reach the Character */
-	// void MoveToTarget(ARPGLessonCharacter* Character);
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
+	class AEnemyAIController*EnemyAIController;
 
 protected:
 	
@@ -99,20 +96,12 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI Movement") 	
 	FVector GoalLocationToMove;
 
-	// /* Main updating function, which is updating every frame */
-	// void EnemyStatusUpdating(float DeltaValue);
-
 	/* Reference to the Character */ 
 	UPROPERTY()
 	class ARPGLessonCharacter*CharacterToMove;
 
-	
-	/* Timer for creating a little delay between animations */
-	
-	/* UPD: That's my way to build animations and dependencies between states, I know that we could use BlackBoards and Trees, but for learning purposes
-	 * I guess it's the easiest way to learn how it's actually working inside the C++ class.  
-	 */
-	struct FTimerHandle DelayTimerBetweenStates;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI")
+	ARPGLessonCharacter*CharacterIsTarget;
 
 	/* When the Enemy detect the Character (or lost), we change this boolean to enable/disable moving function, switch the state */
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
@@ -130,13 +119,19 @@ public:
 	void  TargetDetected();
 	void  TargetLost();
 
-	/* Enemy near the Character, inside Combat Sphere, ready to attack us, status changes to Attacking */
-	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
+	/* Enemy near the Character, the Player inside Combat Sphere, the Enemy ready to attack us */
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Combat")
     bool bIsAttackingTarget;
 
 	/* Two functions to switch our bool IsAttackingTarget */
-	void AttackingTarget();
-	void StopAttackingTarget();
+
+	void AttackTheCharacter();
+
+	UFUNCTION(BlueprintCallable)
+    void AttackEnd();
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
+	class UAnimMontage*EnemyCombatMontage;
 
 	/* Is the main Character inside CombatSphere? */ 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
@@ -148,7 +143,6 @@ public:
 	 * 
 	 */
 
-
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
 	float CurrentHealth;
 
@@ -158,12 +152,46 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
 	float Damage;
 
-	void AttackTheCharacter();
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI")
+	class UParticleSystem*HitParticles;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="AI")
+    class USoundCue*HitSound;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="AI")
+	USoundCue*EnemySwingSound;
+
+
+
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+	class UBoxComponent*CombatCollisionL;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+	UBoxComponent*CombatCollisionR;
+
+    UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+    class UStaticMeshComponent*RightWeapon;
+
+    UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+    UStaticMeshComponent*LeftWeapon;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+	class UParticleSystemComponent*LeftWeaponParticle;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+	UParticleSystemComponent*RightWeaponParticle;
+
+	UFUNCTION()
+    void OnCombatBegin (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+	UFUNCTION()
+    void OnCombatEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintCallable)
-    void AttackEnd();
+    void ActivateCollision();
 
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Combat")
-	class UAnimMontage*EnemyCombatMontage;
-	
+	UFUNCTION(BlueprintCallable)
+    void DeactivateCollision();
+
 };

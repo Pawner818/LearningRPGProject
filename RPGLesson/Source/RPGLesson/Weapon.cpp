@@ -9,6 +9,7 @@
 #include "Sound/SoundCue.h"
 #include "Components/BoxComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Enemy.h"
 
 AWeapon::AWeapon()
 {
@@ -17,17 +18,21 @@ AWeapon::AWeapon()
 
     DamageBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("DamageBoxComponent"));
     DamageBoxComponent->SetupAttachment(GetRootComponent());
-    
+
     bWeaponParticle = false;
 
     WeaponState = EWeaponStates::EWS_Pickup;
-    
 }
 
 void AWeapon::BeginPlay()
 {
     DamageBoxComponent->OnComponentBeginOverlap.AddDynamic(this,&AWeapon::OnCombatBegin);
     DamageBoxComponent->OnComponentEndOverlap.AddDynamic(this,&AWeapon::OnCombatEnd);
+
+    DamageBoxComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    DamageBoxComponent->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
+    DamageBoxComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+    DamageBoxComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn,ECollisionResponse::ECR_Overlap);
 
     if(!bWeaponParticle)
     {
@@ -42,9 +47,9 @@ void AWeapon::EquipWeapon(ARPGLessonCharacter* Character)
 {
     if(Character)
     {
-        Mesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
-        Mesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
-        Mesh->SetSimulatePhysics(false);
+        SkeletalMeshComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
+        SkeletalMeshComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
+        SkeletalMeshComponent->SetSimulatePhysics(false);
 
         const USkeletalMeshSocket*WeaponSocket = Character->GetMesh()->GetSocketByName("WeaponSocket");
         if(WeaponSocket)
@@ -54,9 +59,6 @@ void AWeapon::EquipWeapon(ARPGLessonCharacter* Character)
             
             Character->SetEquippedWeapon(this);
             Character->SetActiveOvelappingItem(nullptr);
-       
-            
-
         }
 
         // sound when we equip a weapon
@@ -75,6 +77,16 @@ void AWeapon::EquipWeapon(ARPGLessonCharacter* Character)
 
 void AWeapon::Tick(float DeltaSeconds)
 {
+}
+
+void AWeapon::ActivateCollision()
+{
+    DamageBoxComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+}
+
+void AWeapon::DeactivateCollision()
+{
+    DamageBoxComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
 void AWeapon::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -114,6 +126,31 @@ void AWeapon::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 void AWeapon::OnCombatBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
     UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+    if(OtherActor)
+    {
+        AEnemy*Enemy = Cast<AEnemy>(OtherActor);
+        if(Enemy)
+        {
+            /* Create a splash of blood when we attack the Enemy */
+            if(Enemy->HitParticles)
+            {
+               // getting an access to the sword socket to play a particle from 
+               const USkeletalMeshSocket*EnemyBlood = SkeletalMeshComponent->GetSocketByName("EnemyBlood");
+                
+               if(EnemyBlood)
+               {
+                  const FVector SocketLocation = EnemyBlood->GetSocketLocation(SkeletalMeshComponent);
+                  UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),Enemy->HitParticles,SocketLocation,FRotator(0.f),false);
+               }
+            }
+
+            /* Create a hit sound when we attack the Enemy */
+            if(Enemy->HitSound)
+            {
+                UGameplayStatics::PlaySound2D(this,Enemy->HitSound);
+            }
+        }
+    }
 }
 
 void AWeapon::OnCombatEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,

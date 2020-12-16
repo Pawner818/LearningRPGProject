@@ -27,19 +27,6 @@ void AEnemyAIController::Tick(float DeltaSeconds)
     
 }
 
-void AEnemyAIController::MoveToTheMainCharacter(ARPGLessonCharacter*CharacterToMoveRef)
-{		
-    if(EnemyAIControllerRef)
-    {
-        /* Creating a FAIMoveRequest/FNavPathSharePtr to feed them to MoveTo() function */
-        FAIMoveRequest MoveRequest;
-        MoveRequest.SetGoalActor(CharacterToMoveRef);
-        MoveRequest.SetAcceptanceRadius(15.0f);
-    
-        FNavPathSharedPtr NavigationPath;
-    
-        EnemyAIControllerRef->MoveTo(MoveRequest,&NavigationPath);
-    }
-}
+
 
 
