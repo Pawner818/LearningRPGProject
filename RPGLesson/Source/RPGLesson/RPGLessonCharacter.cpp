@@ -15,8 +15,10 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Animation/AnimInstance.h"
 #include "Weapon.h"
+#include "Enemy.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
+#include "Kismet/KismetMathLibrary.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -62,8 +64,8 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	/* Default values for the player stats */
-    MaxHealth = 100.f;
-	Health =100.f;
+    MaxHealth = 1000.f;
+	Health =1000.f;
 	
 	Coins = 0; // pickable item
 
@@ -80,6 +82,8 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	RunningSpeed = 600.f;
 	SprintingSpeed = 1200.f;
 
+	InterpSpeed = 15.f;
+
 	// bools 
 	bShiftKeyDown = false;
 	bIsAltPressed = false;
@@ -89,6 +93,7 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	bCharacterMoving = false;
 	bFirstTouchToWeapon = false;
 	bAttacking = false;
+	bInterpToEnemy = false;
 
 	// Initialize ENUMS
 	MovementStatus = EMovementStatus::EMS_Idle;
@@ -163,6 +168,9 @@ void ARPGLessonCharacter::Attack()
 	 if(!bAttacking)
 	 {
 	 	bAttacking = true;
+	 	SetInterpToEnemy(true);
+
+	 	
 		UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
 		if(AnimInstance && CombatMontage)
 		{
@@ -239,6 +247,19 @@ void ARPGLessonCharacter::SetEquippedWeapon(AWeapon* WeaponToSet)
 	
 }
 
+void ARPGLessonCharacter::SetInterpToEnemy(bool Interp)
+{
+	bInterpToEnemy = Interp;
+}
+
+FRotator ARPGLessonCharacter::GetLookAtRotationYaw(FVector Target)
+{
+	FRotator LookAtRotation = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(),Target);
+	FRotator LookAtRotationYaw(0.f,LookAtRotation.Yaw,0.f);
+
+	return LookAtRotationYaw;
+}
+
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
@@ -246,6 +267,14 @@ void ARPGLessonCharacter::Tick(float DeltaSeconds)
 	MovementStatusUpdating(DeltaSeconds);
 
 	StaminaStatusUpdating(DeltaSeconds);
+
+	if(bInterpToEnemy && CombatTarget)
+	{
+		FRotator LookAtYaw = GetLookAtRotationYaw(CombatTarget->GetActorLocation());
+		FRotator InterpRotation = FMath::RInterpTo(GetActorRotation(),LookAtYaw,DeltaSeconds,InterpSpeed);
+
+		SetActorRotation(InterpRotation);
+	}
 }
 
 void ARPGLessonCharacter::OnResetVR()
@@ -333,8 +362,20 @@ void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
 
 void ARPGLessonCharacter::Death()
 {
-	UE_LOG(LogTemp,Warning,TEXT("Wasted! Your HP less than 0! "))
-	//TODO: add functionality
+	UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
+	if(AnimInstance && CombatMontage)
+	{
+		AnimInstance->Montage_Play(CombatMontage, 1.0f);
+		AnimInstance->Montage_JumpToSection(FName("Death"), CombatMontage);
+	}
+}
+
+float ARPGLessonCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+	AActor* DamageCauser)
+{
+	DecrementHealth(DamageAmount);
+
+	return DamageAmount;
 }
 
 void ARPGLessonCharacter::SetMovementStatus(EMovementStatus Status)
@@ -649,7 +690,6 @@ void ARPGLessonCharacter::LMBPressed()
 	if(EquippedWeapon!=nullptr) //we don't want to use Attacking animations when a weapon is not in the Player's hand
 	{
 		Attack();
-		
 	}
 }
 
@@ -671,6 +711,7 @@ void ARPGLessonCharacter::RMBReleased()
 void ARPGLessonCharacter::AttackEnd()
 {
 	bAttacking = false;
+	SetInterpToEnemy(false);
 }
 
 void ARPGLessonCharacter::EKeyUp()
@@ -690,5 +731,4 @@ void ARPGLessonCharacter::EKeyDown()
 			SetActiveOvelappingItem(nullptr);
 		}
 	}
-	
 }

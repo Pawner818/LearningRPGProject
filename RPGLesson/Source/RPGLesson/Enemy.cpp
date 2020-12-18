@@ -15,6 +15,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
 #include "Animation/AnimInstance.h"
+#include "BehaviorTree/BlackboardComponent.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 
@@ -50,7 +52,7 @@
     RightWeaponParticle ->AttachToComponent(RightWeapon,FAttachmentTransformRules::SnapToTargetIncludingScale,"ParticleSocket") ;
 
 	// INITIALIZING ENUMS 
-	EnemyMovementStatus = EEnemyMovementStatus::EMS_Walking;
+	EnemyMovementStatus = EEnemyMovementStatus::EMS_Idle;
 	
     // INITIALIZING BOOLS 
 	bCharacterSpottedByEnemy = false; // Is an enemy "see" and ready to attack our character (changes to "true" if we reach the necessary agro distance)
@@ -58,6 +60,7 @@
 	bIsAttackingTarget = false; // the Enemy is not attacking us 
 	bCharInsideCombatSphere = false; // Same to the AgroSphere
 	bCanMoveToTarget = false; // The Enemy has to wait some time between Detected and MoveTo states.
+    	bEnemyAlive = true;
 
 	// INITIALIZING STATS
 
@@ -66,8 +69,13 @@
 	CurrentHealth = 1000.f;
 	Damage = 50.f;
 
+    	AttackMinTime = 0.5f;
+    	AttackMaxTime = 2.f;
+
 	AcceptableDistance = 250.f;
 	CurrentLocation = GetActorLocation();
+
+    	DeathDelay = 3.f; // seconds before the Enemy body will be destroyed 
 }
 
 // Called when the game starts or when spawned
@@ -110,7 +118,7 @@ void AEnemy::BeginPlay()
 void AEnemy::AgroSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
     UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if(OtherActor)
+	if(OtherActor && Alive())
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
@@ -136,11 +144,12 @@ void AEnemy::AgroSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AA
 void AEnemy::CombatSphereOnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
     UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if(OtherActor)
+	if(OtherActor && Alive())
 	{
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
+			CharacterToMove->SetCombatTarget(this);
 			CharacterIsTarget = CharacterToMove;
 			bCharInsideCombatSphere = true;	
 			AttackTheCharacter();
@@ -156,10 +165,20 @@ void AEnemy::CombatSphereOnOverlapEnd(UPrimitiveComponent* OverlappedComponent, 
 		CharacterToMove = Cast<ARPGLessonCharacter>(OtherActor);
 		if(CharacterToMove)
 		{
+			if(CharacterToMove ->CombatTarget == this)
+			{
+				CharacterToMove->SetCombatTarget(nullptr);
+			}
+			
 			bCharInsideCombatSphere = false;
-			CharacterIsTarget = nullptr;
 			AttackEnd();
-			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_MoveToTarget);
+			
+			if(EnemyMovementStatus!=EEnemyMovementStatus::EMS_Attacking)
+			{
+				CharacterIsTarget = nullptr;
+			}
+
+			GetWorldTimerManager().ClearTimer(AttackTimer);
 		}
 	}
 }
@@ -184,78 +203,69 @@ void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AEnemy::TargetDetected()
 {
 	bCharacterSpottedByEnemy = true;
-	
 }
 
 void AEnemy::TargetLost()
 {
 	bCharacterSpottedByEnemy = false;
-	
 }
-
-
-/* I commented this bit of code because we are not using Montage for now (just Random Sequence function for the randomizing attacking animations).
- * We gonna use this code later to improve our combat system. 
-*/
 
 void AEnemy::AttackTheCharacter() 
 {
-    if(EnemyAIController)
+    if(Alive())
     {
-    	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
-    }
-    	
-    if(!bIsAttackingTarget)
-    {
-    	bIsAttackingTarget = true;
-
-    	UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
-    	if(AnimInstance)
-    	{
-    		const int32 MontageSection = FMath::RandRange(0,2);
-    		switch (MontageSection)
+    		if(EnemyAIController)
     		{
-    		case 0:
-    			AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
-    			AnimInstance->Montage_JumpToSection(FName("Attack_1"), EnemyCombatMontage);
-    			break;
-				
-    		case 1:
-    			AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
-    			AnimInstance->Montage_JumpToSection(FName("Attack_2"), EnemyCombatMontage);
-    			break;
-
-    		case 2:
-    			AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
-    			AnimInstance->Montage_JumpToSection(FName("Attack_3"), EnemyCombatMontage);
-    			break;
-
-    			// case 3:
-    			// 	AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
-    			// 	AnimInstance->Montage_JumpToSection(FName("Attack_Range"), EnemyCombatMontage);
-    			// 	break;
-    			//
-    			// case 4:
-    			// 	AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
-    			// 	AnimInstance->Montage_JumpToSection(FName("Death"), EnemyCombatMontage);
-    			// 	break;
-				
-    			default:
-    				break;
+    			SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Attacking);
     		}
-    	}
+    	
+    		if(!bIsAttackingTarget)
+    		{
+    			bIsAttackingTarget = true;
 
-    }	
+    			UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
+    			if(AnimInstance)
+    			{
+    				const int32 MontageSection = FMath::RandRange(0,2);
+    				switch (MontageSection)
+    				{
+    				case 0:
+    					AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
+    					AnimInstance->Montage_JumpToSection(FName("Attack_1"), EnemyCombatMontage);
+    					break;
+				
+    				case 1:
+    					AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
+    					AnimInstance->Montage_JumpToSection(FName("Attack_2"), EnemyCombatMontage);
+    					break;
+
+    				case 2:
+    					AnimInstance->Montage_Play(EnemyCombatMontage, 1.1f);
+    					AnimInstance->Montage_JumpToSection(FName("Attack_3"), EnemyCombatMontage);
+    					break;
+
+    					// case 3:
+    					// 	AnimInstance->Montage_Play(EnemyCombatMontage, 1.0f);
+    					// 	AnimInstance->Montage_JumpToSection(FName("Attack_Range"), EnemyCombatMontage);
+    					// 	break;
+
+    					default:
+    						break;
+    				}
+    			}
+
+    		}	
+    }
+   
 }
-
-
 
 void AEnemy::AttackEnd()
 {
     bIsAttackingTarget = false;
     if(bCharInsideCombatSphere)
     {
-	    AttackTheCharacter();
+    	float AttackTime = FMath::FRandRange(AttackMinTime,AttackMaxTime);
+    	GetWorldTimerManager().SetTimer(AttackTimer,this, &AEnemy::AttackTheCharacter,AttackTime);
     }
 }
 
@@ -285,6 +295,12 @@ void AEnemy::OnCombatBegin(UPrimitiveComponent* OverlappedComponent, AActor* Oth
     			{
     				UGameplayStatics::PlaySound2D(this,Character->HitSound);
     			}
+
+    			/* Taking damage */
+    			if(DamageTypeClass)
+    			{
+    				UGameplayStatics::ApplyDamage(CharacterToMove,Damage,EnemyAIController,this,DamageTypeClass);
+    			}
     		}
     	}
 }
@@ -310,5 +326,71 @@ void AEnemy::DeactivateCollision()
     	CombatCollisionL->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     	CombatCollisionR->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
+
+void AEnemy::ChangeAliveBoolBT()
+    {
+    	if(EnemyAIController)
+    	{
+    		EnemyAIController->GetBlackboardComponent()->SetValueAsBool("Alive", false);
+    	}
+    }
+
+void AEnemy::EnemyDeath()
+{
+    	
+    	UAnimInstance*AnimInstance = GetMesh()->GetAnimInstance();
+    	if(AnimInstance)
+    	{
+    		AnimInstance->Montage_Play(EnemyCombatMontage,0.8);
+    		AnimInstance->Montage_JumpToSection(FName("Death"),EnemyCombatMontage);
+    	}
+    	SetEnemyMovementStatus(EEnemyMovementStatus::EMS_Dead);
+    	
+    	DeactivateCollision(); // weapon collision deactivating
+    	AgroSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    	CombatSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    	
+    	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+    	
+}
+
+float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+    	if(CurrentHealth-DamageAmount<=0.f)
+    	{
+    		CurrentHealth-=DamageAmount;
+    		bEnemyAlive = false;
+    		ChangeAliveBoolBT();
+            EnemyDeath();
+    	}
+    	else
+    	{
+    		MaxHealth-=DamageAmount;
+    	}
+
+    	return DamageAmount;
+}
+
+void AEnemy::DeathEnd()
+{
+    
+	GetMesh()->bPauseAnims = true;
+    GetMesh()->bNoSkeletonUpdate = true;
+
+    	GetWorldTimerManager().SetTimer(DeathTimer,this,&AEnemy::EnemyDisappear,DeathDelay);
+}
+
+bool AEnemy::Alive()
+{	
+    return bEnemyAlive;
+}
+
+void AEnemy::EnemyDisappear()
+{
+    	Destroy();
+}
+
+
 
 

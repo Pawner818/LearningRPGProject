@@ -268,6 +268,12 @@ public:
 
 	void Death();
 
+	virtual float  TakeDamage(
+		float DamageAmount,
+		struct FDamageEvent const & DamageEvent,
+		class AController * EventInstigator,
+		AActor * DamageCauser) override;
+
 	/**********************************************************************************
 	///
 	/// Combat
@@ -293,6 +299,21 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
 	class USoundCue*HitSound;
+
+
+	/* Interpolating to the Enemy */
+	float InterpSpeed;
+
+	bool bInterpToEnemy;
+
+	void SetInterpToEnemy(bool Interp);
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
+	class AEnemy*CombatTarget;
+
+	FORCEINLINE void SetCombatTarget(AEnemy*Target) const {Target = CombatTarget;}
+
+	FRotator GetLookAtRotationYaw(FVector Target);
 	
 private:
 

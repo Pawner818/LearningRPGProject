@@ -6,316 +6,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79fe4921-0982-4ee9-8ef1-60f6c8140bbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM.FBX" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/11_Pumpkin_tfvnficaa_8K_inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/Master_Materials/Standard_MasterMaterial.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/11_Pumpkin_tfvnficaa_8K_inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_LOD0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/Master_Materials/Standard_MasterMaterial.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/EWeapon_StaticMesh.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Materials/Weapons/M_WeaponSet_1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Materials/Weapons/M_WeaponSet_2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Axe.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatAxe.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatHammer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_H2H.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Mace.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Shield.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sickle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Spear.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sword.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Throwing.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword_Anim.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword_PhysicsAsset.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword_Skeleton.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep1_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyGiantFootStep2_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyHitHard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyHitHard.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemyHitHard_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemySnarl_1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemySnarl_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/EnemySnarl_1_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/SwordSwing1_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/SwordSwing2_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/bloodsqueeze.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/bloodsqueeze.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/bloodsqueeze_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_1_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/hard_hit_sound_2_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/swing_Sword.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/swing_Sword.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/SFX/swing_Sword_Cue.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/MaterialFunctions/MF_SmoothStep.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Materials/MAT_BloodClip_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Materials/MIC_BloodClip_A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Materials/MIC_BloodClip_Splat_2x2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Particles/PS_Blood_Spurt_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Blood_Clip_A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Blood_Clip_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Blood_Reflection.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Blood_SubUV_2x2_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Blood_SubUV_2x2_01_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/FXVillesBloodVFXPack/Textures/T_Noise_N_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_02_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_03_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Materials/Liquid/M_Liquid_Spray_01_4X6_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Materials/Smoke/M_Smoke_01_8X8_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Tile/T_Black_32.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master_DepthFade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_SubUV_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_Master_DepthFade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Damage/M_CrackedGround_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Damage/M_CrackedGround_Poison_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Env/M_Treasure_Gold_Add_2sided.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Fire/M_Fire_02_Add_5X5_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Fire/M_Fire_Sheet_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Fire/M_JaggedRockFire_MeshEmit_Lit.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Glyph/M_Lock_Icon_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Add_Unlit_TerminGlow.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_02_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_03_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_04_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_07_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_Noise_01_Inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_Streak_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_Vertical_02_Inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flash_Impact_01_1X2_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Glow_Vertical_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/ICE/M_IceChunksBase.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/ICE/M_Ice_Solid_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/ICE/M_Snow_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/ICE/M_Snow_Ball_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Liquid/M_Liquid_Spray_01_4X6_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/M_GoldBag.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/M_Shockwave_01_ADD_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/M_Shockwave_03_Add_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Misc/M_Targeting_Enemy.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Noise/M_Shockwave_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Noise/M_Tile_Noise_Tendril_02_Add_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Poison/M_JaggedRockPoison_MeshEmit_Lit_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Smoke/M_Smoke_01_8X8_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Smoke/M_Smoke_02_Trans_6X6_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Spark/M_Spark_04_SubUV_1_4_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Spark/M_Spark_Core_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Trails/M_SwipeTrail_Add_2Sided_Base_02_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Materials/Trails/M_Swipe_Mesh_Add_2Sided_01_INST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Env/SM_TreasureChest_Gold.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Env/SM_Treasure_Coin.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/ICE/SM_IcePiece01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Mobile/SM_ChargeTell.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Mobile/SM_TapLob_Projectile_Bomblet.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_ChargeMesh.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_FireBlastMesh.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_FireBlastMesh_Twist_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_HealSpiral.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_Shockwave_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_SpinSpiral.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/SM_SwipeTrail.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/Skills/rock/SM_TapLob_Projectile_Bomb.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Meshes/rock/SM_SnowBoulder_BearToss.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/Impact/P_Bear_Charge_Feet.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/Impact/P_Bear_Charge_WindUp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/Impact/P_Bear_Swing_Impact.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/Impact/P_Bear_Swing_Impact_Poison.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/P_Bear_Charging.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/P_Bear_DoubleSlash_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/P_ProjectileLob_Explo_Ice.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/P_ProjectileLob_Ice.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/P_ProjectileLob_Ice_InHand.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Monsters/FX_Monster_Bear/Summon/P_Summon_Roar.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Skill_Aura/P_Aura_Poison_Ending_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Skill_Aura/P_Aura_Poison_Shatter_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Skill_Aura/P_Aura_Poison_Upheaval_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Skill_Aura/P_Aura_Poison_Upheaval_Charge_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Skill_Leap/P_Skill_Leap_Poison_Velocity_Impact.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Damage/T_cracksPoison_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Damage/T_cracks_01_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Damage/T_cracks_03.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Env/T_Pickup_GoldBag_D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Env/T_Pickup_GoldBag_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Fire/T_FireBlastTile.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Fire/T_Fire_Sprite_01_5x5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Fire/T_JaggedRockFirey_01_D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Fire/T_JaggedRockFirey_01_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Glyph/T_Lock.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/FX_Glow_12alpha.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_BlastWave.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_Flare_Streaks_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_GlowFlare_Circular_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_GlowNoise_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_GlowNoise_Circular_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_LightCone.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SoftFallOff.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SwipeTrail.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_Targeting_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_Vertical_Glow.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_impactFlares_meleeBase.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_03.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Gradient/Trail_Claws01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Ice/T_IceChunks.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Ice/T_Sparkle_Flakes.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Liquid/T_bloodTest_4X6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Noise/T_Tile_Noise_Tendril_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Smoke/T_SmokeBall_01_8_8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Smoke/T_Smoke_subUV_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Spark/T_Spark_Core.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Spark/T_Sparks_04_SubUV_1_4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Texture/T_Ice_Mesh02b.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Textures/Tile/T_Black_32.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Chest/P_TreasureChest_CallOut.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Chest/P_TreasureChest_CallOut_loop.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Chest/P_TreasureChest_CallOut_loop_Tier1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Chest/P_TreasureChest_CallOut_tier3_Lock.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Chest/P_TreasureChest_Open_Mesh.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_DeadMans_Loot.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_GoldSparkle_Bag_Lo_2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_GoldSparkle_Bag_Loop.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_GoldSparkle_Bag_Pickup.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Loot/P_KeyPickup_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Loot/P_Loot_Idle_Loop.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Loot/P_Loot_Pickup.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_OrePile_Explosion_Basic.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_OrePile_Explosion_CrystalPick.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_OrePile_Explosion_Success.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_Resource_GoldRock.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_Resource_GoldRock_drop.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_Resource_Impact_Rock.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Resources/P_Resource_OreRock.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Mesh_2Sided_Pan_Base_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_2Sided_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master_DepthFade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_SubUV_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Trail_2Sided_Pan_Emis_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Add_Trail_2Sided_Pan_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Opaque_MeshEmit_Emis_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Opaque_MeshEmit_Emis_Master_Surface.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_Master_DepthFade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_Master_Surface.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_SubUV_Master.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_SubUV_Master_DepthFade.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Environments/Fire/Env_Fire_Terrain2/Textures/T_Fire_Lava_2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Environments/Ice/Env_Ice_Mountain/Materials/M_IceMountain_Boulder.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Environments/Ice/Env_Ice_Mountain/Textures/T_SnowBoulder_D_Snow.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Environments/Ice/Env_Ice_Mountain/Textures/T_SnowBoulder_N.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Coins_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Coins_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Explosive_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Explosive_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/HealingPotion_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/HealingPotion_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Standing_Idle.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapon_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapon_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/DefaultMannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/DefaultMannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/ChaseStates.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/ChaseStates.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/EnemyAIController_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/EnemyAIController_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BB.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChangeStates.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChangeStates.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChasePlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChasePlayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindPlayerLocation.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindPlayerLocation.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/LoopPath.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/LoopPath.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Services/ChangeNPCSpeed.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Services/ChangeNPCSpeed.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/StopDetecting.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/StopDetecting.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/UpdatePathIndex.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/UpdatePathIndex.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Forge_King/Forge_King_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Forge_King/Forge_King_Weapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Forge_King/Forge_King_Weapon_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Forge_King/Forge_King_Weapon_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Enemy_Master_Grunt_Animation/ExoGame_MasterGrunt_Walk_Fwd.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Enemy_Master_Grunt_Animation/ExoGame_MasterGrunt_Walk_Fwd.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/11_Pumpkin_tfvnficaa_8K_inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Albedo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Albedo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Displacement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Displacement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Normal_LOD0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Normal_LOD0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Roughness.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Roughness.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_LOD0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_LOD0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Foliage/MS_Vegetables/Master_Materials/Standard_MasterMaterial.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_01_INST.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_02_INST.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Materials/Gradient/M_Flare_03_INST.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Materials/Liquid/M_Liquid_Spray_01_4X6_INST.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Materials/Smoke/M_Smoke_01_8X8_INST.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SoftFallOff.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SoftFallOff.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SwipeTrail.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_SwipeTrail.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_01.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_01.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Gradient/T_starFlare_02.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Liquid/T_bloodTest_4X6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Liquid/T_bloodTest_4X6.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Smoke/T_SmokeBall_01_8_8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/InfinityBladeEffects/Effects/FX_Textures/Smoke/T_SmokeBall_01_8_8.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/FX_Textures/Tile/T_Black_32.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_Master_DepthFade.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/Masters/M_Add_Sprite_SubUV_Master.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/InfinityBladeEffects/Effects/Masters/M_Trans_Sprite_Master_DepthFade.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Materials/Weapons/M_WeaponSet_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Materials/Weapons/M_WeaponSet_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Axe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Dagger_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatAxe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_GreatHammer.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_H2H.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Mace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Shield.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sickle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Spear.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Sword.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SM_Throwing.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_BaseColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_BaseColor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_Normal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_OcclusionRoughnessMetallic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set1_OcclusionRoughnessMetallic.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_BaseColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_BaseColor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_Normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_Normal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_OcclusionRoughnessMetallic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Textures/Weapons/T_Weapon_Set2_OcclusionRoughnessMetallic.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Level_01.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Level_01.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/11_Pumpkin_tfvnficaa_8K_inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Albedo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Albedo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Displacement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Displacement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Normal_LOD0.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Normal_LOD0.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Roughness.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Foliage/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_4K_Roughness.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/3D_Asset/11_Pumpkin_tfvnficaa/tfvnficaa_LOD0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MS_Vegetables/Master_Materials/Standard_MasterMaterial.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Running.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/423285__inspectorj__whistle-finger-short-a.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/423285__inspectorj__whistle-finger-short-a.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/Blade1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/Blade1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/Blade1_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/Blade1_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/CoinsSound.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/CoinsSound.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/CoinsSound_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/CoinsSound_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/HitSound.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/HitSound.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/HitSound_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/HitSound_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/SwordSwing1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/SwordSwing1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/SwordSwing1_Cue.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/SwordSwing2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/SwordSwing2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/SwordSwing2_Cue.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/impact_metal_stick_light.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/impact_metal_stick_light.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/impact_metal_stick_light_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/impact_metal_stick_light_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sounds/whisle_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SFX/Whisle_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Standing_Walk_Forward.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPGLesson.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/RPGLesson.uproject" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" afterDir="false" />
@@ -334,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Weapon.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -341,14 +49,14 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyWeapon.h" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyWeapon.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.h" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lNXbkWmZcyJ2XlImdzMMpCUoKu" />
@@ -603,7 +311,10 @@
       <workItem from="1608050337599" duration="703000" />
       <workItem from="1608052247435" duration="247000" />
       <workItem from="1608111026120" duration="11434000" />
-      <workItem from="1608126204465" duration="9381000" />
+      <workItem from="1608126204465" duration="9977000" />
+      <workItem from="1608215903498" duration="3259000" />
+      <workItem from="1608295951116" duration="9063000" />
+      <workItem from="1608307330012" duration="6916000" />
     </task>
     <servers />
   </component>

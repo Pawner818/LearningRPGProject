@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "BehaviorTree/BlackboardComponent.h"
 #include "Field/FieldSystemNodes.h"
 #include "GameFramework/Character.h"
 #include "Enemy.generated.h"
@@ -20,7 +22,7 @@ enum class EEnemyMovementStatus : uint8
 	EMS_CharacterDetected UMETA(DisplayName = "DetectCharacter"),
     EMS_MoveToTarget UMETA(DisplayName = "MoveToTarget"),
 	EMS_Attacking UMETA(DisplayName = "Attacking"),
-	EMS_Death UMETA(DisplayName = "Death"),
+	EMS_Dead UMETA(DisplayName = "Dead"),
 
 	EMS_MAX UMETA (DisplayName = "MAX")
 };
@@ -41,6 +43,8 @@ public:
 
 	/* Setter for the EnemyMovementStatus */
 	FORCEINLINE void SetEnemyMovementStatus(EEnemyMovementStatus Status){EnemyMovementStatus = Status;}
+
+	FORCEINLINE EEnemyMovementStatus GetEnemyMovementStatus(){return EnemyMovementStatus;}
 
 	/* AgroSphere is invisible in the game, but when the Character cross the border, our Enemy status switches to DetectCharacter and so on */
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
@@ -123,10 +127,10 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Combat")
     bool bIsAttackingTarget;
 
-	/* Two functions to switch our bool IsAttackingTarget */
-
+	/* Main Enemy attacking function */
 	void AttackTheCharacter();
 
+	/* Notified function */
 	UFUNCTION(BlueprintCallable)
     void AttackEnd();
 
@@ -136,12 +140,6 @@ public:
 	/* Is the main Character inside CombatSphere? */ 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "AI")
 	bool bCharInsideCombatSphere;
-
-	/*
-	 *
-	 * ENEMY STATS 
-	 * 
-	 */
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="AI | Stats")
 	float CurrentHealth;
@@ -160,9 +158,6 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="AI")
 	USoundCue*EnemySwingSound;
-
-
-
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
 	class UBoxComponent*CombatCollisionL;
@@ -188,10 +183,59 @@ public:
 	UFUNCTION()
     void OnCombatEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	/* enable the collisions of the weapons */
 	UFUNCTION(BlueprintCallable)
     void ActivateCollision();
 
+	/* dissable the collisions of the weapons */
 	UFUNCTION(BlueprintCallable)
     void DeactivateCollision();
+
+	/* Delay between the attacks */
+	FTimerHandle AttackTimer;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	float AttackMinTime;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	float AttackMaxTime;
+
+	/* standard UDamage class */
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	TSubclassOf<UDamageType>DamageTypeClass;
+
+	/* Called when the Enemy current health is below or equals 0 */
+	void EnemyDeath();
+
+	/* Overriden damage function */
+	virtual float  TakeDamage(
+        float DamageAmount,
+        struct FDamageEvent const & DamageEvent,
+        class AController * EventInstigator,
+        AActor * DamageCauser) override;
+
+	/* Notify function (see anim blueprint) */
+	UFUNCTION(BlueprintCallable)
+	void DeathEnd();
+
+	/* return bEnemyAlive value */
+	bool Alive();
+
+	/* Visible variable to know is the Enemy actually dead? */
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Combat")
+	bool bEnemyAlive;
+
+	/* When we kill the Enemy, the body will disappear for a DeathDelay time */
+	FTimerHandle DeathTimer;
+
+	/* How long the body will stay in the world? */
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	float DeathDelay;
+
+	/* Saving our memory - destroy dead bodies! */
+	void EnemyDisappear();
+
+	/* Changing to false the BT variable Alive */
+	void ChangeAliveBoolBT();
 
 };

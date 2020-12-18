@@ -19,6 +19,8 @@ AWeapon::AWeapon()
     DamageBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("DamageBoxComponent"));
     DamageBoxComponent->SetupAttachment(GetRootComponent());
 
+    Damage = 100.f;
+
     bWeaponParticle = false;
 
     WeaponState = EWeaponStates::EWS_Pickup;
@@ -45,6 +47,9 @@ void AWeapon::BeginPlay()
 
 void AWeapon::EquipWeapon(ARPGLessonCharacter* Character)
 {
+
+    SetInstigator(Character->GetController());
+    
     if(Character)
     {
         SkeletalMeshComponent->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
@@ -148,6 +153,12 @@ void AWeapon::OnCombatBegin(UPrimitiveComponent* OverlappedComponent, AActor* Ot
             if(Enemy->HitSound)
             {
                 UGameplayStatics::PlaySound2D(this,Enemy->HitSound);
+            }
+
+            /* Damage */
+            if(DamageTypeClass)
+            {
+                UGameplayStatics::ApplyDamage(Enemy,Damage,WeaponInstigator,this,DamageTypeClass);
             }
         }
     }

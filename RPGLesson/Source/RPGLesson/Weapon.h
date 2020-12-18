@@ -75,5 +75,16 @@ public:
 
 	UFUNCTION()
     void OnCombatEnd (UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	float Damage;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	TSubclassOf<UDamageType> DamageTypeClass;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
+	AController*WeaponInstigator;
+
+	FORCEINLINE void SetInstigator(AController*Inst){WeaponInstigator=Inst;}
 	
 };
