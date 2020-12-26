@@ -6,6 +6,9 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Engine/World.h"
 #include "Creature.h"
+#include "Enemy.h"
+#include "EnemyAIController.h"
+
 // Sets default values
 ASpawnVolume::ASpawnVolume()
 {
@@ -24,7 +27,19 @@ FVector ASpawnVolume::GetSpawnPoint()
 	return UKismetMathLibrary::RandomPointInBoundingBox(Center,Extent); // random point between these 2
 }
 
-void ASpawnVolume::SpawnOurPawn_Implementation(UClass* ToSpawn, const FVector& Location)
+TSubclassOf<AActor> ASpawnVolume::GetSpawnActor()
+{
+	if(SpawnArray.Num() > 0)
+	{
+		int32 Selection = FMath::RandRange(0,SpawnArray.Num() - 1);
+
+		return SpawnArray[Selection];
+	}
+
+	else return nullptr;
+}
+
+void ASpawnVolume::SpawnOurActor_Implementation(UClass* ToSpawn, const FVector& Location)
 {
 	if(ToSpawn) // if it's valid 
 	{
@@ -32,7 +47,20 @@ void ASpawnVolume::SpawnOurPawn_Implementation(UClass* ToSpawn, const FVector& L
 		FActorSpawnParameters SpawnParameters;
 		if(World)
 		{
-			ACreature* CreatureSpawned = World->SpawnActor<ACreature>(ToSpawn,Location,FRotator(0.f),SpawnParameters);
+			AActor* Actor = World->SpawnActor<AActor>(ToSpawn,Location,FRotator(0.f),SpawnParameters);
+
+			AEnemy*Enemy = Cast<AEnemy>(Actor);
+			if(Enemy)
+			{
+				/* spawn default AI controller */
+				Enemy->SpawnDefaultController();
+
+				AEnemyAIController*EnemyAICont = Cast<AEnemyAIController>(Enemy->GetController());
+				if(EnemyAICont)
+				{
+					Enemy->EnemyAIController=EnemyAICont;
+				}
+			}
 		}
 	}
 }
@@ -41,6 +69,14 @@ void ASpawnVolume::SpawnOurPawn_Implementation(UClass* ToSpawn, const FVector& L
 void ASpawnVolume::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if(Actor_01 || Actor_02 || Actor_03 || Actor_04)
+	{	
+		SpawnArray.Add(Actor_01);
+		SpawnArray.Add(Actor_02);
+		SpawnArray.Add(Actor_03);
+		SpawnArray.Add(Actor_04);
+	}
 }
 
 // Called every frame

@@ -26,4 +26,7 @@ class RPGLESSON_API AExplosive : public AItem
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Damage")
 	float Damage;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Damage")
+	TSubclassOf<UDamageType>DamageTypeClass;
 };

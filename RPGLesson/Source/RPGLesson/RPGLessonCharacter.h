@@ -24,6 +24,7 @@ enum class EMovementStatus : uint8
 	EMS_Walking UMETA(DisplayName = "Walking"),
 	EMS_Sprinting UMETA(DisplayName = "Sprinting"),
 	EMS_Crouching UMETA (DisplayName = "Crouching"),
+	EMS_Dead UMETA (DisplayName = "Dead"),
 	
 	EMS_MAX UMETA(DisplayName = "DefaultMAX")
 };
@@ -240,7 +241,7 @@ public:
     float MaxHealth;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Player Stats")
-	float Health;
+	float CurrentHealth;
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Player Stats")
 	float MaxStamina;
@@ -250,20 +251,22 @@ public:
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Player Stats")
 	float CurrentStamina;
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Player Stats")
+	float CurrentMana;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Player Stats")
+	float MaxMana;
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadWrite,Category="Player Stats")
 	int32 Coins;
-
-	/**********************************************************************************
-	///
-	/// Stats changing functions 
-	///
-	**********************************************************************************/
 	
 	void DecrementHealth(float HealthAmount);
 
+	UFUNCTION(BlueprintCallable)
 	void IncrementHealth(float HealthAmount);
 
+	UFUNCTION(BlueprintCallable)
 	void IncrementCoins (int32 CoinsAmount);
 
 	void Death();
@@ -273,12 +276,6 @@ public:
 		struct FDamageEvent const & DamageEvent,
 		class AController * EventInstigator,
 		AActor * DamageCauser) override;
-
-	/**********************************************************************************
-	///
-	/// Combat
-	///
-	**********************************************************************************/
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
 	bool bAttacking;
@@ -300,7 +297,6 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
 	class USoundCue*HitSound;
 
-
 	/* Interpolating to the Enemy */
 	float InterpSpeed;
 
@@ -309,11 +305,44 @@ public:
 	void SetInterpToEnemy(bool Interp);
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
-	class AEnemy*CombatTarget;
+	class AEnemy*EnemyIsTargetForCharacter;
 
-	FORCEINLINE void SetCombatTarget(AEnemy*Target) const {Target = CombatTarget;}
+	FORCEINLINE void SetCombatTarget(AEnemy*Target) const {Target = EnemyIsTargetForCharacter;}
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Combat")
+	bool bHasCombatTarget;
 
 	FRotator GetLookAtRotationYaw(FVector Target);
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Controller")
+	class AMainPlayerController*MainPlayerController;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="Combat")
+	FVector CombatTargetLocation;
+
+	void UpdateCombatTarget();
+
+	/* Used in UpdateCombatTarget() to filter unnecessary classes which we dont expect to collect in Array */
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Combat")
+	TSubclassOf<AEnemy>EnemyFilter;
+
+	FORCEINLINE void SetHasCombatTarget(bool HasTarget){bHasCombatTarget = HasTarget;}
+
+	UFUNCTION(BlueprintCallable)
+	void DeathEnd();
+
+	virtual void Jump() override;
+
+
+
+	/* Switching level by name */
+	void SwitchLevel(FName LevelName);
+
+	UFUNCTION(BlueprintCallable)
+	void SaveGame();
+
+	UFUNCTION(BlueprintCallable)
+	void LoadGame(bool SetPosition);
 	
 private:
 

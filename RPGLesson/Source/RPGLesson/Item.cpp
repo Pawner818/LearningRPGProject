@@ -6,9 +6,8 @@
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Particles/ParticleSystemComponent.h"
-#include "Kismet/GameplayStatics.h"
-#include "Engine/World.h"
-#include "Sound/SoundCue.h"
+
+
 
 // Sets default values
 AItem::AItem()
@@ -49,14 +48,7 @@ void AItem::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	
-	if (OverlapParticles)
-	{
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),OverlapParticles,GetActorLocation(), FRotator(0.f),true);
-	}
-	if(SoundCue)
-	{
-		UGameplayStatics::PlaySound2D(this,SoundCue);
-	}
+	
 	
 	
 	

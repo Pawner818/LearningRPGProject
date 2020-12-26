@@ -24,13 +24,27 @@ public:
 	UFUNCTION(BlueprintPure,Category="Spawning")
 	FVector GetSpawnPoint();
 
-	// Not a reference, because we create a new object of type ACreature. Used in SpawnOurPawn function inside BP Editor.
+	UFUNCTION(BlueprintPure,Category = "Spawning")
+	TSubclassOf<AActor>GetSpawnActor();
+
+
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Spawning")
-	TSubclassOf<class ACreature>PawnToSpawn;
+	TSubclassOf<AActor>Actor_01;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Spawning")
+	TSubclassOf<AActor>Actor_02;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Spawning")
+	TSubclassOf<AActor>Actor_03;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Spawning")
+	TSubclassOf<AActor>Actor_04;
+
+	TArray<TSubclassOf<AActor>>SpawnArray;
 
 	// Spawning our pawn
 	UFUNCTION(BlueprintNativeEvent,BlueprintCallable,Category="Spawning")
-	void SpawnOurPawn(UClass*ToSpawn, const FVector&Location);
+	void SpawnOurActor(UClass*ToSpawn, const FVector&Location);	
 	
 protected:
 	// Called when the game starts or when spawned

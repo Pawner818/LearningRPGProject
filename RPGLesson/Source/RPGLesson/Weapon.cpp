@@ -19,7 +19,7 @@ AWeapon::AWeapon()
     DamageBoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("DamageBoxComponent"));
     DamageBoxComponent->SetupAttachment(GetRootComponent());
 
-    Damage = 100.f;
+    Damage = 20.f;
 
     bWeaponParticle = false;
 

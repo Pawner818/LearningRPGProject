@@ -105,7 +105,7 @@ public:
 	class ARPGLessonCharacter*CharacterToMove;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category="AI")
-	ARPGLessonCharacter*CharacterIsTarget;
+	ARPGLessonCharacter*CharacterIsEnemyTarget;
 
 	/* When the Enemy detect the Character (or lost), we change this boolean to enable/disable moving function, switch the state */
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="AI")
@@ -205,7 +205,7 @@ public:
 	TSubclassOf<UDamageType>DamageTypeClass;
 
 	/* Called when the Enemy current health is below or equals 0 */
-	void EnemyDeath();
+	void EnemyDeath(AActor*Causer);
 
 	/* Overriden damage function */
 	virtual float  TakeDamage(
@@ -236,6 +236,11 @@ public:
 	void EnemyDisappear();
 
 	/* Changing to false the BT variable Alive */
-	void ChangeAliveBoolBT();
+	void BTEnemyDead();
+
+	/* Changing to false the BT variable Alive */
+	void BTEnemyAlive();
+
+	bool bHasValidTarget;
 
 };

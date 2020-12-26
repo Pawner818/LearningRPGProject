@@ -16,12 +16,13 @@
 #include "Animation/AnimInstance.h"
 #include "Weapon.h"
 #include "Enemy.h"
+#include "MainPlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "MainSaveGame.h"
 
 
-//////////////////////////////////////////////////////////////////////////
 // ARPGLessonCharacter - main Character of this RPG-demo scene. 
 
 
@@ -64,17 +65,20 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	/* Default values for the player stats */
-    MaxHealth = 1000.f;
-	Health =1000.f;
+    MaxHealth = 100.f;
+	CurrentHealth = 100.f;
 	
 	Coins = 0; // pickable item
 
-	MaxStamina = 350.f;
+	MaxStamina = 550.f;
 	MinStamina = 0.f;
 	CurrentStamina = 350.f;
 	StaminaDrainRate = 100.f;
 	StaminaExhausted = 50.f;
-	bCouldWeDrainStamina = false;
+
+	CurrentMana = 100.f;
+	MaxMana = 100.f;
+	
 
 	// locomotion stats
 	CrouchingSpeed = 150.f;
@@ -90,10 +94,12 @@ ARPGLessonCharacter::ARPGLessonCharacter()
 	bIsCtrlPressed = false;
 	bEKeyPressed = false;
 
+	bCouldWeDrainStamina = false;
 	bCharacterMoving = false;
 	bFirstTouchToWeapon = false;
 	bAttacking = false;
 	bInterpToEnemy = false;
+	bHasCombatTarget = false;	
 
 	// Initialize ENUMS
 	MovementStatus = EMovementStatus::EMS_Idle;
@@ -116,7 +122,7 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 {
 	// Keyboard input
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ARPGLessonCharacter::SpaceKeyDown);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ARPGLessonCharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ARPGLessonCharacter::SpaceKeyUp);
 
 	PlayerInputComponent->BindAction("Walk", IE_Pressed, this, &ARPGLessonCharacter::AltDown);
@@ -160,17 +166,18 @@ void ARPGLessonCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 void ARPGLessonCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	MainPlayerController = Cast<AMainPlayerController>(GetController());
 }
 
 // Combat montage
 void ARPGLessonCharacter::Attack()
 {
-	 if(!bAttacking)
+	 if(!bAttacking && MovementStatus != EMovementStatus::EMS_Dead)
 	 {
 	 	bAttacking = true;
 	 	SetInterpToEnemy(true);
 
-	 	
 		UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
 		if(AnimInstance && CombatMontage)
 		{
@@ -260,20 +267,152 @@ FRotator ARPGLessonCharacter::GetLookAtRotationYaw(FVector Target)
 	return LookAtRotationYaw;
 }
 
+void ARPGLessonCharacter::UpdateCombatTarget()
+{
+	TArray<AActor*> OverlappingActors;
+	GetOverlappingActors(OverlappingActors,EnemyFilter);
+
+	/* if the Enemy is dead -> remove health widget and simply return */
+	if(OverlappingActors.Num()==0)
+	{
+		if(MainPlayerController)
+		{
+			MainPlayerController->RemoveHealthBar();
+		}
+		return;
+	}
+
+	AEnemy*ClosestEnemy = Cast<AEnemy>(OverlappingActors[0]);
+	if(ClosestEnemy)
+	{
+		FVector Location = GetActorLocation();
+		/* calculating the distance between the closest Enemy and the Character*/
+		float MinDistance = (ClosestEnemy->GetActorLocation() - Location).Size();
+
+		for (auto Actor : OverlappingActors)
+		{
+			AEnemy*Enemy = Cast<AEnemy>(Actor);
+			if(Enemy)
+			{
+				float DistanceToActor = (Enemy->GetActorLocation() - Location).Size();
+				if(DistanceToActor<MinDistance)
+				{
+					MinDistance=DistanceToActor;
+					ClosestEnemy = Enemy;
+				}
+			}
+		}
+		
+		if(MainPlayerController)
+		{
+			MainPlayerController->DisplayEnemyHealthBar();
+		}
+		
+		SetCombatTarget(ClosestEnemy);
+		bHasCombatTarget=true;
+	}	
+}
+
+
+void ARPGLessonCharacter::DeathEnd()
+{
+	GetMesh()->bPauseAnims = true;
+	GetMesh()->bNoSkeletonUpdate = true;
+}
+
+void ARPGLessonCharacter::Jump()
+{
+	if(MovementStatus!=EMovementStatus::EMS_Dead)
+	{
+		Super::Jump();
+	}
+}
+
+void ARPGLessonCharacter::SwitchLevel(FName LevelName)
+{
+	UWorld* World = GetWorld();
+	if(World)
+	{
+		FString CurrentLevel = World->GetMapName();
+
+		/* checking if the current level is not equal to the desired one , in not - open the selected level */
+		FName CurrenLevelName(*CurrentLevel);
+		if(CurrenLevelName != LevelName)
+		{
+			UGameplayStatics::OpenLevel(World,LevelName);
+		}
+	}
+}
+
+void ARPGLessonCharacter::SaveGame()
+{
+	/* casting the object of type USaveGame to our custom UMainSaveGame and storing this */
+	UMainSaveGame*SaveGameInstance = Cast<UMainSaveGame>(UGameplayStatics::CreateSaveGameObject(UMainSaveGame::StaticClass()));
+
+	/* saving the data in struct */
+	SaveGameInstance->CharacterStats.Health = CurrentHealth;
+	SaveGameInstance->CharacterStats.MaxHealth = MaxHealth;
+	SaveGameInstance->CharacterStats.Coins = Coins;
+	SaveGameInstance->CharacterStats.Mana = CurrentMana;
+	SaveGameInstance->CharacterStats.MaxMana = MaxMana;
+	SaveGameInstance->CharacterStats.Stamina = CurrentStamina;
+	SaveGameInstance->CharacterStats.MaxStamina = MaxStamina;
+	SaveGameInstance->CharacterStats.Location = GetActorLocation();
+	SaveGameInstance->CharacterStats.Rotation = GetActorRotation();
+
+	/* saving */
+	UGameplayStatics::SaveGameToSlot(SaveGameInstance,SaveGameInstance->PlayerName, SaveGameInstance->UserIndex);
+}
+
+void ARPGLessonCharacter::LoadGame(bool SetPosition)
+{
+	UMainSaveGame* LoadInstance = Cast<UMainSaveGame>(UGameplayStatics::CreateSaveGameObject(UMainSaveGame::StaticClass()));
+
+	/* loading the slot	*/
+	LoadInstance = Cast<UMainSaveGame>(UGameplayStatics::LoadGameFromSlot(LoadInstance->PlayerName, LoadInstance->UserIndex));
+
+	CurrentHealth = LoadInstance->CharacterStats.Health;
+	MaxHealth = LoadInstance->CharacterStats.MaxHealth;
+	CurrentMana = LoadInstance->CharacterStats.Mana;
+	MaxMana = LoadInstance->CharacterStats.MaxMana;
+	CurrentStamina = LoadInstance->CharacterStats.Stamina;
+	MaxStamina = LoadInstance->CharacterStats.MaxStamina;
+	Coins = LoadInstance->CharacterStats.Coins;
+
+	if(SetPosition)
+	{
+		SetActorLocation(LoadInstance->CharacterStats.Location);
+		SetActorRotation(LoadInstance->CharacterStats.Rotation);
+	}
+	
+}
+
 void ARPGLessonCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+
+	/* if the character is dead, we dont wanna go through the code below */
+	if(MovementStatus==EMovementStatus::EMS_Dead) return;
 
 	MovementStatusUpdating(DeltaSeconds);
 
 	StaminaStatusUpdating(DeltaSeconds);
 
-	if(bInterpToEnemy && CombatTarget)
+	if(bInterpToEnemy && EnemyIsTargetForCharacter)
 	{
-		FRotator LookAtYaw = GetLookAtRotationYaw(CombatTarget->GetActorLocation());
+		FRotator LookAtYaw = GetLookAtRotationYaw(EnemyIsTargetForCharacter->GetActorLocation());
 		FRotator InterpRotation = FMath::RInterpTo(GetActorRotation(),LookAtYaw,DeltaSeconds,InterpSpeed);
 
 		SetActorRotation(InterpRotation);
+	}
+
+	if(EnemyIsTargetForCharacter)
+	{
+		CombatTargetLocation = EnemyIsTargetForCharacter->GetActorLocation();
+		if(MainPlayerController)
+		{
+			MainPlayerController->EnemyLocation = CombatTargetLocation;
+		}
 	}
 }
 
@@ -306,7 +445,7 @@ void ARPGLessonCharacter::LookUpAtRate(float Rate)
 
 void ARPGLessonCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f) )
+	if ((Controller != NULL) && (Value != 0.0f) && MovementStatus !=EMovementStatus::EMS_Dead )
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -320,7 +459,7 @@ void ARPGLessonCharacter::MoveForward(float Value)
 
 void ARPGLessonCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f)  )
+	if ( (Controller != NULL) && (Value != 0.0f) && MovementStatus !=EMovementStatus::EMS_Dead)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -335,11 +474,11 @@ void ARPGLessonCharacter::MoveRight(float Value)
 
 void ARPGLessonCharacter::DecrementHealth(float HealthAmount)
 {
-	 if(Health>0)
+	 if(CurrentHealth>0)
 	 {
-	 	Health -= HealthAmount;
+	 	CurrentHealth -= HealthAmount;
 	 }
-	 if(Health<=0)
+	 if(CurrentHealth<=0)
 	 {
 	  	Death();
 	 }
@@ -347,12 +486,12 @@ void ARPGLessonCharacter::DecrementHealth(float HealthAmount)
 
 void ARPGLessonCharacter::IncrementHealth(float HealthAmount)
 {
-	if(Health>=0)
+	if(CurrentHealth+HealthAmount>= MaxHealth)
 	{
-		Health += HealthAmount;
+		CurrentHealth = MaxHealth;
 	}
 	
-	else return;
+	else CurrentHealth+=HealthAmount;
 }
 
 void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
@@ -362,18 +501,38 @@ void ARPGLessonCharacter::IncrementCoins(int32 CoinsAmount)
 
 void ARPGLessonCharacter::Death()
 {
+	if(MovementStatus == EMovementStatus::EMS_Dead) return;
+	
 	UAnimInstance*AnimInstance=GetMesh()->GetAnimInstance();
+	
 	if(AnimInstance && CombatMontage)
 	{
 		AnimInstance->Montage_Play(CombatMontage, 1.0f);
 		AnimInstance->Montage_JumpToSection(FName("Death"), CombatMontage);
 	}
+	
+	SetMovementStatus(EMovementStatus::EMS_Dead);	
 }
 
 float ARPGLessonCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
 	AActor* DamageCauser)
 {
-	DecrementHealth(DamageAmount);
+
+	if(CurrentHealth - DamageAmount <=0)
+	{
+		CurrentHealth -= DamageAmount;
+		Death();
+		if(DamageCauser)
+		{
+			AEnemy*Enemy =Cast<AEnemy>(DamageCauser);
+			
+			if(Enemy)
+			{
+				Enemy->bHasValidTarget = false;
+			}
+		}
+	}
+	else CurrentHealth -= DamageAmount;
 
 	return DamageAmount;
 }
@@ -695,11 +854,13 @@ void ARPGLessonCharacter::LMBPressed()
 
 void ARPGLessonCharacter::LMBReleased()
 {
+	
 	bIsLMBPressed = false;
 }
 
 void ARPGLessonCharacter::RMBPressed()
 {
+	//TODO: split/add left button to light / hard attack 
 	bIsRMBPressed = true;
 }
 
@@ -712,6 +873,10 @@ void ARPGLessonCharacter::AttackEnd()
 {
 	bAttacking = false;
 	SetInterpToEnemy(false);
+	if (bIsLMBPressed)
+	{
+		Attack();
+	}
 }
 
 void ARPGLessonCharacter::EKeyUp()
@@ -722,6 +887,9 @@ void ARPGLessonCharacter::EKeyUp()
 void ARPGLessonCharacter::EKeyDown()
 {
 	bEKeyPressed = true;
+
+    if(MovementStatus==EMovementStatus::EMS_Dead)  return;
+	
 	if(ActiveOverlappItem)
 	{
 		AWeapon*Weapon = Cast<AWeapon>(ActiveOverlappItem);

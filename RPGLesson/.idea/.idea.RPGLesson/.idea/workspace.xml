@@ -5,28 +5,56 @@
     <projectFile>Intermediate/ProjectFiles/UE4.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79fe4921-0982-4ee9-8ef1-60f6c8140bbd" name="Default Changelist" comment="">
+    <list default="true" id="50103fae-d628-4a79-a89e-d7849c39cc88" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPGLesson/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapon_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapon_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Coins_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Coins_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Explosive_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Explosive_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/ForestBackGround.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/HealingPotion_BP.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/MainPlayerController_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/MainPlayerController_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/SpawnVolume_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/CombatMontage_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/DefaultMannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/DefaultMannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_ABP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/ChaseStates.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/ChaseStates.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/RPGLessonCharacter_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/EnemyAIController_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/EnemyAIController_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BB.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Enemy_BT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Services/ChangeNPCSpeed.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Services/ChangeNPCSpeed.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChangeStates.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChangeStates.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChasePlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/ChasePlayer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindPlayerLocation.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindPlayerLocation.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindRandomLoc.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/FindRandomLoc.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/StopDetecting.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI_Behavior/Tasks/StopDetecting.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_ABP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Enemies/E_MasterGrunt/E_MasterGrunt_Montage.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/HUD/Info.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/Info.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/EWeapon_StaticMesh.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/EWeapon_StaticMesh.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Items/Weapon_Pack/Mesh/Weapons/Weapons_Kit/SkeletalMeshWeapons/SM_Sword_SKM_SM_Sword_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Levels/Level_01.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Levels/Level_01.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_GoldSparkle_Bag_Lo_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/VFX/Particles/InfinityBladeEffects/Effects/FX_Treasure/Gold_Bag/P_GoldSparkle_Bag_Lo_2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPGLesson.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/RPGLesson.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Coins.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Pickup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Coins.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Pickup.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Explosive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Explosive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Explosive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Explosive.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Item.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/MainPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/MainPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/MainPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/MainPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/RPGLesson.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/RPGLesson.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/SpawnVolume.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/SpawnVolume.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/SpawnVolume.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/SpawnVolume.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/RPGLesson/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/RPGLesson/Weapon.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,29 +65,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Enemy.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/Weapon.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../Games/UE_4.25/Engine/Source/Runtime/Engine/Private/Pawn.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Games/UE_4.26/Engine/Source/Runtime/Engine/Classes/Engine/World.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.cpp" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyAIController.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyWeapon.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/EnemyWeapon.cpp" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/LevelTransitionVolume.h" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLesson.Build.cs" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/MainSaveGame.cpp" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/MainSaveGame.h" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.h" />
+      <option value="$PROJECT_DIR$/Source/RPGLesson/LevelTransitionVolume.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/RPGLessonCharacter.cpp" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.h" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Weapon.cpp" />
       <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.cpp" />
-      <option value="$PROJECT_DIR$/Source/RPGLesson/Enemy.h" />
     </changedPaths>
   </component>
-  <component name="ProjectId" id="1lNXbkWmZcyJ2XlImdzMMpCUoKu" />
+  <component name="ProjectId" id="1m6NFl4PybwyLRjuOnl6Ee7Xusf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -295,26 +315,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="79fe4921-0982-4ee9-8ef1-60f6c8140bbd" name="Default Changelist" comment="" />
-      <created>1607438600990</created>
+      <changelist id="50103fae-d628-4a79-a89e-d7849c39cc88" name="Default Changelist" comment="" />
+      <created>1608809983168</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607438600990</updated>
-      <workItem from="1607438629770" duration="3848000" />
-      <workItem from="1607524055147" duration="2763000" />
-      <workItem from="1607530843668" duration="2180000" />
-      <workItem from="1607953224441" duration="12015000" />
-      <workItem from="1608014233394" duration="12178000" />
-      <workItem from="1608031233897" duration="94000" />
-      <workItem from="1608031415772" duration="542000" />
-      <workItem from="1608032221699" duration="9875000" />
-      <workItem from="1608050337599" duration="703000" />
-      <workItem from="1608052247435" duration="247000" />
-      <workItem from="1608111026120" duration="11434000" />
-      <workItem from="1608126204465" duration="9977000" />
-      <workItem from="1608215903498" duration="3259000" />
-      <workItem from="1608295951116" duration="9063000" />
-      <workItem from="1608307330012" duration="6916000" />
+      <updated>1608809983168</updated>
+      <workItem from="1608809995041" duration="3866000" />
+      <workItem from="1608815456558" duration="3837000" />
+      <workItem from="1608822682477" duration="2208000" />
     </task>
     <servers />
   </component>
