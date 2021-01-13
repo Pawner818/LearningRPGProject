@@ -8,18 +8,9 @@ This project will focus on 3D-Person Character setup and RPG gameplay features:
 
 This file will be updated according to the current progress.
 
-Weekly update (12.26.2020):
+Weekly update (01.13.2021):
 
-- Project was updated to 4.26
-- Enemy AI Behavior Tree was improved 
-- Added Damage System
-- Animations were improved
-- Added Weapons VFX-trails 
-- Improved Spawn Volume
-- Added Save Game to slot / Load game from slot
-- Added a transition volume between 2 levels (main and test)
-- Added a new level - Main_Level
-- Added new plugin "Voxel" that allows to start working on terrain 
+- working on terrain, assets and textures importing
 
 
 
